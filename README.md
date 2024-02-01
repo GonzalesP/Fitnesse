@@ -8,28 +8,24 @@ Fitnesse is an app that helps users create workout and diet plans based on their
 [TODO: Will update after completing a React Native tutorial playlist!]
 
 # Contact Info (Pascual Gonzales)
-Phone: 1 (714) 715-3741
-email: GonzalesP@csu.fullerton.edu
-Discord user: ts_derp
+- Phone: 1 (714) 715-3741
+- email: GonzalesP@csu.fullerton.edu
+- Discord user: ts_derp
 
 ## Usual Availability (PST):
-Su: 2 pm - 10 pm
-Mo: 10 am - 5:30 pm
-Tu: 10 am - 2:30 pm + 7 pm - 10:30 pm
-We: 10 am - 5:30 pm
-Th: 10 am - 2:30 pm + 5:30 pm - 6:30 pm
-Fr: 10 am - 10 pm
-Sa: 10 am - 10 pm
+- Su: 2 pm - 10 pm
+- Mo: 10 am - 5:30 pm
+- Tu: 10 am - 2:30 pm + 7 pm - 10:30 pm
+- We: 10 am - 5:30 pm
+- Th: 10 am - 2:30 pm + 5:30 pm - 6:30 pm
+- Fr: 10 am - 10 pm
+- Sa: 10 am - 10 pm
 
 ## Important Links
-Canvas Group Home Page (click on Pages to visit Home Page):
-https://csufullerton.instructure.com/groups/1072936
+- Canvas Group Home Page (click on Pages to visit Home Page): https://csufullerton.instructure.com/groups/1072936
 
-Proposal (Google doc):
-https://docs.google.com/document/d/1755gelS-2K-pat6_QDBC1NUpy6lyois3BdlLG1XiE4U/edit?usp=sharing
+- Proposal (Google doc): https://docs.google.com/document/d/1755gelS-2K-pat6_QDBC1NUpy6lyois3BdlLG1XiE4U/edit?usp=sharing
 
-Product Backlog (Google sheet):
-https://docs.google.com/spreadsheets/d/1RYz2Zicv-2b7s-jrdwR5x3W-1trXe8FCL2kP55mU-lU/edit?usp=sharing
+- Product Backlog (Google sheet): https://docs.google.com/spreadsheets/d/1RYz2Zicv-2b7s-jrdwR5x3W-1trXe8FCL2kP55mU-lU/edit?usp=sharing
 
-Trello Workspace (includes Sprint Backlogs):
-https://trello.com/invite/fitnesse2/ATTI7e3ac416b883382a13e520b36f85b877879969A1
+- Trello Workspace (includes Sprint Backlogs): https://trello.com/invite/fitnesse2/ATTI7e3ac416b883382a13e520b36f85b877879969A1
