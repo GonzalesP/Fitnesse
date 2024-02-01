@@ -1,5 +1,5 @@
 # Fitnesse
-This repository is for the Fitnesse project (a CPSC 491 Capstone Project).
+This repository is for the Fitnesse project (a CPSC 491 Capstone Project by Pascual Gonzales).
 
 ## Project Description
 Fitnesse is an app that helps users create workout and diet plans based on their current physical and future fitness goals. This app will help users maintain steady, healthy, and achievable progression throughout their journey towards improved physical health. Additionally, Fitnesse will encourage users to keep up their progress by rewarding them with achievements. Achievements include setting new personal records (i.e. fastest mile run time) and reaching fitness milestones (i.e. losing 50 pounds).
