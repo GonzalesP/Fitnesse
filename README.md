@@ -5,7 +5,10 @@ This repository is for the Fitnesse project (a CPSC 491 Capstone Project by Pasc
 Fitnesse is an app that helps users create workout and diet plans based on their current physical and future fitness goals. This app will help users maintain steady, healthy, and achievable progression throughout their journey towards improved physical health. Additionally, Fitnesse will encourage users to keep up their progress by rewarding them with achievements. Achievements include setting new personal records (i.e. fastest mile run time) and reaching fitness milestones (i.e. losing 50 pounds).
 
 ## How to run the app
-[TODO: Will update after completing a React Native tutorial playlist!]
+1. Make sure React Native and Expo are installed on your computer and phone, respectively.
+2. Clone this repository (Fitnesse) onto your computer.
+3. Open a terminal and navigate to the 'myproject' directory.
+4. Type 'npm start', and use the QR code to run the app on your phone.
 
 # Contact Info (Pascual Gonzales)
 - Phone: 1 (714) 715-3741
