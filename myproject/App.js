@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Alert } from 'react-native';
 import Header from './components/header';
 import TodoItem from './components/todoItem';
 import AddTodo from './components/addTodo';
@@ -22,12 +22,19 @@ export default function App() {
   // can't update todos from addTodo.js, so pass a function that updates it instead
   // this will add a new item, { text, key}, to todos
   const submitHandler = (text) => {
-    setTodos((prevTodos) => {
-      return [  // ... is spread operator: add previous todos
-        { text: text, key: Math.random().toString() },
-        ...prevTodos
-      ];
-    })
+
+    if (text.length > 3) {
+      setTodos((prevTodos) => {
+        return [  // ... is spread operator: add previous todos
+          { text: text, key: Math.random().toString() },
+          ...prevTodos
+        ];
+      })
+    } else {
+      Alert.alert('OOPS!', 'Todos must be over 3 chars long', [
+        {text: 'Understood', onPress: () => console.log('alert closed')}
+      ])
+    }
   }
 
   return (
