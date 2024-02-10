@@ -1,49 +1,55 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 export default function App() {
-  const [name, setName] = useState('shaun');
-  const [age, setAge] = useState('30');
+  const [people, setPeople] = useState([
+    { name: 'shaun', key: '1', },
+    { name: 'yoshi', key: '2', },
+    { name: 'mario', key: '3', },
+    { name: 'luigi', key: '4', },
+    { name: 'peach', key: '5', },
+    { name: 'toad', key: '6', },
+    { name: 'bowser', key: '7', },
+  ]);
 
-  // TextInput is a self closing tag. Also, it is invisible by default, so you need style.
-  // multiline: allows a multiline input (i.e. pressing Enter goes to new line)
-  // placeholder is an example value
-  // onChangeText calls an external/internal function (ex. setAge is called to update the age variable)
-  // keyboardType changes the type of keyboard
-  // for more attributes, check out the React Native API.
+  // key property is needed because when you output lists in RN, it needs to keep track of different elements it outputs
+  // map function: cycles through an array and performs a function on each item in the array, and can return a value for each item
+  // function inside map() will be performed on each item inside the array (people)
+
+  // to add JS code, use curly braces.
+  // arrow functions with only one parameter don't need ()
+  // each item in array is represented by the 'item' parameter
+  // don't need return in arrow function, can implicitly return with ()
+// all parent tags (View) needs a key prop
+
   return (
     <View style={styles.container}>
-      <Text>Enter name:</Text>
-      <TextInput
-        multiline
-        style={styles.input}
-        placeholder='e.g. John Doe'
-        onChangeText={(val) => setName(val)} />
 
-      <Text>Enter age:</Text>
-      <TextInput
-        keyboardType='numeric'
-        style={styles.input}
-        placeholder='e.g. 99'
-        onChangeText={(val) => setAge(val)} />
+    <ScrollView>
+      { people.map(item => (  // return JSX template
+          <View key={item.key}>
+            <Text style={styles.item}>{item.name}</Text>
+          </View>
+      ))}
+    </ScrollView>
 
-      <Text>name: {name}, age: {age}</Text>
     </View>
   );
 }
 
+// note: View's display by itself can go on forever
+// if you want a user to be able to scroll through a component, it has to be wrapped in a ScrollView
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 40,
+    paddingHorizontal: 20,
   },
-  input: {
-    borderWidth: 1,
-    borderColor: '#777',
-    padding: 8,
-    margin: 10,
-    width: 200,
+  item: {
+    marginTop: 24,
+    padding: 30,
+    backgroundColor: 'pink',
+    fontSize: 24,
   },
 });
