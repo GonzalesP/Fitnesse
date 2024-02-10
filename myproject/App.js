@@ -1,44 +1,42 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 
 export default function App() {
   const [people, setPeople] = useState([
-    { name: 'shaun', key: '1', },
-    { name: 'yoshi', key: '2', },
-    { name: 'mario', key: '3', },
-    { name: 'luigi', key: '4', },
-    { name: 'peach', key: '5', },
-    { name: 'toad', key: '6', },
-    { name: 'bowser', key: '7', },
+    { name: 'shaun', id: '1', },
+    { name: 'yoshi', id: '2', },
+    { name: 'mario', id: '3', },
+    { name: 'luigi', id: '4', },
+    { name: 'peach', id: '5', },
+    { name: 'toad', id: '6', },
+    { name: 'bowser', id: '7', },
   ]);
 
-  // key property is needed because when you output lists in RN, it needs to keep track of different elements it outputs
-  // map function: cycles through an array and performs a function on each item in the array, and can return a value for each item
-  // function inside map() will be performed on each item inside the array (people)
-
-  // to add JS code, use curly braces.
-  // arrow functions with only one parameter don't need ()
-  // each item in array is represented by the 'item' parameter
-  // don't need return in arrow function, can implicitly return with ()
-// all parent tags (View) needs a key prop
+  // CTRL + / turns code into a comment
+  // data prop specifies the data that we want to output
+  // renderItem is = to a function that returns JSX
+  // need to destructure items in people for renderItem
+  // FlatList automatically looks at DATA for a key property. So, you don't need to explicitly set a key property in the RN tag
+  // FlatList has same behavior as ScrollView, but better performance and less code
+  // when first rendering a LARGE list, not all items will be loaded until you scroll down the list (unlike ScrollView)
+  // if the key attribute is not called 'key' (ex. 'id' instead in databases), use the keyExtractor prop
+  // ex. keyExtractor={(item) => item.id} - don't look for key property, look for 'id' prop and use it as a key instead
+  // note: changing numColumns on the fly is not supported, so avoid using it?
 
   return (
     <View style={styles.container}>
 
-    <ScrollView>
-      { people.map(item => (  // return JSX template
-          <View key={item.key}>
-            <Text style={styles.item}>{item.name}</Text>
-          </View>
-      ))}
-    </ScrollView>
-
+      <FlatList
+        keyExtractor={(item) => item.id}
+        data={people}
+        renderItem={({ item }) => (
+          <Text style={styles.item}>{item.name}</Text>
+        )}
+      />
     </View>
   );
 }
 
-// note: View's display by itself can go on forever
-// if you want a user to be able to scroll through a component, it has to be wrapped in a ScrollView
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -51,5 +49,7 @@ const styles = StyleSheet.create({
     padding: 30,
     backgroundColor: 'pink',
     fontSize: 24,
+    marginHorizontal: 10,
+    marginTop: 24,
   },
 });
