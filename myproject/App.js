@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
 
 export default function App() {
   const [people, setPeople] = useState([
@@ -12,16 +12,23 @@ export default function App() {
     { name: 'bowser', id: '7', },
   ]);
 
-  // CTRL + / turns code into a comment
-  // data prop specifies the data that we want to output
-  // renderItem is = to a function that returns JSX
-  // need to destructure items in people for renderItem
-  // FlatList automatically looks at DATA for a key property. So, you don't need to explicitly set a key property in the RN tag
-  // FlatList has same behavior as ScrollView, but better performance and less code
-  // when first rendering a LARGE list, not all items will be loaded until you scroll down the list (unlike ScrollView)
-  // if the key attribute is not called 'key' (ex. 'id' instead in databases), use the keyExtractor prop
-  // ex. keyExtractor={(item) => item.id} - don't look for key property, look for 'id' prop and use it as a key instead
-  // note: changing numColumns on the fly is not supported, so avoid using it?
+  const pressHandler = (id) => {
+    console.log(id);
+    // safer to pass a function into the state changing function
+    // - take current state (prevPeople) and update it, which will be returned implicitly
+    // - use filter function to filter out array: pass arrow function to access items (person) and create a filter (!= id)
+    // "for each item in array (person), filter's arrow function will apply -> converts array into list of booleans"
+    // finally, filter will return all TRUE items
+    setPeople((prevPeople) => {
+      return prevPeople.filter(person => person.id != id);
+    });
+  }
+
+  // onPress can only be added to Button and a few other components. and buttons can't have a style prop
+  // so, to make text "pressable", you use a touchable component
+  // TouchableOpacity: touching something kind of makes it go opaque (makes user feel like they touched it)
+  // to make something touchable, you wrap it with the TouchableOpacity component
+  // THEN, you can add an onPress prop (as well as a style prop)
 
   return (
     <View style={styles.container}>
@@ -30,9 +37,12 @@ export default function App() {
         keyExtractor={(item) => item.id}
         data={people}
         renderItem={({ item }) => (
-          <Text style={styles.item}>{item.name}</Text>
+          <TouchableOpacity onPress={() => pressHandler(item.id)}>
+            <Text style={styles.item}>{item.name}</Text>
+          </TouchableOpacity>
         )}
       />
+
     </View>
   );
 }
