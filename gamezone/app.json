@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "myproject",
-    "slug": "myproject",
+    "name": "gamezone",
+    "slug": "gamezone",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
