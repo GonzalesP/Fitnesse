@@ -6,7 +6,7 @@ import HomeScreen from "./screens/HomeScreen";
 import WorkoutScheduleScreen from "./screens/WorkoutScheduleScreen";
 import MealPlanScreen from "./screens/MealPlanScreen";
 import AchievementsScreen from "./screens/AchievementsScreen";
-import SettingsScreen from "./screens/SettingsScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 import Ionicons from "@expo/vector-icons/Ionicons";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
@@ -65,11 +65,11 @@ export default function App() {
           }}
         />
         <Tab.Screen
-          name="Settings"
-          component={SettingsScreen}
+          name="Profile"
+          component={ProfileScreen}
           options={{
-            tabBarLabel: "Settings",
-            tabBarIcon: ({ color }) => <Ionicons name={"settings-sharp"} size={20} color={color} />,
+            tabBarLabel: "Profile",
+            tabBarIcon: ({ color }) => <FontAwesome6 name={"user-large"} size={20} color={color} />,
           }}
         />
       </Tab.Navigator>
