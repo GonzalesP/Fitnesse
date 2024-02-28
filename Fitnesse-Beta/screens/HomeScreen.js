@@ -15,10 +15,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#225588",
   },
   text: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 16,
+    color: "#F4F5F5"
   }
 })

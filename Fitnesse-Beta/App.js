@@ -1,5 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { StatusBar } from "react-native";
+
 import HomeScreen from "./screens/HomeScreen";
 import WorkoutScheduleScreen from "./screens/WorkoutScheduleScreen";
 import MealPlanScreen from "./screens/MealPlanScreen";
@@ -15,10 +17,18 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
+      <StatusBar
+        backgroundColor="#00274C"
+        barStyle="light-content"
+      />
       <Tab.Navigator
         screenOptions={{
           tabBarLabelPosition: "below-icon",
-          tabBarActiveTintColor: "orange",
+          tabBarActiveTintColor: "#719dcd",
+          tabBarInactiveTintColor: "#F4F5F5",
+          tabBarStyle: { backgroundColor: "#00274C" },
+          headerStyle: { backgroundColor: "#00274C" },
+          headerTitleStyle: { color: "#F4F5F5"},
         }}
       >
         <Tab.Screen
@@ -26,8 +36,8 @@ export default function App() {
           component={HomeScreen}
           options={{
             tabBarLabel: "Home",
-            tabBarIcon: () => <Ionicons name={"home"} size={20} />,
-            headerShown: false,
+            tabBarIcon: ({ color }) => <Ionicons name={"home"} size={20} color={color}/>,
+            // headerShown: false,
           }}
         />
         <Tab.Screen
@@ -35,15 +45,15 @@ export default function App() {
           component={WorkoutScheduleScreen}
           options={{
             tabBarLabel: "Workouts",
-            tabBarIcon: () => <FontAwesome6 name={"dumbbell"} size={20} />,
+            tabBarIcon: ({ color }) => <FontAwesome6 name={"dumbbell"} size={20} color={color} />,
           }}
         />
         <Tab.Screen
           name="Meal Plan"
           component={MealPlanScreen}
           options={{
-            tabBarLabel: "Meal Plan",
-            tabBarIcon: () => <MaterialIcons name={"set-meal"} size={20} />,
+            tabBarLabel: "Meals",
+            tabBarIcon: ({ color }) => <MaterialIcons name={"set-meal"} size={20} color={color} />,
           }}
         />
         <Tab.Screen
@@ -51,7 +61,7 @@ export default function App() {
           component={AchievementsScreen}
           options={{
             tabBarLabel: "Achievements",
-            tabBarIcon: () => <Ionicons name={"trophy"} size={20} />,
+            tabBarIcon: ({ color }) => <Ionicons name={"trophy"} size={20} color={color} />,
           }}
         />
         <Tab.Screen
@@ -59,7 +69,7 @@ export default function App() {
           component={SettingsScreen}
           options={{
             tabBarLabel: "Settings",
-            tabBarIcon: () => <Ionicons name={"settings-sharp"} size={20} />,
+            tabBarIcon: ({ color }) => <Ionicons name={"settings-sharp"} size={20} color={color} />,
           }}
         />
       </Tab.Navigator>

@@ -1,0 +1,415 @@
+[
+  {
+    "id": "1",
+    "day": "sunday",
+    "type": "abs/cardio",
+    "workouts": [
+      {
+        "id": "1",
+        "exercise-name": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": "2",
+        "exercise-name": "hanging curls",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "3",
+        "exercise-name": "hanging twists",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "4",
+        "exercise-name": "decline sit-ups",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "5",
+        "exercise-name": "treadmill",
+        "sets": null,
+        "reps": null,
+        "duration": "30 min"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "day": "monday",
+    "type": "push/cardio",
+    "workouts": [
+      {
+        "id": "1",
+        "exercise-name": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": "2",
+        "exercise-name": "bench press",
+        "sets": "5",
+        "reps": "5",
+        "duration": null
+      },
+      {
+        "id": "3",
+        "exercise-name": "incline shoulder press",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "4",
+        "exercise-name": "shoulder press",
+        "sets": "3",
+        "reps": "8",
+        "duration": null
+      },
+      {
+        "id": "5",
+        "exercise-name": "lateral raise",
+        "sets": "5",
+        "reps": "12",
+        "duration": null
+      },
+      {
+        "id": "6",
+        "exercise-name": "pec fly",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "7",
+        "exercise-name": "cycling",
+        "sets": null,
+        "reps": null,
+        "duration": "30 min"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "day": "tuesday",
+    "type": "pull/abs",
+    "workouts": [
+      {
+        "id": "1",
+        "exercise-name": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": "2",
+        "exercise-name": "pull ups",
+        "sets": "3",
+        "reps": "8",
+        "duration": null
+      },
+      {
+        "id": "3",
+        "exercise-name": "cable rows",
+        "sets": "2",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "4",
+        "exercise-name": "single hand rows",
+        "sets": "2",
+        "reps": "8",
+        "duration": null
+      },
+      {
+        "id": "5",
+        "exercise-name": "lat pull downs (hammer grip)",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "6",
+        "exercise-name": "lat prayers",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "7",
+        "exercise-name": "rear delt fly",
+        "sets": "4",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "8",
+        "exercise-name": "hanging curls",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "day": "wednesday",
+    "type": "legs/cardio",
+    "workouts": [
+      {
+        "id": "1",
+        "exercise-name": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": "2",
+        "exercise-name": "squats",
+        "sets": "5",
+        "reps": "5",
+        "duration": null
+      },
+      {
+        "id": "3",
+        "exercise-name": "leg press (low feet placement)",
+        "sets": "3",
+        "reps": "8",
+        "duration": null
+      },
+      {
+        "id": "4",
+        "exercise-name": "quad extension",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "5",
+        "exercise-name": "bulgarian split squats",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "6",
+        "exercise-name": "goblet squats",
+        "sets": "3",
+        "reps": "8",
+        "duration": null
+      },
+      {
+        "id": "7",
+        "exercise-name": "calf raises",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "8",
+        "exercise-name": "treadmill",
+        "sets": null,
+        "reps": null,
+        "duration": "30 min"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "day": "thursday",
+    "type": "push/abs",
+    "workouts": [
+      {
+        "id": "1",
+        "exercise-name": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": "2",
+        "exercise-name": "incline bench press",
+        "sets": "5",
+        "reps": "5",
+        "duration": null
+      },
+      {
+        "id": "3",
+        "exercise-name": "shoulder press",
+        "sets": "3",
+        "reps": "8",
+        "duration": null
+      },
+      {
+        "id": "4",
+        "exercise-name": "incline dumbbell press",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "5",
+        "exercise-name": "lateral raise",
+        "sets": "5",
+        "reps": "12",
+        "duration": null
+      },
+      {
+        "id": "6",
+        "exercise-name": "dips",
+        "sets": "3",
+        "reps": "failure",
+        "duration": null
+      },
+      {
+        "id": "7",
+        "exercise-name": "tricep pushdown",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "8",
+        "exercise-name": "hanging twists",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "day": "friday",
+    "type": "pull/cardio",
+    "workouts": [
+      {
+        "id": "1",
+        "exercise-name": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": "2",
+        "exercise-name": "lat pull downs (curl grip)",
+        "sets": "3",
+        "reps": "8",
+        "duration": null
+      },
+      {
+        "id": "3",
+        "exercise-name": "bent over rows",
+        "sets": "3",
+        "reps": "8",
+        "duration": null
+      },
+      {
+        "id": "4",
+        "exercise-name": "cable rows",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "5",
+        "exercise-name": "lat pull downs (hammer grip)",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "6",
+        "exercise-name": "lat prayers",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "7",
+        "exercise-name": "facepulls",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "8",
+        "exercise-name": "stairmaster",
+        "sets": null,
+        "reps": null,
+        "duration": "30 min"
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "day": "saturday",
+    "type": "legs/abs",
+    "workouts": [
+      {
+        "id": "1",
+        "exercise-name": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": "2",
+        "exercise-name": "squats",
+        "sets": "5",
+        "reps": "5",
+        "duration": null
+      },
+      {
+        "id": "3",
+        "exercise-name": "leg press (high feet placement)",
+        "sets": "3",
+        "reps": "8",
+        "duration": null
+      },
+      {
+        "id": "4",
+        "exercise-name": "RDLs",
+        "sets": "3",
+        "reps": "8",
+        "duration": null
+      },
+      {
+        "id": "5",
+        "exercise-name": "hamstring curls",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "6",
+        "exercise-name": "hip thrusts",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "7",
+        "exercise-name": "calf raises",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      },
+      {
+        "id": "8",
+        "exercise-name": "decline sit-ups",
+        "sets": "3",
+        "reps": "10",
+        "duration": null
+      }
+    ]
+  }
+]
