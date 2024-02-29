@@ -1,14 +1,12 @@
 import { View, Text, StyleSheet } from "react-native";
 
-const ProfileScreen = () => {
+export default function ProfileScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Profile</Text>
     </View>
   );
-}
-
-export default ProfileScreen;
+};
 
 const styles = StyleSheet.create({
   container: {

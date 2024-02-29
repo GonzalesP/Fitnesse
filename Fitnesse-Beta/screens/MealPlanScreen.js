@@ -1,20 +1,21 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 
-const MealPlanScreen = () => {
+export default function MealPlanScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Meals</Text>
+      <Pressable onPress={() => navigation.navigate("Edit Meal Plan")}>
+        <Text style={styles.testText}>Go to 'Edit Meal Plan' screen</Text>
+      </Pressable>
+      <Text style={styles.text}>Meal Plan</Text>
     </View>
   );
-}
-
-export default MealPlanScreen;
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+    // justifyContent: "center",
     // backgroundColor: "#225588",
   },
   text: {
@@ -22,5 +23,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 16,
     // color: "#F4F5F5"
-  }
+  },
+  testText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    // color: "#E17000",
+    padding: 16,
+  },
 })

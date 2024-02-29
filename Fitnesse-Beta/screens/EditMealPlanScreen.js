@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from "react-native";
 
-export default function EditWorkoutScheduleScreen() {
+export default function EditMealPlanScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Edit Workout Schedule</Text>
+      <Text style={styles.text}>Edit Meal Plan</Text>
     </View>
   );
 };

@@ -1,11 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import WorkoutScheduleScreen from "./screens/WorkoutScheduleScreen";
-import EditWorkoutScheduleScreen from "./screens/EditWorkoutScheduleScreen";
+import MealPlanScreen from "../screens/MealPlanScreen";
+import EditMealPlanScreen from "../screens/EditMealPlanScreen";
 
 const Stack = createNativeStackNavigator();
 
-export const WorkoutStack = () => {
+export const MealStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -15,17 +15,17 @@ export const WorkoutStack = () => {
       }}
     >
       <Stack.Screen
-        name="Workout Schedule"
-        component={WorkoutScheduleScreen}
+        name="Meal Plan"
+        component={MealPlanScreen}
         options={{
-          title: "Your Workouts",
+          title: "Your Meal Plan",
         }}
       />
       <Stack.Screen
-        name="Edit Workout Schedule"
-        component={EditWorkoutScheduleScreen}
+        name="Edit Meal Plan"
+        component={EditMealPlanScreen}
         options={{
-          title: "Edit Your Workouts",
+          title: "Edit Your Meal Plan",
         }}
       />
     </Stack.Navigator>
@@ -35,7 +35,7 @@ export const WorkoutStack = () => {
 export default function App() {
   return (
     <NavigationContainer>
-      <WorkoutStack />
+      <MealStack />
     </NavigationContainer>
   );
 }

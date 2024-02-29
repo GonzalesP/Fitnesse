@@ -3,9 +3,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StatusBar } from "react-native";
 
 import HomeScreen from "./screens/HomeScreen";
-import { WorkoutStack } from "./WorkoutStack";
-import MealPlanScreen from "./screens/MealPlanScreen";
-import AchievementsScreen from "./screens/AchievementsScreen";
+import { WorkoutStack } from "./stacks/WorkoutStack";
+import { MealStack } from "./stacks/MealStack";
+import { AchievementStack } from "./stacks/AchievementStack";
 import ProfileScreen from "./screens/ProfileScreen";
 
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -50,19 +50,21 @@ export default function App() {
           }}
         />
         <Tab.Screen
-          name="Meal Plan"
-          component={MealPlanScreen}
+          name="Meal Stack"
+          component={MealStack}
           options={{
             tabBarLabel: "Meals",
             tabBarIcon: ({ color }) => <MaterialIcons name={"set-meal"} size={20} color={color} />,
+            headerShown: false,
           }}
         />
         <Tab.Screen
-          name="Achievements"
-          component={AchievementsScreen}
+          name="Achievement Stack"
+          component={AchievementStack}
           options={{
             tabBarLabel: "Achievements",
             tabBarIcon: ({ color }) => <Ionicons name={"trophy"} size={20} color={color} />,
+            headerShown: false,
           }}
         />
         <Tab.Screen
