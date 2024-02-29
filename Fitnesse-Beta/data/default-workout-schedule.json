@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 0,
     "day": "sunday",
     "type": "abs/cardio",
     "workouts": [
@@ -42,7 +42,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": 1,
     "day": "monday",
     "type": "push/cardio",
     "workouts": [
@@ -98,7 +98,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 2,
     "day": "tuesday",
     "type": "pull/abs",
     "workouts": [
@@ -161,7 +161,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 3,
     "day": "wednesday",
     "type": "legs/cardio",
     "workouts": [
@@ -224,7 +224,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": 4,
     "day": "thursday",
     "type": "push/abs",
     "workouts": [
@@ -287,7 +287,7 @@
     ]
   },
   {
-    "id": 6,
+    "id": 5,
     "day": "friday",
     "type": "pull/cardio",
     "workouts": [
@@ -350,7 +350,7 @@
     ]
   },
   {
-    "id": 7,
+    "id": 6,
     "day": "saturday",
     "type": "legs/abs",
     "workouts": [

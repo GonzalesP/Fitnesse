@@ -1,0 +1,68 @@
+[
+  {
+    "id": 0,
+    "day": "sunday",
+    "meals": [
+      {
+        "id": 1,
+        "meal-type": "breakfast",
+        "meal-name": "chicken omelette",
+        "ingredients": ["eggs", "tomatoes", "onions", "chicken"]
+      },
+      {
+        "id": 2,
+        "meal-type": "lunch",
+        "meal-name": "chicken omelette",
+        "ingredients": ["eggs", "tomatoes", "onions", "chicken"]
+      },
+      {
+        "id": 3,
+        "meal-type": "dinner",
+        "meal-name": "chicken omelette",
+        "ingredients": ["eggs", "tomatoes", "onions", "chicken"]
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "day": "monday",
+    "meals": [
+      {}
+    ]
+  },
+  {
+    "id": 2,
+    "day": "tuesday",
+    "meals": [
+      {}
+    ]
+  },
+  {
+    "id": 3,
+    "day": "wednesday",
+    "meals": [
+      {}
+    ]
+  },
+  {
+    "id": 4,
+    "day": "thursday",
+    "meals": [
+      {}
+    ]
+  },
+  {
+    "id": 5,
+    "day": "friday",
+    "meals": [
+      {}
+    ]
+  },
+  {
+    "id": 6,
+    "day": "saturday",
+    "meals": [
+      {}
+    ]
+  }
+]
