@@ -6,35 +6,35 @@
     "workouts": [
       {
         "id": 1,
-        "exercise-name": "dynamic stretches",
+        "exerciseName": "dynamic stretches",
         "sets": null,
         "reps": null,
         "duration": null
       },
       {
         "id": 2,
-        "exercise-name": "hanging curls",
+        "exerciseName": "hanging curls",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 3,
-        "exercise-name": "hanging twists",
+        "exerciseName": "hanging twists",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 4,
-        "exercise-name": "decline sit-ups",
+        "exerciseName": "decline sit-ups",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 5,
-        "exercise-name": "treadmill",
+        "exerciseName": "treadmill",
         "sets": null,
         "reps": null,
         "duration": "30 min"
@@ -48,49 +48,49 @@
     "workouts": [
       {
         "id": 1,
-        "exercise-name": "dynamic stretches",
+        "exerciseName": "dynamic stretches",
         "sets": null,
         "reps": null,
         "duration": null
       },
       {
         "id": 2,
-        "exercise-name": "bench press",
+        "exerciseName": "bench press",
         "sets": 5,
         "reps": 5,
         "duration": null
       },
       {
         "id": 3,
-        "exercise-name": "incline shoulder press",
+        "exerciseName": "incline shoulder press",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 4,
-        "exercise-name": "shoulder press",
+        "exerciseName": "shoulder press",
         "sets": 3,
         "reps": 8,
         "duration": null
       },
       {
         "id": 5,
-        "exercise-name": "lateral raise",
+        "exerciseName": "lateral raise",
         "sets": 5,
         "reps": 12,
         "duration": null
       },
       {
         "id": 6,
-        "exercise-name": "pec fly",
+        "exerciseName": "pec fly",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 7,
-        "exercise-name": "cycling",
+        "exerciseName": "cycling",
         "sets": null,
         "reps": null,
         "duration": "30 min"
@@ -104,56 +104,56 @@
     "workouts": [
       {
         "id": 1,
-        "exercise-name": "dynamic stretches",
+        "exerciseName": "dynamic stretches",
         "sets": null,
         "reps": null,
         "duration": null
       },
       {
         "id": 2,
-        "exercise-name": "pull ups",
+        "exerciseName": "pull ups",
         "sets": 3,
         "reps": 8,
         "duration": null
       },
       {
         "id": 3,
-        "exercise-name": "cable rows",
+        "exerciseName": "cable rows",
         "sets": 2,
         "reps": 10,
         "duration": null
       },
       {
         "id": 4,
-        "exercise-name": "single hand rows",
+        "exerciseName": "single hand rows",
         "sets": 2,
         "reps": 8,
         "duration": null
       },
       {
         "id": 5,
-        "exercise-name": "lat pull downs (hammer grip)",
+        "exerciseName": "lat pull downs (hammer grip)",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 6,
-        "exercise-name": "lat prayers",
+        "exerciseName": "lat prayers",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 7,
-        "exercise-name": "rear delt fly",
+        "exerciseName": "rear delt fly",
         "sets": 4,
         "reps": 10,
         "duration": null
       },
       {
         "id": 8,
-        "exercise-name": "hanging curls",
+        "exerciseName": "hanging curls",
         "sets": 3,
         "reps": 10,
         "duration": null
@@ -167,56 +167,56 @@
     "workouts": [
       {
         "id": 1,
-        "exercise-name": "dynamic stretches",
+        "exerciseName": "dynamic stretches",
         "sets": null,
         "reps": null,
         "duration": null
       },
       {
         "id": 2,
-        "exercise-name": "squats",
+        "exerciseName": "squats",
         "sets": 5,
         "reps": 5,
         "duration": null
       },
       {
         "id": 3,
-        "exercise-name": "leg press (low feet placement)",
+        "exerciseName": "leg press (low feet placement)",
         "sets": 3,
         "reps": 8,
         "duration": null
       },
       {
         "id": 4,
-        "exercise-name": "quad extension",
+        "exerciseName": "quad extension",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 5,
-        "exercise-name": "bulgarian split squats",
+        "exerciseName": "bulgarian split squats",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 6,
-        "exercise-name": "goblet squats",
+        "exerciseName": "goblet squats",
         "sets": 3,
         "reps": 8,
         "duration": null
       },
       {
         "id": 7,
-        "exercise-name": "calf raises",
+        "exerciseName": "calf raises",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 8,
-        "exercise-name": "treadmill",
+        "exerciseName": "treadmill",
         "sets": null,
         "reps": null,
         "duration": "30 min"
@@ -230,56 +230,56 @@
     "workouts": [
       {
         "id": 1,
-        "exercise-name": "dynamic stretches",
+        "exerciseName": "dynamic stretches",
         "sets": null,
         "reps": null,
         "duration": null
       },
       {
         "id": 2,
-        "exercise-name": "incline bench press",
+        "exerciseName": "incline bench press",
         "sets": 5,
         "reps": 5,
         "duration": null
       },
       {
         "id": 3,
-        "exercise-name": "shoulder press",
+        "exerciseName": "shoulder press",
         "sets": 3,
         "reps": 8,
         "duration": null
       },
       {
         "id": 4,
-        "exercise-name": "incline dumbbell press",
+        "exerciseName": "incline dumbbell press",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 5,
-        "exercise-name": "lateral raise",
+        "exerciseName": "lateral raise",
         "sets": 5,
         "reps": 12,
         "duration": null
       },
       {
         "id": 6,
-        "exercise-name": "dips",
+        "exerciseName": "dips",
         "sets": 3,
         "reps": "failure",
         "duration": null
       },
       {
         "id": 7,
-        "exercise-name": "tricep pushdown",
+        "exerciseName": "tricep pushdown",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 8,
-        "exercise-name": "hanging twists",
+        "exerciseName": "hanging twists",
         "sets": 3,
         "reps": 10,
         "duration": null
@@ -293,56 +293,56 @@
     "workouts": [
       {
         "id": 1,
-        "exercise-name": "dynamic stretches",
+        "exerciseName": "dynamic stretches",
         "sets": null,
         "reps": null,
         "duration": null
       },
       {
         "id": 2,
-        "exercise-name": "lat pull downs (curl grip)",
+        "exerciseName": "lat pull downs (curl grip)",
         "sets": 3,
         "reps": 8,
         "duration": null
       },
       {
         "id": 3,
-        "exercise-name": "bent over rows",
+        "exerciseName": "bent over rows",
         "sets": 3,
         "reps": 8,
         "duration": null
       },
       {
         "id": 4,
-        "exercise-name": "cable rows",
+        "exerciseName": "cable rows",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 5,
-        "exercise-name": "lat pull downs (hammer grip)",
+        "exerciseName": "lat pull downs (hammer grip)",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 6,
-        "exercise-name": "lat prayers",
+        "exerciseName": "lat prayers",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 7,
-        "exercise-name": "facepulls",
+        "exerciseName": "facepulls",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 8,
-        "exercise-name": "stairmaster",
+        "exerciseName": "stairmaster",
         "sets": null,
         "reps": null,
         "duration": "30 min"
@@ -356,56 +356,56 @@
     "workouts": [
       {
         "id": 1,
-        "exercise-name": "dynamic stretches",
+        "exerciseName": "dynamic stretches",
         "sets": null,
         "reps": null,
         "duration": null
       },
       {
         "id": 2,
-        "exercise-name": "squats",
+        "exerciseName": "squats",
         "sets": 5,
         "reps": 5,
         "duration": null
       },
       {
         "id": 3,
-        "exercise-name": "leg press (high feet placement)",
+        "exerciseName": "leg press (high feet placement)",
         "sets": 3,
         "reps": 8,
         "duration": null
       },
       {
         "id": 4,
-        "exercise-name": "RDLs",
+        "exerciseName": "RDLs",
         "sets": 3,
         "reps": 8,
         "duration": null
       },
       {
         "id": 5,
-        "exercise-name": "hamstring curls",
+        "exerciseName": "hamstring curls",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 6,
-        "exercise-name": "hip thrusts",
+        "exerciseName": "hip thrusts",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 7,
-        "exercise-name": "calf raises",
+        "exerciseName": "calf raises",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 8,
-        "exercise-name": "decline sit-ups",
+        "exerciseName": "decline sit-ups",
         "sets": 3,
         "reps": 10,
         "duration": null
