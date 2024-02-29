@@ -1,0 +1,28 @@
+[
+  {
+    "id": 0,
+    "attributeName": "user_current_health",
+    "heightFeet": 5,
+    "heightIn": 8,
+    "weight": 321.6
+  },
+  {
+    "id": 1,
+    "attributeName": "user_fitness_goals",
+    "goals": [
+      "lose weight", "improve cardio endurance"
+    ]
+  },
+  {
+    "id": 2,
+    "attributeName": "user_health_concerns",
+    "allergies": [],
+    "diet": "low carbs"
+  },
+  {
+    "id": 3,
+    "attributeName": "user_info",
+    "userName": "John Doe",
+    "userBio": "Hi, I'm John."
+  }
+]

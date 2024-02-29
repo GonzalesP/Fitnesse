@@ -1,20 +1,81 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { StatusBar } from "react-native";
+
+import HomeScreen from "./screens/HomeScreen";
+import { WorkoutStack } from "./stacks/WorkoutStack";
+import { MealStack } from "./stacks/MealStack";
+import { AchievementStack } from "./stacks/AchievementStack";
+import ProfileScreen from "./screens/ProfileScreen";
+
+import Ionicons from "@expo/vector-icons/Ionicons";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons"
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <StatusBar
+        // backgroundColor="#00274C"
+        barStyle="light-content"
+      />
+      <Tab.Navigator
+        screenOptions={{
+          tabBarLabelPosition: "below-icon",
+          // tabBarActiveTintColor: "#719dcd",
+          // tabBarInactiveTintColor: "#F4F5F5",
+          // tabBarStyle: { backgroundColor: "#00274C" },
+          // headerStyle: { backgroundColor: "#00274C" },
+          // headerTintColor: "#F4F5F5",
+        }}
+      >
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            tabBarLabel: "Home",
+            tabBarIcon: ({ color }) => <Ionicons name={"home"} size={20} color={color}/>,
+            // headerShown: false,
+          }}
+        />
+        <Tab.Screen
+          name="Workout Stack"
+          component={WorkoutStack}
+          options={{
+            tabBarLabel: "Workouts",
+            tabBarIcon: ({ color }) => <FontAwesome6 name={"dumbbell"} size={20} color={color} />,
+            headerShown: false,
+          }}
+        />
+        <Tab.Screen
+          name="Meal Stack"
+          component={MealStack}
+          options={{
+            tabBarLabel: "Meals",
+            tabBarIcon: ({ color }) => <MaterialIcons name={"set-meal"} size={20} color={color} />,
+            headerShown: false,
+          }}
+        />
+        <Tab.Screen
+          name="Achievement Stack"
+          component={AchievementStack}
+          options={{
+            tabBarLabel: "Achievements",
+            tabBarIcon: ({ color }) => <Ionicons name={"trophy"} size={20} color={color} />,
+            headerShown: false,
+          }}
+        />
+        <Tab.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={{
+            tabBarLabel: "Profile",
+            tabBarIcon: ({ color }) => <FontAwesome6 name={"user-large"} size={20} color={color} />,
+          }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

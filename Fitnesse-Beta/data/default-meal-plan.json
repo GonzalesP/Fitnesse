@@ -1,0 +1,170 @@
+[
+  {
+    "id": 0,
+    "day": "sunday",
+    "meals": [
+      {
+        "id": 1,
+        "mealType": "breakfast",
+        "mealName": "veggie ham and cheese breakfast casserole",
+        "ingredients": ["eggs", "tomatoes"]
+      },
+      {
+        "id": 2,
+        "mealType": "lunch",
+        "mealName": "slow cooker 3-bean turkey chili",
+        "ingredients": ["eggs", "tomatoes"]
+      },
+      {
+        "id": 3,
+        "mealType": "dinner",
+        "mealName": "baked chicken thighs with brussels and sweet potato",
+        "ingredients": ["eggs", "tomatoes"]
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "day": "monday",
+    "meals": [
+      {
+        "id": 1,
+        "mealType": "breakfast",
+        "mealName": "freezer breakfast burritos",
+        "ingredients": ["eggs", "tomatoes"]
+      },
+      {
+        "id": 2,
+        "mealType": "lunch",
+        "mealName": "black-eyed pea dip w/ perfect air fryer shrimp",
+        "ingredients": ["eggs", "tomatoes"]
+      },
+      {
+        "id": 3,
+        "mealType": "dinner",
+        "mealName": "huevos rancheros w/ 1 oz avocado",
+        "ingredients": ["eggs", "tomatoes"]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "day": "tuesday",
+    "meals": [
+      {
+        "id": 1,
+        "mealType": "breakfast",
+        "mealName": "freezer breakfast burritos",
+        "ingredients": ["eggs", "tomatoes"]
+      },
+      {
+        "id": 2,
+        "mealType": "lunch",
+        "mealName": "kale salad w/ chicken",
+        "ingredients": ["eggs", "tomatoes"]
+      },
+      {
+        "id": 3,
+        "mealType": "dinner",
+        "mealName": "ground turkey taco skillet",
+        "ingredients": ["eggs", "tomatoes"]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "day": "wednesday",
+    "meals": [
+      {
+        "id": 1,
+        "mealType": "breakfast",
+        "mealName": "freezer breakfast burritos",
+        "ingredients": ["eggs", "tomatoes"]
+      },
+      {
+        "id": 2,
+        "mealType": "lunch",
+        "mealName": "kale salad w/ chicken",
+        "ingredients": ["eggs", "tomatoes"]
+      },
+      {
+        "id": 3,
+        "mealType": "dinner",
+        "mealName": "butternut squash lasagna w/ green salad",
+        "ingredients": ["eggs", "tomatoes"]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "day": "thursday",
+    "meals": [
+      {
+        "id": 1,
+        "mealType": "breakfast",
+        "mealName": "air fryer breakfast banana split",
+        "ingredients": ["eggs", "tomatoes"]
+      },
+      {
+        "id": 2,
+        "mealType": "lunch",
+        "mealName": "kale salad w/ chicken",
+        "ingredients": ["eggs", "tomatoes"]
+      },
+      {
+        "id": 3,
+        "mealType": "dinner",
+        "mealName": "(leftover) butternut squash lasagna w/ green salad",
+        "ingredients": ["eggs", "tomatoes"]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "day": "friday",
+    "meals": [
+      {
+        "id": 1,
+        "mealType": "breakfast",
+        "mealName": "air fryer breakfast banana split",
+        "ingredients": ["eggs", "tomatoes"]
+      },
+      {
+        "id": 2,
+        "mealType": "lunch",
+        "mealName": "kale salad w/ chicken",
+        "ingredients": ["eggs", "tomatoes"]
+      },
+      {
+        "id": 3,
+        "mealType": "dinner",
+        "mealName": "honey sriracha roasted salmon rice bowls",
+        "ingredients": ["eggs", "tomatoes"]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "day": "saturday",
+    "meals": [
+      {
+        "id": 1,
+        "mealType": "breakfast",
+        "mealName": "veggie ham and cheese breakfast casserole",
+        "ingredients": ["eggs", "tomatoes"]
+      },
+      {
+        "id": 2,
+        "mealType": "lunch",
+        "mealName": "slow cooker 3-bean turkey chili",
+        "ingredients": ["eggs", "tomatoes"]
+      },
+      {
+        "id": 3,
+        "mealType": "dinner",
+        "mealName": "baked chicken thighs with brussels and sweet potato",
+        "ingredients": ["eggs", "tomatoes"]
+      }
+    ]
+  }
+]
