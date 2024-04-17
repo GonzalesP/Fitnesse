@@ -33,9 +33,9 @@ export default function MealPlanScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Pressable onPress={() => navigation.navigate("Edit Meal Plan")}>
+      {/* <Pressable onPress={() => navigation.navigate("Edit Meal Plan")}>
         <Text style={styles.testText}>Go to 'Edit Meal Plan' screen</Text>
-      </Pressable>
+      </Pressable> */}
       
       <View style={styles.daysContainer}>
         <Pressable onPress={updateMealsView.bind(this, 0)}>

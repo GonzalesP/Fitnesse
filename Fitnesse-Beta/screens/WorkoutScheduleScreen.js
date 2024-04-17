@@ -33,9 +33,9 @@ export default function WorkoutScheduleScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Pressable onPress={() => navigation.navigate("Edit Workout Schedule")}>
+      {/* <Pressable onPress={() => navigation.navigate("Edit Workout Schedule")}>
         <Text style={styles.testText}>Go to 'Edit Workout Schedule' screen</Text>
-      </Pressable>
+      </Pressable> */}
 
       <View style={styles.daysContainer}>
         <Pressable onPress={updateWorkoutView.bind(this, 0)}>

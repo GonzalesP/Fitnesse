@@ -1,11 +1,12 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import AchievementsScreen from "../screens/AchievementsScreen";
-import StatisticsScreen from "../screens/StatisticsScreen";
+import ProfileScreen from "../screens/ProfileScreen";
+import WeightGoalScreen from "../screens/WeightGoalScreen";
+import RecordWeightScreen from "../screens/RecordWeightScreen";
 
 const Stack = createNativeStackNavigator();
 
-export const AchievementStack = () => {
+export const ProfileStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -15,27 +16,34 @@ export const AchievementStack = () => {
       }}
     >
       <Stack.Screen
-        name="Achievements"
-        component={AchievementsScreen}
+        name="Profile"
+        component={ProfileScreen}
         options={{
-          title: "Your Achievements",
+          title: "Your Profile",
         }}
       />
       <Stack.Screen
-        name="Statistics"
-        component={StatisticsScreen}
+        name="Weight Goal"
+        component={WeightGoalScreen}
         options={{
-          title: "Your Statistics",
+          title: "Weight Goal",
+        }}
+      />
+      <Stack.Screen
+        name="Record Weight"
+        component={RecordWeightScreen}
+        options={{
+          title: "Record Weight",
         }}
       />
     </Stack.Navigator>
   );
-};
+}
 
 export default function App() {
   return (
     <NavigationContainer>
-      <WorkoutStack />
+      <ProfileStack />
     </NavigationContainer>
-  );
+  )
 }

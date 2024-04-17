@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from "react-native";
 
-export default function AchievementsScreen({ navigation }) {
+export default function WeightGoalScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Achievements</Text>
+      <Text style={styles.text}>Calculate Weight Goal</Text>
     </View>
   );
 };

@@ -1,8 +1,11 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 
 export default function StatisticsScreen({ navigation }) {
   return (
     <View style={styles.container}>
+      <Pressable onPress={() => navigation.navigate("Achievements")}>
+        <Text style={styles.testText}>Go to 'Achievements' screen</Text>
+      </Pressable>
       <Text style={styles.text}>Statistics</Text>
     </View>
   );
