@@ -1,28 +1,26 @@
 import { View, Text, StyleSheet, Pressable, FlatList } from "react-native";
 import { useState } from "react";
-import mealPlan from '../data/default-meal-plan.json';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function MealPlanScreen({ navigation }) {
   const currentDay = new Date().getDay();
   const [day, setDay] = useState(currentDay);
-  const [meals, setMeals] = useState(mealPlan[day]);
+  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const [dayName, setDayName] = useState(dayNames[currentDay]);
 
-  function updateMealsView(newDay) {
-    setDay(newDay);
-    setMeals(mealPlan[newDay]);
-  }
+  const [mealPlan, setMealPlan] = useState();
+  const [loading, setLoading] = useState(true);
 
-  function renderMeals({ item }) {
-    return (
-      <View key={item.id}>
-        <Text style={styles.mealsText}>{item.mealType}</Text>
-        <Text style={styles.mealsText}>{item.mealName}</Text>
-        <Text style={styles.mealsText}>{stringifyIngredients(item.ingredients)}</Text>
-      </View>
-    );
+  function updateDay(index) {
+    setDay(index)
+    setDayName(dayNames[index]);
   }
 
   function stringifyIngredients(ingredients) {
+    if (ingredients.length == 0) {
+      return "No ingredients listed."
+    }
+
     let ingredientsList = "";
     for (let index = 0; index < ingredients.length - 1; index++) {
       ingredientsList += ingredients[index] + ", "
@@ -31,89 +29,95 @@ export default function MealPlanScreen({ navigation }) {
     return ingredientsList;
   }
 
-  return (
-    <View style={styles.container}>
-      {/* <Pressable onPress={() => navigation.navigate("Edit Meal Plan")}>
-        <Text style={styles.testText}>Go to 'Edit Meal Plan' screen</Text>
-      </Pressable> */}
-      
-      <View style={styles.daysContainer}>
-        <Pressable onPress={updateMealsView.bind(this, 0)}>
-          <Text style={styles.text}>S</Text>
-        </Pressable>
-      
-        <Pressable onPress={updateMealsView.bind(this, 1)}>
-          <Text style={styles.text}>M</Text>
-        </Pressable>
-      
-        <Pressable onPress={updateMealsView.bind(this, 2)}>
-          <Text style={styles.text}>T</Text>
-        </Pressable>
-      
-        <Pressable onPress={updateMealsView.bind(this, 3)}>
-          <Text style={styles.text}>W</Text>
-        </Pressable>
-      
-        <Pressable onPress={updateMealsView.bind(this, 4)}>
-          <Text style={styles.text}>T</Text>
-        </Pressable>
-      
-        <Pressable onPress={updateMealsView.bind(this, 5)}>
-          <Text style={styles.text}>F</Text>
-        </Pressable>
-      
-        <Pressable onPress={updateMealsView.bind(this, 6)}>
-          <Text style={styles.text}>S</Text>
-        </Pressable>
+  function renderMeals({ item }) {
+    return (
+      <View>
+        <Text>{item.mealType}</Text>
+        <Text>{item.mealName}</Text>
+        <Text>Ingredients: {stringifyIngredients(item.ingredients)}</Text>
       </View>
+    );
+  }
 
-      <View style={styles.mealsContainer}>
-        <View style={styles.mealsHeader}>
-          <Text style={styles.text}>{meals.day}</Text>
+  async function getMealPlan() {
+    // get meal plan from Storage
+    let debugMode = await AsyncStorage.getItem('debugMode');
+    if (debugMode == "on") {
+      let mp = JSON.parse(await AsyncStorage.getItem('debugMealPlan'));
+      setMealPlan(mp);
+    }
+    else {
+      // getItem userWorkoutSchedule
+    }
+
+    setLoading(false);
+  }
+
+
+
+  if (loading) {
+    getMealPlan();
+    return (
+      <View>
+        <Text>loading...</Text>
+      </View>
+    );
+  } else {
+    return (
+      <View style={styles.bodyContainer}>
+
+        {/* diet type */}
+        <View>
+          <Text>Diet: {mealPlan.dietType}</Text>
         </View>
-        
+        {/* Select Day of the Week */}
+        <View style={styles.daysContainer}>
+          <Pressable onPress={updateDay.bind(this, 0)}>
+            <Text>S</Text>
+          </Pressable>
+          <Pressable onPress={updateDay.bind(this, 1)}>
+            <Text>M</Text>
+          </Pressable>
+          <Pressable onPress={updateDay.bind(this, 2)}>
+            <Text>T</Text>
+          </Pressable>
+          <Pressable onPress={updateDay.bind(this, 3)}>
+            <Text>W</Text>
+          </Pressable>
+          <Pressable onPress={updateDay.bind(this, 4)}>
+            <Text>T</Text>
+          </Pressable>
+          <Pressable onPress={updateDay.bind(this, 5)}>
+            <Text>F</Text>
+          </Pressable>
+          <Pressable onPress={updateDay.bind(this, 6)}>
+            <Text>S</Text>
+          </Pressable>
+        </View>
+        {/* day of the week */}
+        <View>
+          <Text>{dayName}</Text>
+        </View>
+        {/* display meals */}
         <FlatList
-          data={meals.meals}
+          data={mealPlan["meals"][day]}
           renderItem={renderMeals}
         />
       </View>
-    </View>
-  );
+    );
+  }
 };
 
+// #225588
+// #F4F5F5
+// #E17000
 const styles = StyleSheet.create({
-  container: {
+  bodyContainer: {
     flex: 1,
-    // justifyContent: "center",
-    // backgroundColor: "#225588",
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 16,
-    // color: "#F4F5F5",
-  },
-  testText: {
-    fontSize: 18,
-    fontWeight: "bold",
-    alignSelf: "center",
-    // color: "#E17000",
-    padding: 16,
   },
   daysContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 16,
-  },
-  mealsContainer: {
-    flex: 1,
-    padding: 16,
-  },
-  mealsHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  mealsText: {
-    fontSize: 16,
-  },
+  }
 })

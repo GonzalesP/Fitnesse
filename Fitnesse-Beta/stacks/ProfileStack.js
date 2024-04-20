@@ -19,21 +19,21 @@ export const ProfileStack = () => {
         name="Profile"
         component={ProfileScreen}
         options={{
-          title: "Your Profile",
+          title: "Profile",
         }}
       />
       <Stack.Screen
         name="Weight Goal"
         component={WeightGoalScreen}
         options={{
-          title: "Weight Goal",
+          title: "Calculate Weight Goal",
         }}
       />
       <Stack.Screen
         name="Record Weight"
         component={RecordWeightScreen}
         options={{
-          title: "Record Weight",
+          title: "Record Today's Weight",
         }}
       />
     </Stack.Navigator>

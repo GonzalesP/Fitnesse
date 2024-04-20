@@ -18,14 +18,14 @@ export const MealStack = () => {
         name="Meal Plan"
         component={MealPlanScreen}
         options={{
-          title: "Your Meal Plan",
+          title: "Meal Plan",
         }}
       />
       <Stack.Screen
         name="Edit Meal Plan"
         component={EditMealPlanScreen}
         options={{
-          title: "Edit Your Meal Plan",
+          title: "Edit Meal Plan",
         }}
       />
     </Stack.Navigator>

@@ -18,14 +18,14 @@ export const StatisticsStack = () => {
         name="Statistics"
         component={StatisticsScreen}
         options={{
-          title: "Your Statistics",
+          title: "Statistics",
         }}
       />
       <Stack.Screen
         name="Achievements"
         component={AchievementsScreen}
         options={{
-          title: "Your Achievements",
+          title: "Achievements",
         }}
       />
     </Stack.Navigator>

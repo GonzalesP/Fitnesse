@@ -563,131 +563,131 @@ export const debugMealPlan =
   "meals":
   [
     // Sunday
-    {
-      "breakfast":
+    [
       {
+        "mealType": "breakfast",
         "mealName": "veggie ham and cheese breakfast casserole",
         "ingredients": ["eggs", "tomatoes"]
       },
-      "lunch":
       {
+        "mealType": "lunch",
         "mealName": "slow cooker 3-bean turkey chili",
         "ingredients": ["eggs", "tomatoes"]
       },
-      "dinner":
       {
+        "mealType": "dinner",
         "mealName": "baked chicken thighs with brussels and sweet potato",
         "ingredients": ["eggs", "tomatoes"]
       }
-    },
+    ],
     // Monday
-    {
-      "breakfast":
+    [
       {
+        "mealType": "breakfast",
         "mealName": "freezer breakfast burritos",
         "ingredients": ["eggs", "tomatoes"]
       },
-      "lunch":
       {
+        "mealType": "lunch",
         "mealName": "black-eyed pea dip w/ perfect air fryer shrimp",
         "ingredients": ["eggs", "tomatoes"]
       },
-      "dinner":
       {
+        "mealType": "dinner",
         "mealName": "huevos rancheros w/ 1 oz avocado",
         "ingredients": ["eggs", "tomatoes"]
       }
-    },
+    ],
     // Tuesday
-    {
-      "breakfast":
+    [
       {
+        "mealType": "breakfast",
         "mealName": "freezer breakfast burritos",
         "ingredients": ["eggs", "tomatoes"]
       },
-      "lunch":
       {
+        "mealType": "lunch",
         "mealName": "kale salad w/ chicken",
         "ingredients": ["eggs", "tomatoes"]
       },
-      "dinner":
       {
+        "mealType": "dinner",
         "mealName": "ground turkey taco skillet",
         "ingredients": ["eggs", "tomatoes"]
       }
-    },
+    ],
     // Wednesday
-    {
-      "breakfast":
+    [
       {
+        "mealType": "breakfast",
         "mealName": "freezer breakfast burritos",
         "ingredients": ["eggs", "tomatoes"]
       },
-      "lunch":
       {
+        "mealType": "lunch",
         "mealName": "kale salad w/ chicken",
         "ingredients": ["eggs", "tomatoes"]
       },
-      "dinner":
       {
+        "mealType": "dinner",
         "mealName": "butternut squash lasagna w/ green salad",
         "ingredients": ["eggs", "tomatoes"]
       }
-    },
+    ],
     // Thursday
-    {
-      "breakfast":
+    [
       {
+        "mealType": "breakfast",
         "mealName": "air fryer breakfast banana split",
         "ingredients": ["eggs", "tomatoes"]
       },
-      "lunch":
       {
+        "mealType": "lunch",
         "mealName": "kale salad w/ chicken",
         "ingredients": ["eggs", "tomatoes"]
       },
-      "dinner":
       {
+        "mealType": "dinner",
         "mealName": "(leftover) butternut squash lasagna w/ green salad",
         "ingredients": ["eggs", "tomatoes"]
       }
-    },
+    ],
     // Friday
-    {
-      "breakfast":
+    [
       {
+        "mealType": "breakfast",
         "mealName": "air fryer breakfast banana split",
         "ingredients": ["eggs", "tomatoes"]
       },
-      "lunch":
       {
+        "mealType": "lunch",
         "mealName": "kale salad w/ chicken",
         "ingredients": ["eggs", "tomatoes"]
       },
-      "dinner":
       {
+        "mealType": "dinner",
         "mealName": "honey sriracha roasted salmon rice bowls",
         "ingredients": ["eggs", "tomatoes"]
       }
-    },
+    ],
     // Saturday
-    {
-      "breakfast":
+    [
       {
+        "mealType": "breakfast",
         "mealName": "veggie ham and cheese breakfast casserole",
         "ingredients": ["eggs", "tomatoes"]
       },
-      "lunch":
       {
+        "mealType": "lunch",
         "mealName": "slow cooker 3-bean turkey chili",
         "ingredients": ["eggs", "tomatoes"]
       },
-      "dinner":
       {
+        "mealType": "dinner",
         "mealName": "baked chicken thighs with brussels and sweet potato",
         "ingredients": ["eggs", "tomatoes"]
       }
-    }
+    ]
   ]
 }
 

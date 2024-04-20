@@ -1,121 +1,116 @@
 import { View, Text, StyleSheet, Pressable, FlatList } from "react-native";
 import { useState } from "react";
-import workoutSchedule from '../data/default-workout-schedule.json';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function WorkoutScheduleScreen({ navigation }) {
   const currentDay = new Date().getDay();
   const [day, setDay] = useState(currentDay);
-  const [workout, setWorkout] = useState(workoutSchedule[day]);
-  
-  function updateWorkoutView(newDay) {
-    setDay(newDay);
-    setWorkout(workoutSchedule[newDay]);
-  };
+  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const [dayName, setDayName] = useState(dayNames[currentDay]);
+
+  const [workoutSchedule, setWorkoutSchedule] = useState();
+  const [loading, setLoading] = useState(true);
+
+  function updateDay(index) {
+    setDay(index)
+    setDayName(dayNames[index]);
+  }
 
   function renderWorkout({ item }) {
     let exerciseDesc;
     if (item.sets != null) {
-      exerciseDesc = <Text style={styles.workoutText}>{item.sets}x{item.reps}</Text>
+      exerciseDesc = <Text>{item.sets}x{item.reps}</Text>
     }
     else if (item.duration != null) {
-      exerciseDesc = <Text style={styles.workoutText}>{item.duration}</Text>
+      exerciseDesc = <Text>{item.duration}</Text>
     }
     else {
-      exerciseDesc = <Text style={styles.workoutText}></Text>
+      exerciseDesc = <Text></Text>
     }
+
     return (
       <View key={item.id}>
-        <Text style={styles.workoutText}>{item.exerciseName}</Text>
+        <Text>{item.exerciseName}</Text>
         {exerciseDesc}
       </View>
-    );
+    )
   }
 
-  return (
-    <View style={styles.container}>
-      {/* <Pressable onPress={() => navigation.navigate("Edit Workout Schedule")}>
-        <Text style={styles.testText}>Go to 'Edit Workout Schedule' screen</Text>
-      </Pressable> */}
+  async function getWorkoutSchedule() {
+    // get workout schedule from Storage
+    let debugMode = await AsyncStorage.getItem('debugMode');
+    if (debugMode == "on") {
+      let ws = JSON.parse(await AsyncStorage.getItem('debugWorkoutSchedule'));
+      setWorkoutSchedule(ws);
+    }
+    else {
+      // getItem userWorkoutSchedule
+    }
 
-      <View style={styles.daysContainer}>
-        <Pressable onPress={updateWorkoutView.bind(this, 0)}>
-          <Text style={styles.text}>S</Text>
-        </Pressable>
-      
-        <Pressable onPress={updateWorkoutView.bind(this, 1)}>
-          <Text style={styles.text}>M</Text>
-        </Pressable>
-      
-        <Pressable onPress={updateWorkoutView.bind(this, 2)}>
-          <Text style={styles.text}>T</Text>
-        </Pressable>
-      
-        <Pressable onPress={updateWorkoutView.bind(this, 3)}>
-          <Text style={styles.text}>W</Text>
-        </Pressable>
-      
-        <Pressable onPress={updateWorkoutView.bind(this, 4)}>
-          <Text style={styles.text}>T</Text>
-        </Pressable>
-      
-        <Pressable onPress={updateWorkoutView.bind(this, 5)}>
-          <Text style={styles.text}>F</Text>
-        </Pressable>
-      
-        <Pressable onPress={updateWorkoutView.bind(this, 6)}>
-          <Text style={styles.text}>S</Text>
-        </Pressable>
+    setLoading(false);
+  }
+
+  
+
+  if (loading) {
+    getWorkoutSchedule();
+    return (
+      <View>
+        <Text>loading...</Text>
       </View>
-
-      <View style={styles.workoutContainer}>
-        <View style={styles.workoutHeader}>
-          <Text style={styles.text}>{workout.day}</Text>
-          <Text style={styles.text}>{workout.type}</Text>
+    )
+  } else {
+    return (
+      <View style={styles.bodyContainer}>
+        {/* Select Day of the Week */}
+        <View style={styles.daysContainer}>
+          <Pressable onPress={updateDay.bind(this, 0)}>
+            <Text>S</Text>
+          </Pressable>
+          <Pressable onPress={updateDay.bind(this, 1)}>
+            <Text>M</Text>
+          </Pressable>
+          <Pressable onPress={updateDay.bind(this, 2)}>
+            <Text>T</Text>
+          </Pressable>
+          <Pressable onPress={updateDay.bind(this, 3)}>
+            <Text>W</Text>
+          </Pressable>
+          <Pressable onPress={updateDay.bind(this, 4)}>
+            <Text>T</Text>
+          </Pressable>
+          <Pressable onPress={updateDay.bind(this, 5)}>
+            <Text>F</Text>
+          </Pressable>
+          <Pressable onPress={updateDay.bind(this, 6)}>
+            <Text>S</Text>
+          </Pressable>
         </View>
-
+        {/* workout header (day of week + workout type) */}
+        <View>
+          <Text>{dayName}</Text>
+          <Text>{workoutSchedule[day].type}</Text>
+        </View>
+        {/* display workout */}
         <FlatList
-          data={workout.workouts}
+          data={workoutSchedule[day].exercises}
           renderItem={renderWorkout}
         />
       </View>
-    </View>
-  );
+    );
+  }
 }
 
+// #225588
+// #F4F5F5
+// #E17000
 const styles = StyleSheet.create({
-  container: {
+  bodyContainer: {
     flex: 1,
-    // justifyContent: "center",
-    // backgroundColor: "#225588",
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 16,
-    // color: "#F4F5F5",
-  },
-  testText: {
-    fontSize: 18,
-    fontWeight: "bold",
-    alignSelf: "center",
-    // color: "#E17000",
-    padding: 16,
   },
   daysContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 16,
-  },
-  workoutContainer: {
-    flex: 1,
-    padding: 16,
-  },
-  workoutHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    
-  },
-  workoutText: {
-    fontSize: 16,
-  },
+  }
 })

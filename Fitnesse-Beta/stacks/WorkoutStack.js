@@ -19,21 +19,21 @@ export const WorkoutStack = () => {
         name="Workout Schedule"
         component={WorkoutScheduleScreen}
         options={{
-          title: "Your Workouts",
+          title: "Workout Schedule",
         }}
       />
       <Stack.Screen
         name="Record Workout"
         component={RecordWorkoutScreen}
         options={{
-          title: "Record Workout",
+          title: "Record Today's Workout",
         }}
       />
       <Stack.Screen
         name="Edit Workout Schedule"
         component={EditWorkoutScheduleScreen}
         options={{
-          title: "Edit Your Workouts",
+          title: "Edit Workout Schedule",
         }}
       />
     </Stack.Navigator>
