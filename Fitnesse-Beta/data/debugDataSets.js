@@ -718,153 +718,101 @@ export const debugPersonalBests =
 export const debugAchievements =
 {
   "one mile run":
-  {
-    "First Steps":
+  [
     {
-      "unlocked": true,
+      "name": "First Steps",
       "description": "Run a mile in under 20 minutes",
       "date": "Thu Apr 18 2024"
     },
-    "Making My Way Downtown":
     {
-      "unlocked": true,
+      "name": "Making My Way Downtown",
       "description": "Run a mile in under 15 minutes",
       "date": "Thu Apr 18 2024"
     },
-    "Can't Stop, Won't Stop":
     {
-      "unlocked": true,
+      "name": "Can't Stop, Won't Stop",
       "description": "Run a mile in under 12 minutes",
       "date": "Thu Apr 18 2024"
     },
-    "One Must Walk...":
     {
-      "unlocked": true,
+      "name": "One Must Walk...",
       "description": "Run a mile in under 11 minutes",
       "date": "Thu Apr 18 2024"
     },
-    "...Before They Run!":
     {
-      "unlocked": true,
+      "name": "...Before They Run!",
       "description": "Run a mile in under 10 minutes",
       "date": "Thu Apr 18 2024"
     },
-    "Gingerbread Man":
     {
-      "unlocked": true,
+      "name": "Gingerbread Man",
       "description": "Run a mile in under 9 minutes",
       "date": "Thu Apr 18 2024"
     },
-    "One Must Run...":
     {
-      "unlocked": true,
+      "name": "One Must Run...",
       "description": "Run a mile in under 8 minutes",
       "date": "Thu Apr 18 2024"
     },
-    "...Before They Fly!":
     {
-      "unlocked": true,
+      "name": "...Before They Fly!",
       "description": "Run a mile in under 7 minutes",
       "date": "Thu Apr 18 2024"
-    },
-    "Unstoppable":
-    {
-      "unlocked": false,
-      "description": "Run a mile in under 6 minutes",
-      "date": null
-    },
-    "The Flash":
-    {
-      "unlocked": false,
-      "description": "Run a mile in under 5 minutes",
-      "date": null
-    },
-  },
+    }
+  ],
   "bench press":
-  {
-    "One Star Bench":
+  [
     {
-      "unlocked": true,
+      "name": "One Star Bench",
       "description": "Bench Press 1 Plate (135+ lbs.)",
       "date": "Thu Apr 18 2024"
     },
-    "Two Star Bench":
     {
-      "unlocked": true,
+      "name": "Two Star Bench",
       "description": "Bench Press 2 Plates (225+ lbs.)",
       "date": "Thu Apr 18 2024"
-    },
-    "Three Star Bench":
-    {
-      "unlocked": false,
-      "description": "Bench Press 3 Plates (315+ lbs.)",
-      "date": null
-    },
-    "Bench Beast":
-    {
-      "unlocked": false,
-      "description": "Bench Press 4 Plates (405+ lbs.)",
-      "date": null
     }
-  },
+  ],
   "back squat":
-  {
-    "One Star Squat":
+  [
     {
-      "unlocked": true,
+      "name": "One Star Squat",
       "description": "Back Squat 1 Plate (135+ lbs.)",
       "date": "Thu Apr 18 2024"
     },
-    "Two Star Squat":
     {
-      "unlocked": true,
+      "name": "Two Star Squat",
       "description": "Back Squat 2 Plates (225+ lbs.)",
       "date": "Thu Apr 18 2024"
     },
-    "Three Star Squat":
     {
-      "unlocked": true,
+      "name": "Three Star Squat",
       "description": "Back Squat 3 Plates (315+ lbs.)",
       "date": "Thu Apr 18 2024"
-    },
-    "Sasquat":
-    {
-      "unlocked": false,
-      "description": "Back Squat 4 Plates (405+ lbs.)",
-      "date": null
     }
-  },
+  ],
   "deadlift":
-  {
-    "One Star Deadlift":
+  [
     {
-      "unlocked": true,
+      "name": "One Star Deadlift",
       "description": "Deadlift 1 Plate (135+ lbs.)",
       "date": "Thu Apr 18 2024"
     },
-    "Two Star Deadlift":
     {
-      "unlocked": true,
+      "name": "Two Star Deadlift",
       "description": "Deadlift 2 Plates (225+ lbs.)",
       "date": "Thu Apr 18 2024"
     },
-    "Three Star Deadlift":
     {
-      "unlocked": true,
+      "name": "Three Star Deadlift",
       "description": "Deadlift 3 Plates (315+ lbs.)",
       "date": "Thu Apr 18 2024"
     },
-    "Deadly Lift":
     {
-      "unlocked": true,
+      "name": "Deadly Lift",
       "description": "Deadlift 4 Plates (405+ lbs.)",
       "date": "Thu Apr 18 2024"
-    },
-    "Deadlift Devil":
-    {
-      "unlocked": false,
-      "description": "Deadlift 5 Plates (495+ lbs.)",
-      "date": null
-    },
-  },
+    }
+  ],
+  "weight loss": []
 }

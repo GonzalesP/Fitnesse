@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, FlatList } from "react-native";
+import { View, Text, StyleSheet, Pressable, FlatList, ActivityIndicator } from "react-native";
 import { useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -10,6 +10,22 @@ export default function WorkoutScheduleScreen({ navigation }) {
 
   const [workoutSchedule, setWorkoutSchedule] = useState();
   const [loading, setLoading] = useState(true);
+
+  const getWorkoutSchedule = navigation.addListener('focus', async() => {
+    // show loading screen
+    setLoading(true);
+    // fetch data from AsyncStorage
+    let debugMode = await AsyncStorage.getItem('debugMode');
+    if (debugMode == "on") {
+      let ws = JSON.parse(await AsyncStorage.getItem('debugWorkoutSchedule'));
+      setWorkoutSchedule(ws);
+    }
+    else {
+      // getItem userWorkoutSchedule
+    }
+    // remove loading screen
+    setLoading(false);
+  });
 
   function updateDay(index) {
     setDay(index)
@@ -35,30 +51,15 @@ export default function WorkoutScheduleScreen({ navigation }) {
       </View>
     )
   }
-
-  async function getWorkoutSchedule() {
-    // get workout schedule from Storage
-    let debugMode = await AsyncStorage.getItem('debugMode');
-    if (debugMode == "on") {
-      let ws = JSON.parse(await AsyncStorage.getItem('debugWorkoutSchedule'));
-      setWorkoutSchedule(ws);
-    }
-    else {
-      // getItem userWorkoutSchedule
-    }
-
-    setLoading(false);
-  }
-
   
 
+
   if (loading) {
-    getWorkoutSchedule();
     return (
       <View>
-        <Text>loading...</Text>
+        <ActivityIndicator size="large" color="midnightblue" />
       </View>
-    )
+    );
   } else {
     return (
       <View style={styles.bodyContainer}>
@@ -96,6 +97,10 @@ export default function WorkoutScheduleScreen({ navigation }) {
           data={workoutSchedule[day].exercises}
           renderItem={renderWorkout}
         />
+        {/* start workout button */}
+        {
+          (day == currentDay) && <Text>this will be a start workout button</Text>
+        }
       </View>
     );
   }

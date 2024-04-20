@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, FlatList } from "react-native";
+import { View, Text, StyleSheet, Pressable, FlatList, ActivityIndicator } from "react-native";
 import { useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -10,6 +10,22 @@ export default function MealPlanScreen({ navigation }) {
 
   const [mealPlan, setMealPlan] = useState();
   const [loading, setLoading] = useState(true);
+
+  const getMealPlan = navigation.addListener('focus', async() => {
+    // show loading screen
+    setLoading(true);
+    // fetch data from AsyncStorage
+    let debugMode = await AsyncStorage.getItem('debugMode');
+    if (debugMode == "on") {
+      let mp = JSON.parse(await AsyncStorage.getItem('debugMealPlan'));
+      setMealPlan(mp);
+    }
+    else {
+      // getItem userMealPlan
+    }
+    // remove loading screen
+    setLoading(false);
+  });
 
   function updateDay(index) {
     setDay(index)
@@ -39,37 +55,17 @@ export default function MealPlanScreen({ navigation }) {
     );
   }
 
-  async function getMealPlan() {
-    // get meal plan from Storage
-    let debugMode = await AsyncStorage.getItem('debugMode');
-    if (debugMode == "on") {
-      let mp = JSON.parse(await AsyncStorage.getItem('debugMealPlan'));
-      setMealPlan(mp);
-    }
-    else {
-      // getItem userWorkoutSchedule
-    }
-
-    setLoading(false);
-  }
-
 
 
   if (loading) {
-    getMealPlan();
     return (
       <View>
-        <Text>loading...</Text>
+        <ActivityIndicator size="large" color="midnightblue" />
       </View>
     );
   } else {
     return (
       <View style={styles.bodyContainer}>
-
-        {/* diet type */}
-        <View>
-          <Text>Diet: {mealPlan.dietType}</Text>
-        </View>
         {/* Select Day of the Week */}
         <View style={styles.daysContainer}>
           <Pressable onPress={updateDay.bind(this, 0)}>
@@ -93,6 +89,10 @@ export default function MealPlanScreen({ navigation }) {
           <Pressable onPress={updateDay.bind(this, 6)}>
             <Text>S</Text>
           </Pressable>
+        </View>
+        {/* diet type */}
+        <View>
+          <Text>Diet: {mealPlan.dietType}</Text>
         </View>
         {/* day of the week */}
         <View>
