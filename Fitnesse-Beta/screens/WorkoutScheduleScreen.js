@@ -11,9 +11,11 @@ export default function WorkoutScheduleScreen({ navigation }) {
   const [workoutSchedule, setWorkoutSchedule] = useState();
   const [loading, setLoading] = useState(true);
 
-  const getWorkoutSchedule = navigation.addListener('focus', async() => {
-    // show loading screen
+  const refreshScreen = navigation.addListener('focus', async() => {
     setLoading(true);
+  });
+
+  async function getWorkoutSchedule() {
     // fetch data from AsyncStorage
     let debugMode = await AsyncStorage.getItem('debugMode');
     if (debugMode == "on") {
@@ -25,7 +27,7 @@ export default function WorkoutScheduleScreen({ navigation }) {
     }
     // remove loading screen
     setLoading(false);
-  });
+  }
 
   function updateDay(index) {
     setDay(index)
@@ -55,6 +57,7 @@ export default function WorkoutScheduleScreen({ navigation }) {
 
 
   if (loading) {
+    getWorkoutSchedule();
     return (
       <View>
         <ActivityIndicator size="large" color="midnightblue" />
@@ -99,7 +102,10 @@ export default function WorkoutScheduleScreen({ navigation }) {
         />
         {/* start workout button */}
         {
-          (day == currentDay) && <Text>this will be a start workout button</Text>
+          (day == currentDay) &&
+          <Pressable onPress={() => navigation.navigate("Record Workout")}>
+            <Text>Record Today's Workout</Text>
+          </Pressable>
         }
       </View>
     );

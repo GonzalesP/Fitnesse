@@ -6,9 +6,11 @@ export default function AchievementsScreen({ navigation }) {
   const [achievements, setAchievements] = useState();
   const [loading, setLoading] = useState(true);
 
-  const getAchievements = navigation.addListener('focus', async() => {
-    // show loading screen
+  const refreshScreen = navigation.addListener('focus', async() => {
     setLoading(true);
+  });
+
+  async function getAchievements() {
     // fetch data from AsyncStorage
     let debugMode = await AsyncStorage.getItem('debugMode');
     if (debugMode == "on") {
@@ -20,7 +22,7 @@ export default function AchievementsScreen({ navigation }) {
     }
     // remove loading screen
     setLoading(false);
-  });
+  }
 
   function renderAchievementsFlatList() {
     let oneMileRunAchievements = Object.keys(achievements);
@@ -60,7 +62,10 @@ export default function AchievementsScreen({ navigation }) {
     }
   }
 
+
+  
   if (loading) {
+    getAchievements();
     return (
       <View>
         <ActivityIndicator size="large" color="midnightblue" />
@@ -75,9 +80,6 @@ export default function AchievementsScreen({ navigation }) {
   }
 };
 
-// #225588
-// #F4F5F5
-// #E17000
 const styles = StyleSheet.create({
   bodyContainer: {
     flex: 1,

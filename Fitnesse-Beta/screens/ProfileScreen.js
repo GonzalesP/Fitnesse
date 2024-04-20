@@ -7,32 +7,36 @@ export default function ProfileScreen({ navigation }) {
   const [weight, setWeight] = useState();
   const [loading, setLoading] = useState(true);
 
-  const getProfile = navigation.addListener('focus', async() => {
-    // show loading screen
+  const refreshScreen = navigation.addListener('focus', async() => {
     setLoading(true);
+  });
+
+  async function getProfile() {
     // fetch data from AsyncStorage
     let debugMode = await AsyncStorage.getItem('debugMode');
     if (debugMode == "on") {
-      let ht = JSON.parse(await AsyncStorage.getItem('debugHeight'))
-      let wh = JSON.parse(await AsyncStorage.getItem('debugWeightHistory'))
-      let wt = wh[wh.length - 1]["weight"]
-
+      let ht = JSON.parse(await AsyncStorage.getItem('debugHeight'));
+      let wh = JSON.parse(await AsyncStorage.getItem('debugWeightHistory'));
       setHeight(ht);
-      setWeight(wt);
+      setWeight(wh);
     }
     else {
       // getItem userHeight and stuff
     }
     // remove loading screen
     setLoading(false);
-  });
-
-  function computeBMI() {
-    let totalInches = 12*height["feet"] + height["inches"]
-    return ((703 * weight) / (totalInches**2)).toFixed(2);
   }
 
+  function calculateBMI() {
+    let totalInches = 12 * height["feet"] + height["inches"];
+    return ((703 * weight[weight.length-1]["weight"]) / totalInches**2).toFixed(1);
+  }
+  
+
+
+  // show loading screen
   if (loading) {
+    getProfile();
     return (
       <View>
         <ActivityIndicator size="large" color="midnightblue" />
@@ -42,12 +46,13 @@ export default function ProfileScreen({ navigation }) {
   else {
     return (
       <View style={styles.bodyContainer}>
-        <Pressable onPress={() => navigation.navigate("Weight Goal")}>
-          <Text style={styles.text}>Go to 'Weight Goal' screen</Text>
+        <Text>Height: {height != null ? `${height["feet"]}'${height["inches"]}"` : "N/A"}</Text>
+        <Text>Weight: {weight != null ? weight[weight.length-1]["weight"] : "N/A"}</Text>
+        <Text>BMI: {(height != null && weight != null)
+                      ? calculateBMI() : "N/A"}</Text>
+        <Pressable onPress={() => navigation.navigate("Update Weight and Height")}>
+          <Text style={styles.text}>Update Height and Weight</Text>
         </Pressable>
-        <Text>Height: {height["feet"]}'{height["inches"]}"</Text>
-        <Text>Weight: {weight} lbs.</Text>
-        <Text>BMI: {computeBMI()}</Text>
       </View>
     );
   }
@@ -62,6 +67,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
-    marginBottom: 16,
+    fontSize: 24,
+    fontWeight: "bold",
+    margin: 16,
   }
 })

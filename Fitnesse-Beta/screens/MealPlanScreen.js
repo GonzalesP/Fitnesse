@@ -11,9 +11,11 @@ export default function MealPlanScreen({ navigation }) {
   const [mealPlan, setMealPlan] = useState();
   const [loading, setLoading] = useState(true);
 
-  const getMealPlan = navigation.addListener('focus', async() => {
-    // show loading screen
+  const refreshScreen = navigation.addListener('focus', async() => {
     setLoading(true);
+  });
+
+  async function getMealPlan() {
     // fetch data from AsyncStorage
     let debugMode = await AsyncStorage.getItem('debugMode');
     if (debugMode == "on") {
@@ -25,7 +27,7 @@ export default function MealPlanScreen({ navigation }) {
     }
     // remove loading screen
     setLoading(false);
-  });
+  }
 
   function updateDay(index) {
     setDay(index)
@@ -58,6 +60,7 @@ export default function MealPlanScreen({ navigation }) {
 
 
   if (loading) {
+    getMealPlan();
     return (
       <View>
         <ActivityIndicator size="large" color="midnightblue" />

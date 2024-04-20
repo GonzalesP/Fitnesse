@@ -4,8 +4,11 @@ import { useState } from "react";
 import { initializeDebugVariables } from "../data/debugFunctions";
 
 export default function HomeScreen({ navigation }) {
-  // first function: check if debug variables and user data is null from Async
-  // if so, initialize everything
+  // loading: initialize user data
+  // done loading: show Home screen
+  const [loading, setLoading] = useState(true);
+  // const [showBMITodoCard]
+
   async function debugStuff() {
     await initializeDebugVariables();
     console.log("debug variables initialized");
@@ -14,6 +17,22 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.bodyContainer}>
       <Text style={styles.text}>To-Do:</Text>
+      <Pressable onPress={() => navigation.navigate(
+        'Profile Stack', { screen: 'Update Weight and Height', initial: false }
+      )}>
+        <Text style={styles.text}>Record Height and Weight</Text>
+      </Pressable>
+      <Pressable onPress={() => navigation.navigate(
+        'Profile Stack', { screen: 'Record Weight', initial: false }
+      )}>
+        <Text style={styles.text}>Record Today's Weight</Text>
+      </Pressable>
+      <Pressable onPress={() => navigation.navigate(
+        'Workout Stack', { screen: 'Record Workout', initial: false }
+      )}>
+        <Text style={styles.text}>Start Today's Workout</Text>
+      </Pressable>
+
       <Pressable onPress={debugStuff}>
         <Text style={styles.debugButton}>Scuffed Debug Button</Text>
       </Pressable>
