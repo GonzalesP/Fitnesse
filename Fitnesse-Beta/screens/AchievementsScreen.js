@@ -12,9 +12,9 @@ export default function AchievementsScreen({ navigation }) {
 
   async function getAchievements() {
     // fetch data from AsyncStorage
-    let debugMode = await AsyncStorage.getItem('debugMode');
-    if (debugMode == "on") {
-      let ac = JSON.parse(await AsyncStorage.getItem('debugAchievements'));
+    let demoMode = await AsyncStorage.getItem('demoMode');
+    if (demoMode == "on") {
+      let ac = JSON.parse(await AsyncStorage.getItem('demoAchievements'));
       setAchievements(ac);
     }
     else {
@@ -24,38 +24,30 @@ export default function AchievementsScreen({ navigation }) {
     setLoading(false);
   }
 
-  function renderAchievementsFlatList() {
-    let oneMileRunAchievements = Object.keys(achievements);
-    return (
-      <FlatList
-        data={oneMileRunAchievements}
-        renderItem={renderExerciseAchievements}
-      />
-    );
-  }
-
-  function renderExerciseAchievements({ item }) {
-    let exerciseAchievements = achievements[item];
-    if (exerciseAchievements.length == 0) {
+  function renderAchievements({ item }) {
+    if (achievements[item].length == 0) {
       return (
         <View key={item}>
-          <Text>{item}:</Text>
-          <Text>nothing unlocked yet</Text>
+          <Text>{item}</Text>
+          <Text>No achievements unlocked.</Text>
         </View>
       );
     }
     else {
       return (
         <View key={item}>
-          <Text>{item}:</Text>
+          <Text>{item}</Text>
           {
-            exerciseAchievements.map((achievement) => (
-              <View key={achievement.name}>
-                <Text>{achievement.name}</Text>
-                <Text>{achievement.description}</Text>
-                <Text>{achievement.date}</Text>
-              </View>
-            ))
+            // date description name
+            achievements[item].map((achObject) => {
+              return (
+                <View key={achObject["name"]}>
+                  <Text>{achObject["name"]}</Text>
+                  <Text>{achObject["description"]}</Text>
+                  <Text>Date Unlocked: {achObject["date"]}</Text>
+                </View>
+              );
+            })
           }
         </View>
       )
@@ -74,7 +66,10 @@ export default function AchievementsScreen({ navigation }) {
   } else {
     return (
       <View style={styles.bodyContainer}>
-        {renderAchievementsFlatList()}
+        <FlatList
+          data={Object.keys(achievements)}
+          renderItem={renderAchievements}
+        />
       </View>
     );
   }

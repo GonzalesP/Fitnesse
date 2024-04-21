@@ -17,9 +17,10 @@ export default function MealPlanScreen({ navigation }) {
 
   async function getMealPlan() {
     // fetch data from AsyncStorage
-    let debugMode = await AsyncStorage.getItem('debugMode');
-    if (debugMode == "on") {
-      let mp = JSON.parse(await AsyncStorage.getItem('debugMealPlan'));
+    let mp;
+    let demoMode = await AsyncStorage.getItem('demoMode');
+    if (demoMode == "on") {
+      mp = JSON.parse(await AsyncStorage.getItem('demoMealPlan'));
       setMealPlan(mp);
     }
     else {
@@ -34,25 +35,25 @@ export default function MealPlanScreen({ navigation }) {
     setDayName(dayNames[index]);
   }
 
-  function stringifyIngredients(ingredients) {
-    if (ingredients.length == 0) {
-      return "No ingredients listed."
-    }
+  // function stringifyIngredients(ingredients) {
+  //   if (ingredients.length == 0) {
+  //     return "No ingredients listed."
+  //   }
 
-    let ingredientsList = "";
-    for (let index = 0; index < ingredients.length - 1; index++) {
-      ingredientsList += ingredients[index] + ", "
-    }
-    ingredientsList += ingredients[ingredients.length - 1];
-    return ingredientsList;
-  }
+  //   let ingredientsList = "";
+  //   for (let index = 0; index < ingredients.length - 1; index++) {
+  //     ingredientsList += ingredients[index] + ", "
+  //   }
+  //   ingredientsList += ingredients[ingredients.length - 1];
+  //   return ingredientsList;
+  // }
 
   function renderMeals({ item }) {
     return (
       <View>
         <Text>{item.mealType}</Text>
         <Text>{item.mealName}</Text>
-        <Text>Ingredients: {stringifyIngredients(item.ingredients)}</Text>
+        {/* <Text>Ingredients: {stringifyIngredients(item.ingredients)}</Text> */}
       </View>
     );
   }
@@ -92,10 +93,6 @@ export default function MealPlanScreen({ navigation }) {
           <Pressable onPress={updateDay.bind(this, 6)}>
             <Text>S</Text>
           </Pressable>
-        </View>
-        {/* diet type */}
-        <View>
-          <Text>Diet: {mealPlan.dietType}</Text>
         </View>
         {/* day of the week */}
         <View>

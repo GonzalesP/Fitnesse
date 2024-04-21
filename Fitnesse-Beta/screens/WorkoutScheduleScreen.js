@@ -17,9 +17,10 @@ export default function WorkoutScheduleScreen({ navigation }) {
 
   async function getWorkoutSchedule() {
     // fetch data from AsyncStorage
-    let debugMode = await AsyncStorage.getItem('debugMode');
-    if (debugMode == "on") {
-      let ws = JSON.parse(await AsyncStorage.getItem('debugWorkoutSchedule'));
+    let ws
+    let demoMode = await AsyncStorage.getItem('demoMode');
+    if (demoMode == "on") {
+      ws = JSON.parse(await AsyncStorage.getItem('demoWorkoutSchedule'));
       setWorkoutSchedule(ws);
     }
     else {
@@ -63,7 +64,8 @@ export default function WorkoutScheduleScreen({ navigation }) {
         <ActivityIndicator size="large" color="midnightblue" />
       </View>
     );
-  } else {
+  }
+  else {
     return (
       <View style={styles.bodyContainer}>
         {/* Select Day of the Week */}
@@ -100,13 +102,6 @@ export default function WorkoutScheduleScreen({ navigation }) {
           data={workoutSchedule[day].exercises}
           renderItem={renderWorkout}
         />
-        {/* start workout button */}
-        {
-          (day == currentDay) &&
-          <Pressable onPress={() => navigation.navigate("Record Workout")}>
-            <Text>Record Today's Workout</Text>
-          </Pressable>
-        }
       </View>
     );
   }
@@ -123,5 +118,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 16,
+  },
+  text: {
+    fontSize: 24,
+    fontWeight: "bold",
+    margin: 16,
   }
 })

@@ -1,43 +1,89 @@
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, Text, StyleSheet, Pressable, ActivityIndicator } from "react-native";
 import { useState } from "react";
-
-import { initializeDebugVariables } from "../data/debugFunctions";
+import { initializeDemoVariables, printDemoVariables } from "../data/demoFunctions";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function HomeScreen({ navigation }) {
-  // loading: initialize user data
-  // done loading: show Home screen
-  const [loading, setLoading] = useState(true);
-  // const [showBMITodoCard]
+  const [showCardOne, setShowCardOne] = useState(false);
+  const [showCardTwo, setShowCardTwo] = useState(false);
 
-  async function debugStuff() {
-    await initializeDebugVariables();
-    console.log("debug variables initialized");
+  const [loading, setLoading] = useState(true);
+
+  const refreshScreen = navigation.addListener('focus', async() => {
+    setLoading(true);
+  });
+
+  async function getTodoList() {
+    let today = new Date().toDateString();
+    // fetch data from AsyncStorage
+    let height;
+    let weightHistory;
+    let lastWorkoutDate;
+
+    let demoMode = await AsyncStorage.getItem('demoMode');
+    if (demoMode == "on") {
+      height = await AsyncStorage.getItem('demoHeight');
+      weightHistory = await AsyncStorage.getItem('demoWeightHistory');
+      lastWorkoutDate = await AsyncStorage.getItem('demoLastWorkoutDate');
+    }
+    else {
+      // user defaults
+    }
+
+    // decide whether to render card one or two and three (two options)
+    if (height == null || weightHistory == null) {
+      // card one
+      setShowCardOne(true);
+    }
+    else {
+      if (weightHistory[weightHistory.length - 1]["date"] != today) {
+        // card two
+        setShowCardTwo(true);
+      }
+    }
+
+    // remove loading screen
+    setLoading(false);
   }
 
-  return (
-    <View style={styles.bodyContainer}>
-      <Text style={styles.text}>To-Do:</Text>
-      <Pressable onPress={() => navigation.navigate(
-        'Profile Stack', { screen: 'Update Weight and Height', initial: false }
-      )}>
-        <Text style={styles.text}>Record Height and Weight</Text>
-      </Pressable>
-      <Pressable onPress={() => navigation.navigate(
-        'Profile Stack', { screen: 'Record Weight', initial: false }
-      )}>
-        <Text style={styles.text}>Record Today's Weight</Text>
-      </Pressable>
-      <Pressable onPress={() => navigation.navigate(
-        'Workout Stack', { screen: 'Record Workout', initial: false }
-      )}>
-        <Text style={styles.text}>Start Today's Workout</Text>
-      </Pressable>
+  async function debugStuff() {
+    await initializeDemoVariables();
+    await printDemoVariables();
+  }
 
-      <Pressable onPress={debugStuff}>
-        <Text style={styles.debugButton}>Scuffed Debug Button</Text>
-      </Pressable>
-    </View>
-  );
+  if (loading) {
+    getTodoList();
+    return (
+      <View>
+        <ActivityIndicator size="large" color="midnightblue" />
+      </View>
+    );
+  }
+  else {
+    return (
+      <View style={styles.bodyContainer}>
+        <Text style={styles.text}>To-Do:</Text>
+
+        { showCardOne &&
+        <Pressable onPress={() => navigation.navigate(
+          'Profile Stack', { screen: 'Update Height Weight', initial: false }
+        )}>
+          <Text style={styles.text}>Record Height and Weight</Text>
+        </Pressable> }
+
+        { showCardTwo &&
+        <Pressable onPress={() => navigation.navigate(
+          'Profile Stack', { screen: 'Record Weight', initial: false }
+        )}>
+          <Text style={styles.text}>Record Today's Weight</Text>
+        </Pressable> }
+  
+        <Pressable onPress={debugStuff}>
+          <Text style={styles.debugButton}>Scuffed Debug Button</Text>
+        </Pressable>
+      </View>
+    );
+  }
 }
 
 // #225588

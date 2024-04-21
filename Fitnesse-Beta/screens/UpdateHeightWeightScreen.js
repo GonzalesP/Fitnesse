@@ -2,16 +2,24 @@ import { View, Text, StyleSheet, TextInput, Pressable } from "react-native";
 import { useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function RecordWeightScreen({ navigation }) {
+export default function UpdateHeightWeightScreen({ navigation }) {
+  const [feetInput, setFeetInput] = useState();
+  const [inchesInput, setInchesInput] = useState();
   const [weightInput, setWeightInput] = useState();
   const [showError, setShowError] = useState(false);
 
   async function saveUserInput() {
-    if (!weightInput) {
+    if (!feetInput || !inchesInput || !weightInput) {
       setShowError(true);
       return;
     }
     setShowError(false);
+
+    // create height object
+    let height = {
+      "feet": feetInput,
+      "inches": inchesInput
+    }
 
     // create weight object
     let today = new Date().toDateString();
@@ -22,6 +30,9 @@ export default function RecordWeightScreen({ navigation }) {
 
     let demoMode = await AsyncStorage.getItem('demoMode');
     if (demoMode == "on") {
+      // update height
+      await AsyncStorage.setItem('demoHeight', JSON.stringify(height));
+
       // update weight
       let weightHistory = JSON.parse(await AsyncStorage.getItem('demoWeightHistory'));
 
@@ -49,6 +60,22 @@ export default function RecordWeightScreen({ navigation }) {
 
   return (
     <View style={styles.bodyContainer}>
+      <Text>Height</Text>
+      <TextInput
+        style={styles.input}
+        value={feetInput}
+        onChangeText={setFeetInput}
+        keyboardType="numeric"
+      />
+      <Text>ft.</Text>
+      <TextInput
+        style={styles.input}
+        value={inchesInput}
+        onChangeText={setInchesInput}
+        keyboardType="numeric"
+      />
+      <Text>in.</Text>
+
       <Text>Weight</Text>
       <TextInput
         style={styles.input}

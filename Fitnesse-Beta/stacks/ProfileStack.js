@@ -1,8 +1,9 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ProfileScreen from "../screens/ProfileScreen";
-import UpdateWeightHeightScreen from "../screens/UpdateWeightHeightScreen";
+import UpdateHeightWeightScreen from "../screens/UpdateHeightWeightScreen";
 import RecordWeightScreen from "../screens/RecordWeightScreen";
+import UpdateDietScreen from "../screens/UpdateDietScreen"
 
 const Stack = createNativeStackNavigator();
 
@@ -23,10 +24,10 @@ export const ProfileStack = () => {
         }}
       />
       <Stack.Screen
-        name="Update Weight and Height"
-        component={UpdateWeightHeightScreen}
+        name="Update Height Weight"
+        component={UpdateHeightWeightScreen}
         options={{
-          title: "Update Weight and Height",
+          title: "Update Height and Weight",
         }}
       />
       <Stack.Screen
@@ -34,6 +35,13 @@ export const ProfileStack = () => {
         component={RecordWeightScreen}
         options={{
           title: "Record Today's Weight",
+        }}
+      />
+      <Stack.Screen
+        name="Update Diet"
+        component={UpdateDietScreen}
+        options={{
+          title: "Choose Your Diet",
         }}
       />
     </Stack.Navigator>

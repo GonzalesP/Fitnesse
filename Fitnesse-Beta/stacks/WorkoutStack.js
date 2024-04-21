@@ -2,7 +2,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import WorkoutScheduleScreen from "../screens/WorkoutScheduleScreen";
 import EditWorkoutScheduleScreen from "../screens/EditWorkoutScheduleScreen";
-import RecordWorkoutScreen from "../screens/RecordWorkoutScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,13 +19,6 @@ export const WorkoutStack = () => {
         component={WorkoutScheduleScreen}
         options={{
           title: "Workout Schedule",
-        }}
-      />
-      <Stack.Screen
-        name="Record Workout"
-        component={RecordWorkoutScreen}
-        options={{
-          title: "Record Today's Workout",
         }}
       />
       <Stack.Screen
