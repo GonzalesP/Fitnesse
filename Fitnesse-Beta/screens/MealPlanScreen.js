@@ -50,9 +50,9 @@ export default function MealPlanScreen({ navigation }) {
 
   function renderMeals({ item }) {
     return (
-      <View>
-        <Text>{item.mealType}</Text>
-        <Text>{item.mealName}</Text>
+      <View key={item.mealType} style={styles.mealContainer}>
+        <Text style={styles.mealTypeText}>{item.mealType}</Text>
+        <Text style={styles.mealNameText}>{item.mealName}</Text>
         {/* <Text>Ingredients: {stringifyIngredients(item.ingredients)}</Text> */}
       </View>
     );
@@ -63,8 +63,8 @@ export default function MealPlanScreen({ navigation }) {
   if (loading) {
     getMealPlan();
     return (
-      <View>
-        <ActivityIndicator size="large" color="midnightblue" />
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" />
       </View>
     );
   } else {
@@ -73,35 +73,38 @@ export default function MealPlanScreen({ navigation }) {
         {/* Select Day of the Week */}
         <View style={styles.daysContainer}>
           <Pressable onPress={updateDay.bind(this, 0)}>
-            <Text>S</Text>
+            <Text style={styles.dayButton}>S</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 1)}>
-            <Text>M</Text>
+            <Text style={styles.dayButton}>M</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 2)}>
-            <Text>T</Text>
+            <Text style={styles.dayButton}>T</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 3)}>
-            <Text>W</Text>
+            <Text style={styles.dayButton}>W</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 4)}>
-            <Text>T</Text>
+            <Text style={styles.dayButton}>T</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 5)}>
-            <Text>F</Text>
+            <Text style={styles.dayButton}>F</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 6)}>
-            <Text>S</Text>
+            <Text style={styles.dayButton}>S</Text>
           </Pressable>
         </View>
         {/* day of the week */}
-        <View>
-          <Text>{dayName}</Text>
+        <View style={styles.headerContainer}>
+          <Text style={styles.headerText}>{dayName}</Text>
         </View>
         {/* display meals */}
         <FlatList
           data={mealPlan["meals"][day]}
           renderItem={renderMeals}
+          ItemSeparatorComponent={<View style={{ height: 16 }}></View>}
+          ListHeaderComponent={<View style={{ height: 16 }}></View>}
+          ListFooterComponent={<View style={{ height: 16 }}></View>}
         />
       </View>
     );
@@ -112,12 +115,43 @@ export default function MealPlanScreen({ navigation }) {
 // #F4F5F5
 // #E17000
 const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
   bodyContainer: {
     flex: 1,
+    padding: 16,
+    paddingBottom: 0,
   },
   daysContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: 16,
+    marginBottom: 24
+  },
+  dayButton: {
+    fontSize: 24
+  },
+  headerContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 8
+  },
+  headerText: {
+    fontSize: 24
+  },
+  mealContainer: {
+    backgroundColor: "#FFF",
+    padding: 16,
+    borderWidth: 2,
+    borderRadius: 16,
+  },
+  mealTypeText: {
+    fontSize: 20,
+    fontWeight: "bold"
+  },
+  mealNameText: {
+    fontSize: 18,
   }
 })

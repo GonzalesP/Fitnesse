@@ -38,18 +38,18 @@ export default function WorkoutScheduleScreen({ navigation }) {
   function renderWorkout({ item }) {
     let exerciseDesc;
     if (item.sets != null) {
-      exerciseDesc = <Text>{item.sets}x{item.reps}</Text>
+      exerciseDesc = <Text style={styles.exerciseDescText}>{item.sets}x{item.reps}</Text>
     }
     else if (item.duration != null) {
-      exerciseDesc = <Text>{item.duration}</Text>
+      exerciseDesc = <Text style={styles.exerciseDescText}>{item.duration}</Text>
     }
     else {
-      exerciseDesc = <Text></Text>
+      exerciseDesc = <Text style={styles.exerciseDescText}></Text>
     }
 
     return (
-      <View key={item.id}>
-        <Text>{item.exerciseName}</Text>
+      <View key={item.id} style={styles.exerciseContainer}>
+        <Text style={styles.exerciseNameText}>{item.exerciseName}</Text>
         {exerciseDesc}
       </View>
     )
@@ -60,8 +60,8 @@ export default function WorkoutScheduleScreen({ navigation }) {
   if (loading) {
     getWorkoutSchedule();
     return (
-      <View>
-        <ActivityIndicator size="large" color="midnightblue" />
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" />
       </View>
     );
   }
@@ -71,36 +71,39 @@ export default function WorkoutScheduleScreen({ navigation }) {
         {/* Select Day of the Week */}
         <View style={styles.daysContainer}>
           <Pressable onPress={updateDay.bind(this, 0)}>
-            <Text>S</Text>
+            <Text style={styles.dayButton}>S</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 1)}>
-            <Text>M</Text>
+            <Text style={styles.dayButton}>M</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 2)}>
-            <Text>T</Text>
+            <Text style={styles.dayButton}>T</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 3)}>
-            <Text>W</Text>
+            <Text style={styles.dayButton}>W</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 4)}>
-            <Text>T</Text>
+            <Text style={styles.dayButton}>T</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 5)}>
-            <Text>F</Text>
+            <Text style={styles.dayButton}>F</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 6)}>
-            <Text>S</Text>
+            <Text style={styles.dayButton}>S</Text>
           </Pressable>
         </View>
         {/* workout header (day of week + workout type) */}
-        <View>
-          <Text>{dayName}</Text>
-          <Text>{workoutSchedule[day].type}</Text>
+        <View style={styles.headerContainer}>
+          <Text style={styles.headerText}>{dayName}</Text>
+          <Text style={styles.headerText}>{workoutSchedule[day].type}</Text>
         </View>
         {/* display workout */}
         <FlatList
           data={workoutSchedule[day].exercises}
           renderItem={renderWorkout}
+          ItemSeparatorComponent={<View style={{ height: 16 }}></View>}
+          ListHeaderComponent={<View style={{ height: 16 }}></View>}
+          ListFooterComponent={<View style={{ height: 16 }}></View>}
         />
       </View>
     );
@@ -111,17 +114,43 @@ export default function WorkoutScheduleScreen({ navigation }) {
 // #F4F5F5
 // #E17000
 const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
   bodyContainer: {
     flex: 1,
+    padding: 16,
+    paddingBottom: 0,
   },
   daysContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: 16,
+    marginBottom: 24
   },
-  text: {
-    fontSize: 24,
-    fontWeight: "bold",
-    margin: 16,
+  dayButton: {
+    fontSize: 24
+  },
+  headerContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 8
+  },
+  headerText: {
+    fontSize: 24
+  },
+  exerciseContainer: {
+    backgroundColor: "#FFF",
+    padding: 16,
+    borderWidth: 2,
+    borderRadius: 16
+  },
+  exerciseNameText: {
+    fontSize: 20,
+    fontWeight: "bold"
+  },
+  exerciseDescText: {
+    fontSize: 18,
   }
 })

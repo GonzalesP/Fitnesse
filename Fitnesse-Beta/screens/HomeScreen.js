@@ -62,21 +62,25 @@ export default function HomeScreen({ navigation }) {
   else {
     return (
       <View style={styles.bodyContainer}>
-        <Text style={styles.text}>To-Do:</Text>
+        <Text style={styles.headerText}>To-Do:</Text>
 
         { showCardOne &&
         <Pressable onPress={() => navigation.navigate(
           'Profile Stack', { screen: 'Update Height Weight', initial: false }
         )}>
-          <Text style={styles.text}>Record Height and Weight</Text>
+          <View style={styles.todoCardContainer}>
+            <Text style={styles.text}>Record Height and Weight</Text>
+          </View>
         </Pressable> }
 
         { showCardTwo &&
-        <Pressable onPress={() => navigation.navigate(
-          'Profile Stack', { screen: 'Record Weight', initial: false }
-        )}>
-          <Text style={styles.text}>Record Today's Weight</Text>
-        </Pressable> }
+          <Pressable onPress={() => navigation.navigate(
+            'Profile Stack', { screen: 'Record Weight', initial: false }
+          )}>
+            <View style={styles.todoCardContainer}>
+              <Text style={styles.todoCardText}>Record Today's Weight</Text>
+            </View>
+          </Pressable> }
   
         <Pressable onPress={debugStuff}>
           <Text style={styles.debugButton}>Scuffed Debug Button</Text>
@@ -92,12 +96,21 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   bodyContainer: {
     flex: 1,
-    alignItems: "center",
+    padding: 16,
   },
-  text: {
-    fontSize: 24,
+  headerText: {
+    fontSize: 30,
     fontWeight: "bold",
     marginBottom: 16,
+  },
+  todoCardContainer: {
+    backgroundColor: "#FFF",
+    padding: 8,
+    borderWidth: 2,
+    borderRadius: 16,
+  },
+  todoCardText: {
+    fontSize: 24,
   },
   debugButton: {
     fontSize: 24,

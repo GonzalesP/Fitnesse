@@ -99,7 +99,6 @@ export default function UpdateHeightWeightScreen({ navigation }) {
 const styles = StyleSheet.create({
   bodyContainer: {
     flex: 1,
-    alignItems: "center",
   },
   text: {
     fontSize: 24,

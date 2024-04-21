@@ -104,7 +104,6 @@ export default function UpdateDietScreen({ navigation }) {
 const styles = StyleSheet.create({
   bodyContainer: {
     flex: 1,
-    alignItems: "center",
   },
   text: {
     fontSize: 24,

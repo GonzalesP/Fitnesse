@@ -141,6 +141,10 @@ export const demoWeightHistory =
   {
     "date": "Fri Apr 19 2024",  // Actual: Mar 01
     "weight": 320.1
+  },
+  {
+    "date": "Fri Apr 20 2024",
+    "weight": 319.8
   }
 ]
 
@@ -160,52 +164,31 @@ export const demoWorkoutSchedule =
       },
       {
         "id": 2,
-        "exerciseName": "bench press",
-        "sets": 5,
-        "reps": 5,
+        "exerciseName": "hanging curls",
+        "sets": 3,
+        "reps": 10,
         "duration": null
       },
       {
         "id": 3,
-        "exerciseName": "back squat",
-        "sets": 5,
-        "reps": 5,
+        "exerciseName": "hanging twists",
+        "sets": 3,
+        "reps": 10,
         "duration": null
       },
       {
         "id": 4,
-        "exerciseName": "deadlift",
+        "exerciseName": "decline sit-ups",
         "sets": 3,
-        "reps": 8,
+        "reps": 10,
         "duration": null
       },
       {
         "id": 5,
-        "exerciseName": "one mile run",
-        "sets": 1,
-        "reps": 1,
-        "duration": null
-      },
-      {
-        "id": 6,
-        "exerciseName": "bulgarian split squats",
-        "sets": 3,
-        "reps": 10,
-        "duration": null
-      },
-      {
-        "id": 7,
-        "exerciseName": "calf raises",
-        "sets": 3,
-        "reps": 10,
-        "duration": null
-      },
-      {
-        "id": 8,
-        "exerciseName": "incline dumbbell press",
-        "sets": 3,
-        "reps": 10,
-        "duration": null
+        "exerciseName": "treadmill",
+        "sets": null,
+        "reps": null,
+        "duration": "30 min"
       }
     ]
   },
@@ -230,45 +213,38 @@ export const demoWorkoutSchedule =
       },
       {
         "id": 3,
-        "exerciseName": "back squat",
-        "sets": 5,
-        "reps": 5,
+        "exerciseName": "incline shoulder press",
+        "sets": 3,
+        "reps": 10,
         "duration": null
       },
       {
         "id": 4,
-        "exerciseName": "deadlift",
+        "exerciseName": "shoulder press",
         "sets": 3,
         "reps": 8,
         "duration": null
       },
       {
         "id": 5,
-        "exerciseName": "one mile run",
-        "sets": 1,
-        "reps": 1,
+        "exerciseName": "lateral raise",
+        "sets": 5,
+        "reps": 12,
         "duration": null
       },
       {
         "id": 6,
-        "exerciseName": "bulgarian split squats",
+        "exerciseName": "pec fly",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 7,
-        "exerciseName": "calf raises",
-        "sets": 3,
-        "reps": 10,
-        "duration": null
-      },
-      {
-        "id": 8,
-        "exerciseName": "incline dumbbell press",
-        "sets": 3,
-        "reps": 10,
-        "duration": null
+        "exerciseName": "cycling",
+        "sets": null,
+        "reps": null,
+        "duration": "30 min"
       }
     ]
   },
@@ -286,49 +262,49 @@ export const demoWorkoutSchedule =
       },
       {
         "id": 2,
-        "exerciseName": "bench press",
-        "sets": 5,
-        "reps": 5,
-        "duration": null
-      },
-      {
-        "id": 3,
-        "exerciseName": "back squat",
-        "sets": 5,
-        "reps": 5,
-        "duration": null
-      },
-      {
-        "id": 4,
-        "exerciseName": "deadlift",
+        "exerciseName": "pull ups",
         "sets": 3,
         "reps": 8,
         "duration": null
       },
       {
+        "id": 3,
+        "exerciseName": "cable rows",
+        "sets": 2,
+        "reps": 10,
+        "duration": null
+      },
+      {
+        "id": 4,
+        "exerciseName": "single hand rows",
+        "sets": 2,
+        "reps": 8,
+        "duration": null
+      },
+      {
         "id": 5,
-        "exerciseName": "one mile run",
-        "sets": 1,
-        "reps": 1,
+        "exerciseName": "lat pull downs (hammer grip)",
+        "sets": 3,
+        "reps": 10,
         "duration": null
       },
       {
         "id": 6,
-        "exerciseName": "bulgarian split squats",
+        "exerciseName": "lat prayers",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 7,
-        "exerciseName": "calf raises",
-        "sets": 3,
+        "exerciseName": "rear delt fly",
+        "sets": 4,
         "reps": 10,
         "duration": null
       },
       {
         "id": 8,
-        "exerciseName": "incline dumbbell press",
+        "exerciseName": "hanging curls",
         "sets": 3,
         "reps": 10,
         "duration": null
@@ -349,37 +325,37 @@ export const demoWorkoutSchedule =
       },
       {
         "id": 2,
-        "exerciseName": "bench press",
-        "sets": 5,
-        "reps": 5,
-        "duration": null
-      },
-      {
-        "id": 3,
         "exerciseName": "back squat",
         "sets": 5,
         "reps": 5,
         "duration": null
       },
       {
-        "id": 4,
-        "exerciseName": "deadlift",
+        "id": 3,
+        "exerciseName": "leg press (low feet placement)",
         "sets": 3,
         "reps": 8,
         "duration": null
       },
       {
+        "id": 4,
+        "exerciseName": "quad extension",
+        "sets": 3,
+        "reps": 10,
+        "duration": null
+      },
+      {
         "id": 5,
-        "exerciseName": "one mile run",
-        "sets": 1,
-        "reps": 1,
+        "exerciseName": "bulgarian split squats",
+        "sets": 3,
+        "reps": 10,
         "duration": null
       },
       {
         "id": 6,
-        "exerciseName": "bulgarian split squats",
+        "exerciseName": "goblet squats",
         "sets": 3,
-        "reps": 10,
+        "reps": 8,
         "duration": null
       },
       {
@@ -391,10 +367,10 @@ export const demoWorkoutSchedule =
       },
       {
         "id": 8,
-        "exerciseName": "incline dumbbell press",
-        "sets": 3,
-        "reps": 10,
-        "duration": null
+        "exerciseName": "treadmill",
+        "sets": null,
+        "reps": null,
+        "duration": "30 min"
       }
     ]
   },
@@ -412,49 +388,49 @@ export const demoWorkoutSchedule =
       },
       {
         "id": 2,
-        "exerciseName": "bench press",
+        "exerciseName": "incline bench press",
         "sets": 5,
         "reps": 5,
         "duration": null
       },
       {
         "id": 3,
-        "exerciseName": "back squat",
-        "sets": 5,
-        "reps": 5,
-        "duration": null
-      },
-      {
-        "id": 4,
-        "exerciseName": "deadlift",
+        "exerciseName": "shoulder press",
         "sets": 3,
         "reps": 8,
         "duration": null
       },
       {
-        "id": 5,
-        "exerciseName": "one mile run",
-        "sets": 1,
-        "reps": 1,
-        "duration": null
-      },
-      {
-        "id": 6,
-        "exerciseName": "bulgarian split squats",
+        "id": 4,
+        "exerciseName": "incline dumbbell press",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
+        "id": 5,
+        "exerciseName": "lateral raise",
+        "sets": 5,
+        "reps": 12,
+        "duration": null
+      },
+      {
+        "id": 6,
+        "exerciseName": "dips",
+        "sets": 3,
+        "reps": "failure",
+        "duration": null
+      },
+      {
         "id": 7,
-        "exerciseName": "calf raises",
+        "exerciseName": "tricep pushdown",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 8,
-        "exerciseName": "incline dumbbell press",
+        "exerciseName": "hanging twists",
         "sets": 3,
         "reps": 10,
         "duration": null
@@ -475,52 +451,52 @@ export const demoWorkoutSchedule =
       },
       {
         "id": 2,
-        "exerciseName": "bench press",
-        "sets": 5,
-        "reps": 5,
-        "duration": null
-      },
-      {
-        "id": 3,
-        "exerciseName": "back squat",
-        "sets": 5,
-        "reps": 5,
-        "duration": null
-      },
-      {
-        "id": 4,
-        "exerciseName": "deadlift",
+        "exerciseName": "lat pull downs (curl grip)",
         "sets": 3,
         "reps": 8,
         "duration": null
       },
       {
+        "id": 3,
+        "exerciseName": "bent over rows",
+        "sets": 3,
+        "reps": 8,
+        "duration": null
+      },
+      {
+        "id": 4,
+        "exerciseName": "cable rows",
+        "sets": 3,
+        "reps": 10,
+        "duration": null
+      },
+      {
         "id": 5,
-        "exerciseName": "one mile run",
-        "sets": 1,
-        "reps": 1,
+        "exerciseName": "lat pull downs (hammer grip)",
+        "sets": 3,
+        "reps": 10,
         "duration": null
       },
       {
         "id": 6,
-        "exerciseName": "bulgarian split squats",
+        "exerciseName": "lat prayers",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 7,
-        "exerciseName": "calf raises",
+        "exerciseName": "facepulls",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 8,
-        "exerciseName": "incline dumbbell press",
-        "sets": 3,
-        "reps": 10,
-        "duration": null
+        "exerciseName": "stairmaster",
+        "sets": null,
+        "reps": null,
+        "duration": "30 min"
       }
     ]
   },
@@ -538,42 +514,49 @@ export const demoWorkoutSchedule =
       },
       {
         "id": 2,
-        "exerciseName": "bench press",
-        "sets": 5,
-        "reps": 5,
-        "duration": null
-      },
-      {
-        "id": 3,
         "exerciseName": "back squat",
         "sets": 5,
         "reps": 5,
         "duration": null
       },
       {
+        "id": 3,
+        "exerciseName": "leg press (high feet placement)",
+        "sets": 3,
+        "reps": 8,
+        "duration": null
+      },
+      {
         "id": 4,
-        "exerciseName": "deadlift",
+        "exerciseName": "RDLs",
         "sets": 3,
         "reps": 8,
         "duration": null
       },
       {
         "id": 5,
-        "exerciseName": "bulgarian split squats",
+        "exerciseName": "hamstring curls",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 6,
-        "exerciseName": "calf raises",
+        "exerciseName": "hip thrusts",
         "sets": 3,
         "reps": 10,
         "duration": null
       },
       {
         "id": 7,
-        "exerciseName": "incline dumbbell press",
+        "exerciseName": "calf raises",
+        "sets": 3,
+        "reps": 10,
+        "duration": null
+      },
+      {
+        "id": 8,
+        "exerciseName": "decline sit-ups",
         "sets": 3,
         "reps": 10,
         "duration": null

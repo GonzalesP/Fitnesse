@@ -19,7 +19,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <StatusBar
-        // backgroundColor="#00274C"
+        // backgroundColor="#FFFFFF"
         barStyle="light-content"
       />
       <Tab.Navigator
@@ -28,8 +28,6 @@ export default function App() {
           // tabBarActiveTintColor: "#719dcd",
           // tabBarInactiveTintColor: "#F4F5F5",
           // tabBarStyle: { backgroundColor: "#00274C" },
-          // headerStyle: { backgroundColor: "#00274C" },
-          // headerTintColor: "#F4F5F5",
         }}
       >
         <Tab.Screen

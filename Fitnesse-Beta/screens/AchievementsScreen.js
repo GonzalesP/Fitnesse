@@ -28,7 +28,7 @@ export default function AchievementsScreen({ navigation }) {
     if (achievements[item].length == 0) {
       return (
         <View key={item}>
-          <Text>{item}</Text>
+          <Text style={styles.headerText}>{item}</Text>
           <Text>No achievements unlocked.</Text>
         </View>
       );
@@ -36,15 +36,16 @@ export default function AchievementsScreen({ navigation }) {
     else {
       return (
         <View key={item}>
-          <Text>{item}</Text>
+          <Text style={styles.headerText}>{item}</Text>
+          {/* render all achievements using Array.map() */}
           {
-            // date description name
+            // achievements[item]: date description name
             achievements[item].map((achObject) => {
               return (
-                <View key={achObject["name"]}>
-                  <Text>{achObject["name"]}</Text>
-                  <Text>{achObject["description"]}</Text>
-                  <Text>Date Unlocked: {achObject["date"]}</Text>
+                <View key={achObject["name"]} style={styles.achievementContainer}>
+                  <Text style={styles.achievementName}>{achObject["name"]}</Text>
+                  <Text style={styles.achievementDesc}>{achObject["description"]}</Text>
+                  <Text style={styles.achievementDate}>{achObject["date"]}</Text>
                 </View>
               );
             })
@@ -59,8 +60,8 @@ export default function AchievementsScreen({ navigation }) {
   if (loading) {
     getAchievements();
     return (
-      <View>
-        <ActivityIndicator size="large" color="midnightblue" />
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" />
       </View>
     );
   } else {
@@ -69,6 +70,8 @@ export default function AchievementsScreen({ navigation }) {
         <FlatList
           data={Object.keys(achievements)}
           renderItem={renderAchievements}
+          ItemSeparatorComponent={<View style={{ height: 36 }}></View>}
+          ListHeaderComponent={<View style={{ height: 8 }}></View>}
         />
       </View>
     );
@@ -76,7 +79,36 @@ export default function AchievementsScreen({ navigation }) {
 };
 
 const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
   bodyContainer: {
     flex: 1,
+    padding: 16,
+    paddingTop: 0,
+    paddingBottom: 0
   },
+  headerText: {
+    fontSize: 30,
+    fontWeight: "bold"
+  },
+  achievementContainer: {
+    backgroundColor: "#FFF",
+    marginTop: 16,
+    padding: 8,
+    borderWidth: 2,
+    borderRadius: 16
+  },
+  achievementName: {
+    fontSize: 24
+  },
+  achievementDesc: {
+    fontSize: 18,
+  },
+  achievementDate: {
+    fontStyle: 'italic',
+    fontSize: 12
+  }
 })

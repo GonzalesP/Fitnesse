@@ -30,7 +30,7 @@ export async function printDemoVariables() {
   console.log("demoMode: " + demoMode);
   console.log("height: " + height);
   console.log("weightHistory: " + weightHistory);
-  console.log("lastWorkoutDate: " + lastWorkoutDate)
+  console.log("lastWorkoutDate: " + lastWorkoutDate);
   console.log("workoutSchedule: " + workoutSchedule);
   console.log("mealPlan: " + mealPlan);
   console.log("personalBests: " + personalBests);
