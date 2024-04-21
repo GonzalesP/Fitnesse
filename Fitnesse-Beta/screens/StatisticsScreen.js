@@ -6,10 +6,8 @@ export default function StatisticsScreen({ navigation }) {
   const [weightHistory, setWeightHistory] = useState();
   const [personalBests, setPersonalBests] = useState();
 
-  const [viewWeight, setWeightView] = useState('week');
   const [weightChange, setWeightChange] = useState('');
-
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(true);
 
   const refreshScreen = navigation.addListener('focus', async() => {
     setLoading(true);
@@ -26,9 +24,7 @@ export default function StatisticsScreen({ navigation }) {
 
       setWeightHistory(wh);
       setPersonalBests(pb);
-
-      // console.log(personalBests["back squat"])
-      // console.log(Object.keys(personalBests))
+      setWeightChange('select a filter');
     }
     else {
       // getItem userWeightHistory and userPersonalBests
@@ -37,16 +33,64 @@ export default function StatisticsScreen({ navigation }) {
     setLoading(false);
   }
 
-  async function renderPersonalBests({ item }) {
-    console.log(item);
-    // let pbValue = personalBests[item]["personalBest"];
-    // let pbDate = personalBests[item]["date"]
-    // return (
-    //   <View key={item}>
-    //     <Text>{item}: {pbValue ? pbValue : "N/A"}</Text>
-    //     <Text>Date: {pbDate ? pbDate : "N/A"}</Text>
-    //   </View>
-    // );
+  function calculateWeightChange(selectedView) {
+    let todayIndex = weightHistory.length - 1;
+    let currentWeight = weightHistory[todayIndex]["weight"];
+    let totalChange;
+
+    if (selectedView == 'day') {
+      if (weightHistory.length >= 2) {
+        totalChange = currentWeight - weightHistory[todayIndex - 1]["weight"];
+      }
+      else {
+        totalChange = currentWeight - weightHistory[0]["weight"];
+      }
+    }
+    else if (selectedView == 'week') {
+      if (weightHistory.length >= 8) {
+        totalChange = currentWeight - weightHistory[todayIndex - 7]["weight"];
+      }
+      else {
+        totalChange = currentWeight - weightHistory[0]["weight"];
+      }
+    }
+    else if (selectedView == 'month') {
+      if (weightHistory.length >= 32) {
+        totalChange = currentWeight - weightHistory[todayIndex - 31]["weight"];
+      }
+      else {
+        totalChange = currentWeight - weightHistory[0]["weight"];
+      }
+    }
+    else if (selectedView == 'year') {
+      if (weightHistory.length >= 366) {
+        totalChange = currentWeight - weightHistory[todayIndex - 365]["weight"];
+      }
+      else {
+        totalChange = currentWeight - weightHistory[0]["weight"];
+      }
+    }
+    else {
+      totalChange = currentWeight - weightHistory[0]["weight"];
+    }
+
+    if (totalChange <= 0) {
+      setWeightChange(`You lost ${Math.abs(totalChange.toFixed(2))} lbs.`);
+    }
+    else {
+      setWeightChange(`You gained ${totalChange.toFixed(2)} lbs.`)
+    }
+  }
+
+  function renderPersonalBests({ item }) {
+    let pbValue = personalBests[item]["personalBest"];
+    let pbDate = personalBests[item]["date"]
+    return (
+      <View key={item}>
+        <Text>{item}: {pbValue ? pbValue : "N/A"}</Text>
+        <Text>Date: {pbDate ? pbDate : "N/A"}</Text>
+      </View>
+    );
   }
 
   if (loading) {
@@ -64,31 +108,31 @@ export default function StatisticsScreen({ navigation }) {
           <Text style={styles.text}>Go to 'Achievements' screen</Text>
         </Pressable>
   
-        <Text style={styles.text}>Weight History</Text>
+        <Text style={styles.text}>Weight Progress</Text>
         <View style={styles.filterContainer}>
-          <Pressable onPress={setWeightView.bind(this, 'day')}>
+          <Pressable onPress={calculateWeightChange.bind(this, 'day')}>
             <Text>1 Day</Text>
           </Pressable>
-          <Pressable onPress={setWeightView.bind(this, 'week')}>
+          <Pressable onPress={calculateWeightChange.bind(this, 'week')}>
             <Text>1 Week</Text>
           </Pressable>
-          <Pressable onPress={setWeightView.bind(this, 'month')}>
+          <Pressable onPress={calculateWeightChange.bind(this, 'month')}>
             <Text>1 Month</Text>
           </Pressable>
-          <Pressable onPress={setWeightView.bind(this, 'year')}>
+          <Pressable onPress={calculateWeightChange.bind(this, 'year')}>
             <Text>1 Year</Text>
           </Pressable>
-          <Pressable onPress={setWeightView.bind(this, 'all time')}>
+          <Pressable onPress={calculateWeightChange.bind(this, 'all time')}>
             <Text>All Time</Text>
           </Pressable>
         </View>
         <Text>{weightChange}</Text>
   
         <Text style={styles.text}>Personal Bests</Text>
-        {/* <FlatList
+        <FlatList
           data={Object.keys(personalBests)}
           renderItem={renderPersonalBests}
-        /> */}
+        />
       </View>
     );
   }
