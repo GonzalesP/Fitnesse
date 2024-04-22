@@ -143,7 +143,7 @@ export const demoWeightHistory =
     "weight": 320.1
   },
   {
-    "date": "Fri Apr 20 2024",
+    "date": "Sat Apr 20 2024",
     "weight": 319.8
   }
 ]

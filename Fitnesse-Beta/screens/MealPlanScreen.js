@@ -139,7 +139,8 @@ const styles = StyleSheet.create({
     marginBottom: 8
   },
   headerText: {
-    fontSize: 24
+    fontSize: 24,
+    fontWeight: "bold"
   },
   mealContainer: {
     backgroundColor: "#FFF",

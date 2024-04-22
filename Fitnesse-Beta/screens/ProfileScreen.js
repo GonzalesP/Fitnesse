@@ -52,7 +52,7 @@ export default function ProfileScreen({ navigation }) {
   if (loading) {
     getProfile();
     return (
-      <View>
+      <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="midnightblue" />
       </View>
     );
@@ -60,25 +60,42 @@ export default function ProfileScreen({ navigation }) {
   else {
     return (
       <View style={styles.bodyContainer}>
-        <View>
-          <Text>Body Composition</Text>
-          <Text>Height: {height}</Text>
-          <Text>Weight: {weight}</Text>
-          <Text>BMI: {bmi}</Text>
-          <Pressable onPress={() => navigation.navigate("Update Height Weight")}>
-            <Text style={styles.text}>Update Height and Weight</Text>
-          </Pressable>
-          <Pressable onPress={() => navigation.navigate("Record Weight")}>
-            <Text style={styles.text}>Update Today's Weight</Text>
-          </Pressable>
+        <View style={styles.compositionContainer}>
+          <Text style={styles.headerText}>Body Composition</Text>
+          <View style={styles.traitContainer}>
+            <Text style={styles.traitText}>Height: </Text>
+            <Text style={styles.valueText}>{height}</Text>
+          </View>
+          <View style={styles.traitContainer}>
+            <Text style={styles.traitText}>Weight: </Text>
+            <Text style={styles.valueText}>{weight}</Text>
+          </View>
+          <View style={styles.traitContainer}>
+            <Text style={styles.traitText}>BMI: </Text>
+            <Text style={styles.valueText}>{bmi}</Text>
+          </View>
+          <View style={styles.buttonContainer}>
+            <Pressable onPress={() => navigation.navigate("Update Height Weight")}>
+              <Text style={styles.buttonText}>Update Height and Weight</Text>
+            </Pressable>
+            <View style={{ height: 8 }}></View>
+            <Pressable onPress={() => navigation.navigate("Record Weight")}>
+              <Text style={styles.buttonText}>Record Today's Weight</Text>
+            </Pressable>
+          </View>
         </View>
         <View>
-          <Text>Meal Plan</Text>
-          <Text>Diet: {diet}</Text>
+          <Text style={styles.headerText}>Meal Plan</Text>
+          <View style={styles.traitContainer}>
+            <Text style={styles.traitText}>Diet: </Text>
+            <Text style={styles.valueText}>{diet}</Text>
+          </View>
+          <View style={styles.buttonContainer}>
+            <Pressable onPress={() => navigation.navigate("Update Diet")}>
+              <Text style={styles.buttonText}>Edit Diet</Text>
+            </Pressable>
+          </View>
         </View>
-        <Pressable onPress={() => navigation.navigate("Update Diet")}>
-            <Text style={styles.text}>Edit Diet</Text>
-          </Pressable>
       </View>
     );
   }
@@ -88,12 +105,44 @@ export default function ProfileScreen({ navigation }) {
 // #F4F5F5
 // #E17000
 const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
   bodyContainer: {
     flex: 1,
+    padding: 16,
+    paddingBottom: 0
   },
-  text: {
+  compositionContainer: {
+    marginBottom: 16
+  },
+  buttonContainer: {
+    paddingTop: 16
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    padding: 10,
+    borderWidth: 2,
+    borderRadius: 12,
+    backgroundColor: "#719dcd",
+    alignSelf: "flex-start"
+  },
+  headerText: {
     fontSize: 24,
     fontWeight: "bold",
-    margin: 16,
+    paddingBottom: 8,
+  },
+  traitContainer: {
+    flexDirection: "row"
+  },
+  traitText: {
+    fontSize: 18,
+    fontWeight: "bold"
+  },
+  valueText: {
+    fontSize: 18,
   }
 })

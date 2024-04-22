@@ -58,7 +58,7 @@ export default function UpdateDietScreen({ navigation }) {
   if (loading) {
     getDiet();
     return (
-      <View>
+      <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="midnightblue" />
       </View>
     );
@@ -66,30 +66,42 @@ export default function UpdateDietScreen({ navigation }) {
   else {
     return (
       <View style={styles.bodyContainer}>
-        <Text>Current Diet: {currentDiet}</Text>
-        <View>
+        {/* display current diet */}
+        <View style={styles.traitContainer}>
+          <Text style={styles.traitText}>Current Diet: </Text>
+          <Text style={styles.valueText}>{currentDiet}</Text>
+        </View>
+
+        {/* button options */}
+        <View style={styles.optionContainer}>
           <Pressable onPress={setDietChoice.bind(this, 'default')}>
-            <Text style={styles.text}>Default</Text>
+            <Text style={styles.optionText}>Default</Text>
           </Pressable>
           <Pressable onPress={setDietChoice.bind(this, 'vegetarian')}>
-            <Text style={styles.text}>Vegetarian</Text>
+            <Text style={styles.optionText}>Vegetarian</Text>
           </Pressable>
           <Pressable onPress={setDietChoice.bind(this, 'high blood pressure')}>
-            <Text style={styles.text}>High Blood Pressure</Text>
+            <Text style={styles.optionText}>High Blood Pressure</Text>
           </Pressable>
           <Pressable onPress={setDietChoice.bind(this, 'diabetes')}>
-            <Text style={styles.text}>Diabetes</Text>
+            <Text style={styles.optionText}>Diabetes</Text>
           </Pressable>
           <Pressable onPress={setDietChoice.bind(this, 'anti-inflammatory')}>
-            <Text style={styles.text}>Anti-Inflammatory</Text>
+            <Text style={styles.optionText}>Anti-Inflammatory</Text>
           </Pressable>
         </View>
+
+        {/* display selected diet */}
         {
           dietChoice &&
           <View>
-            <Text>Selected Diet: {dietChoice}</Text>
+            <View style={{ height: 16 }}></View>
+            <View style={styles.traitContainer}>
+              <Text style={styles.traitText}>Selected Diet: </Text>
+              <Text style={styles.valueText}>{dietChoice}</Text>
+            </View>
             <Pressable onPress={saveUserInput}>
-              <Text style={styles.text}>Confirm</Text>
+              <Text style={styles.buttonText}>Confirm</Text>
             </Pressable>
           </View>
         }
@@ -102,12 +114,50 @@ export default function UpdateDietScreen({ navigation }) {
 // #F4F5F5
 // #E17000
 const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
   bodyContainer: {
     flex: 1,
+    padding: 16,
+    paddingBottom: 0
   },
-  text: {
-    fontSize: 24,
+  optionText: {
+    fontSize: 16,
     fontWeight: "bold",
-    margin: 16,
+    padding: 10,
+    margin: 4,
+    borderWidth: 2,
+    borderRadius: 12,
+    backgroundColor: "#9dce71",
+    alignSelf: "flex-start"
+  },
+  optionContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    paddingVertical: 16
+  },
+  traitContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap"
+  },
+  traitText: {
+    fontSize: 20,
+    fontWeight: "bold"
+  },
+  valueText: {
+    fontSize: 20,
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    padding: 10,
+    marginTop: 12,
+    borderWidth: 2,
+    borderRadius: 12,
+    backgroundColor: "#719dcd",
+    alignSelf: "flex-start"
   }
 })

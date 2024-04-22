@@ -60,35 +60,40 @@ export default function UpdateHeightWeightScreen({ navigation }) {
 
   return (
     <View style={styles.bodyContainer}>
-      <Text>Height</Text>
-      <TextInput
-        style={styles.input}
-        value={feetInput}
-        onChangeText={setFeetInput}
-        keyboardType="numeric"
-      />
-      <Text>ft.</Text>
-      <TextInput
-        style={styles.input}
-        value={inchesInput}
-        onChangeText={setInchesInput}
-        keyboardType="numeric"
-      />
-      <Text>in.</Text>
+      <Text style={styles.headerText}>Height: </Text>
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          value={feetInput}
+          onChangeText={setFeetInput}
+          keyboardType="numeric"
+        />
+        <Text style={styles.labelText}>ft.</Text>
 
-      <Text>Weight</Text>
-      <TextInput
-        style={styles.input}
-        value={weightInput}
-        onChangeText={setWeightInput}
-        keyboardType="numeric"
-      />
-      <Text>lbs.</Text>
+        <TextInput
+          style={styles.input}
+          value={inchesInput}
+          onChangeText={setInchesInput}
+          keyboardType="numeric"
+        />
+        <Text style={styles.labelText}>in.</Text>
+      </View>
 
-      {showError && <Text style={{color: "red"}}>Please fill in all fields</Text>}
+      <Text style={styles.headerText}>Weight: </Text>
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          value={weightInput}
+          onChangeText={setWeightInput}
+          keyboardType="numeric"
+        />
+        <Text style={styles.labelText}>lbs.</Text>
+      </View>
+
       <Pressable onPress={saveUserInput}>
-        <Text style={styles.text}>Submit</Text>
+        <Text style={styles.buttonText}>Submit</Text>
       </Pressable>
+      {showError && <Text style={{color: "red"}}>Please fill in all fields</Text>}
     </View>
   );
 };
@@ -99,16 +104,37 @@ export default function UpdateHeightWeightScreen({ navigation }) {
 const styles = StyleSheet.create({
   bodyContainer: {
     flex: 1,
+    padding: 16,
+    paddingBottom: 0
   },
-  text: {
-    fontSize: 24,
-    fontWeight: "bold",
-    margin: 16,
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "baseline",
+    marginBottom: 16
   },
   input: {
-    height: 40,
-    margin: 12,
-    padding: 10,
     borderWidth: 1,
+    fontSize: 16,
+    paddingHorizontal: 8,
   },
+  headerText: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 8,
+  },
+  labelText: {
+    fontSize: 24,
+    marginLeft: 8,
+    marginRight: 16
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    padding: 10,
+    marginTop: 16,
+    borderWidth: 2,
+    borderRadius: 12,
+    backgroundColor: "#719dcd",
+    alignSelf: "flex-start"
+  }
 })

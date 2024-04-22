@@ -102,7 +102,8 @@ const styles = StyleSheet.create({
     borderRadius: 16
   },
   achievementName: {
-    fontSize: 24
+    fontSize: 22,
+    fontWeight: "bold"
   },
   achievementDesc: {
     fontSize: 18,

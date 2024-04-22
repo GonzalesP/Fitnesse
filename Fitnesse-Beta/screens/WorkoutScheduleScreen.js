@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   bodyContainer: {
     flex: 1,
     padding: 16,
-    paddingBottom: 0,
+    paddingBottom: 0
   },
   daysContainer: {
     flexDirection: "row",
@@ -138,7 +138,8 @@ const styles = StyleSheet.create({
     marginBottom: 8
   },
   headerText: {
-    fontSize: 24
+    fontSize: 24,
+    fontWeight: "bold",
   },
   exerciseContainer: {
     backgroundColor: "#FFF",

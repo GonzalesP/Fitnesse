@@ -18,13 +18,11 @@ export default function HomeScreen({ navigation }) {
     // fetch data from AsyncStorage
     let height;
     let weightHistory;
-    let lastWorkoutDate;
 
     let demoMode = await AsyncStorage.getItem('demoMode');
     if (demoMode == "on") {
-      height = await AsyncStorage.getItem('demoHeight');
-      weightHistory = await AsyncStorage.getItem('demoWeightHistory');
-      lastWorkoutDate = await AsyncStorage.getItem('demoLastWorkoutDate');
+      height = JSON.parse(await AsyncStorage.getItem('demoHeight'));
+      weightHistory = JSON.parse(await AsyncStorage.getItem('demoWeightHistory'));
     }
     else {
       // user defaults
@@ -36,9 +34,12 @@ export default function HomeScreen({ navigation }) {
       setShowCardOne(true);
     }
     else {
+      setShowCardOne(false);
       if (weightHistory[weightHistory.length - 1]["date"] != today) {
-        // card two
         setShowCardTwo(true);
+      }
+      else {
+        setShowCardTwo(false);
       }
     }
 
@@ -81,10 +82,14 @@ export default function HomeScreen({ navigation }) {
               <Text style={styles.todoCardText}>Record Today's Weight</Text>
             </View>
           </Pressable> }
+
+        { !showCardOne && !showCardTwo &&
+          <Text style={styles.todoCardText}>Nothing else to do!</Text>
+        }
   
-        <Pressable onPress={debugStuff}>
+        {/* <Pressable onPress={debugStuff}>
           <Text style={styles.debugButton}>Scuffed Debug Button</Text>
-        </Pressable>
+        </Pressable> */}
       </View>
     );
   }

@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet, Pressable, FlatList, ActivityIndicator } from "react-native";
+import { View, Text, StyleSheet, Pressable, ScrollView, FlatList, ActivityIndicator } from "react-native";
 import { useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function StatisticsScreen({ navigation }) {
   const [weightHistory, setWeightHistory] = useState();
@@ -82,58 +83,69 @@ export default function StatisticsScreen({ navigation }) {
     }
   }
 
-  function renderPersonalBests({ item }) {
-    let pbValue = personalBests[item]["personalBest"];
-    let pbDate = personalBests[item]["date"]
-    return (
-      <View key={item}>
-        <Text>{item}: {pbValue ? pbValue : "N/A"}</Text>
-        <Text>Date: {pbDate ? pbDate : "N/A"}</Text>
-      </View>
-    );
-  }
-
   if (loading) {
     getUserData();
     return (
-      <View>
+      <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="midnightblue" />
       </View>
     );
   }
   else {
     return (
-      <View style={styles.bodyContainer}>
-        <Pressable onPress={() => navigation.navigate("Achievements")}>
-          <Text style={styles.text}>Go to 'Achievements' screen</Text>
-        </Pressable>
-  
-        <Text style={styles.text}>Weight Progress</Text>
-        <View style={styles.filterContainer}>
-          <Pressable onPress={calculateWeightChange.bind(this, 'day')}>
-            <Text>1 Day</Text>
-          </Pressable>
-          <Pressable onPress={calculateWeightChange.bind(this, 'week')}>
-            <Text>1 Week</Text>
-          </Pressable>
-          <Pressable onPress={calculateWeightChange.bind(this, 'month')}>
-            <Text>1 Month</Text>
-          </Pressable>
-          <Pressable onPress={calculateWeightChange.bind(this, 'year')}>
-            <Text>1 Year</Text>
-          </Pressable>
-          <Pressable onPress={calculateWeightChange.bind(this, 'all time')}>
-            <Text>All Time</Text>
+      <ScrollView style={styles.bodyContainer}>
+        <View style={styles.headerContainer}>
+          <Text style={styles.headerText}>Weight Progress</Text>
+          <Pressable onPress={() => navigation.navigate("Achievements")}>
+            <Ionicons name={"trophy-sharp"} size={30} style={{color: "black"}} />
           </Pressable>
         </View>
-        <Text>{weightChange}</Text>
   
-        <Text style={styles.text}>Personal Bests</Text>
-        <FlatList
-          data={Object.keys(personalBests)}
-          renderItem={renderPersonalBests}
-        />
-      </View>
+        <View style={styles.filterContainer}>
+          <Pressable onPress={calculateWeightChange.bind(this, 'day')}>
+            <Text style={styles.filterText}>Day</Text>
+          </Pressable>
+          <Pressable onPress={calculateWeightChange.bind(this, 'week')}>
+            <Text style={styles.filterText}>Week</Text>
+          </Pressable>
+          <Pressable onPress={calculateWeightChange.bind(this, 'month')}>
+            <Text style={styles.filterText}>Month</Text>
+          </Pressable>
+          <Pressable onPress={calculateWeightChange.bind(this, 'year')}>
+            <Text style={styles.filterText}>Year</Text>
+          </Pressable>
+          <Pressable onPress={calculateWeightChange.bind(this, 'all time')}>
+            <Text style={styles.filterText}>All Time</Text>
+          </Pressable>
+        </View>
+        <View style={styles.weightChangeContainer}>
+          <Text style={styles.weightChangeText}>{weightChange}</Text>
+        </View>
+  
+        <View style={styles.personalBestContainer}>
+          <Text style={styles.headerText}>Personal Bests</Text>
+
+          {Object.keys(personalBests).map((item) => {
+            let pbValue = personalBests[item]["personalBest"];
+            let pbDate = personalBests[item]["date"]
+
+            return (
+              <View key={item} style={styles.personalBestCard}>
+                <View style={styles.pbCardHeaderContainer}>
+                  <Text style={styles.pbNameText}>{item}:</Text>
+                  <Text style={styles.pbScoreText}>
+                    { pbValue ? pbValue : "N/A" }
+                  </Text>
+                </View>
+                <Text style={styles.pbDateText}>
+                  {pbDate ? pbDate : "N/A"}
+                </Text>
+              </View>
+            );
+          })}
+          <View style={{ height: 16 }}></View>
+        </View>
+      </ScrollView>
     );
   }
 };
@@ -142,17 +154,65 @@ export default function StatisticsScreen({ navigation }) {
 // #F4F5F5
 // #E17000
 const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
   bodyContainer: {
     flex: 1,
   },
-  text: {
-    fontSize: 24,
-    fontWeight: "bold",
+  headerContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
     margin: 16,
+  },
+  headerText: {
+    fontSize: 28,
+    fontWeight: "bold"
   },
   filterContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: 16,
+    alignItems: "flex-start",
+    marginHorizontal: 16,
+    marginBottom: 24
+  },
+  filterText: {
+    fontSize: 16
+  },
+  weightChangeContainer: {
+    alignItems: "center",
+    marginBottom: 32,
+  },
+  weightChangeText: {
+    fontSize: 20,
+    fontWeight: "bold"
+  },
+  personalBestContainer: {
+    paddingHorizontal: 16
+  },
+  personalBestCard: {
+    backgroundColor: "#FFF",
+    marginTop: 16,
+    padding: 16,
+    borderWidth: 2,
+    borderRadius: 16,
+  },
+  pbCardHeaderContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-end",
+  },
+  pbNameText: {
+    fontSize: 24,
+    fontWeight: "bold"
+  },
+  pbScoreText: {
+    fontSize: 22
+  },
+  pbDateText: {
+    fontSize: 16,
+    fontStyle: "italic"
   }
 })
