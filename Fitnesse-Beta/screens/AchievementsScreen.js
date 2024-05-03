@@ -12,13 +12,15 @@ export default function AchievementsScreen({ navigation }) {
 
   async function getAchievements() {
     // fetch data from AsyncStorage
+    let ac;
     let demoMode = await AsyncStorage.getItem('demoMode');
     if (demoMode == "on") {
-      let ac = JSON.parse(await AsyncStorage.getItem('demoAchievements'));
+      ac = JSON.parse(await AsyncStorage.getItem('demoAchievements'));
       setAchievements(ac);
     }
     else {
-      // getItem userAchievements
+      ac = JSON.parse(await AsyncStorage.getItem('userAchievements'));
+      setAchievements(ac);
     }
     // remove loading screen
     setLoading(false);

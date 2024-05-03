@@ -1,5 +1,7 @@
 import { View, Text, StyleSheet, Pressable, FlatList, ActivityIndicator } from "react-native";
 import { useState } from "react";
+
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function WorkoutScheduleScreen({ navigation }) {
@@ -17,14 +19,15 @@ export default function WorkoutScheduleScreen({ navigation }) {
 
   async function getWorkoutSchedule() {
     // fetch data from AsyncStorage
-    let ws
+    let ws;
     let demoMode = await AsyncStorage.getItem('demoMode');
     if (demoMode == "on") {
       ws = JSON.parse(await AsyncStorage.getItem('demoWorkoutSchedule'));
       setWorkoutSchedule(ws);
     }
     else {
-      // getItem userWorkoutSchedule
+      ws = JSON.parse(await AsyncStorage.getItem('userWorkoutSchedule'));
+      setWorkoutSchedule(ws);
     }
     // remove loading screen
     setLoading(false);

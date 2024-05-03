@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, Pressable, ActivityIndicator } from "react-native";
 import { useState } from "react";
+
 import { mpDefault, mpVegetarian, mpHBP, mpDiabetes, mpAntiInflam } from "../data/mealPlanDataSets";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -15,13 +16,15 @@ export default function UpdateDietScreen({ navigation }) {
 
   async function getDiet() {
     // fetch data from AsyncStorage
+    let mp;
     let demoMode = await AsyncStorage.getItem('demoMode');
     if (demoMode == "on") {
-      let mp = JSON.parse(await AsyncStorage.getItem('demoMealPlan'));
+      mp = JSON.parse(await AsyncStorage.getItem('demoMealPlan'));
       setCurrentDiet(mp["dietType"]);
     }
     else {
-      // getItem userMealPlan
+      mp = JSON.parse(await AsyncStorage.getItem('userMealPlan'));
+      setCurrentDiet(mp["dietType"]);
     }
     // remove loading screen
     setLoading(false);
@@ -47,7 +50,21 @@ export default function UpdateDietScreen({ navigation }) {
       }
     }
     else {
-      // setItem userMealPlan
+      if (dietChoice == "default") {
+        await AsyncStorage.setItem('userMealPlan', JSON.stringify(mpDefault))
+      }
+      else if (dietChoice == "vegetarian") {
+        await AsyncStorage.setItem('userMealPlan', JSON.stringify(mpVegetarian))
+      }
+      else if (dietChoice == "high blood pressure") {
+        await AsyncStorage.setItem('userMealPlan', JSON.stringify(mpHBP))
+      }
+      else if (dietChoice == "diabetes") {
+        await AsyncStorage.setItem('userMealPlan', JSON.stringify(mpDiabetes))
+      }
+      else if (dietChoice == "anti-inflammatory") {
+        await AsyncStorage.setItem('userMealPlan', JSON.stringify(mpAntiInflam))
+      }
     }
 
     navigation.navigate("Profile")

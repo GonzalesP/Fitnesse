@@ -26,7 +26,7 @@ export default function RecordWeightScreen({ navigation }) {
       let weightHistory = JSON.parse(await AsyncStorage.getItem('demoWeightHistory'));
 
       if (weightHistory != null) {
-        lastWeightRecorded = weightHistory[weightHistory.length - 1]
+        lastWeightRecorded = weightHistory[weightHistory.length - 1];
         if (today != lastWeightRecorded["date"]) {  // weight not recorded today
           weightHistory.push(weight);
         }
@@ -38,10 +38,26 @@ export default function RecordWeightScreen({ navigation }) {
         weightHistory = [weight];
       }
 
-      await AsyncStorage.setItem('demoWeightHistory', JSON.stringify(weightHistory))
+      await AsyncStorage.setItem('demoWeightHistory', JSON.stringify(weightHistory));
     }
     else {
-      // user data
+      // update weight
+      let weightHistory = JSON.parse(await AsyncStorage.getItem('userWeightHistory'));
+
+      if (weightHistory != null) {
+        lastWeightRecorded = weightHistory[weightHistory.length - 1];
+        if (today != lastWeightRecorded["date"]) {  // weight not recorded today
+          weightHistory.push(weight);
+        }
+        else {
+          weightHistory[weightHistory.length - 1] = weight;
+        }
+      }
+      else {  // weight is null
+        weightHistory = [weight];
+      }
+
+      await AsyncStorage.setItem('userWeightHistory', JSON.stringify(weightHistory));
     }
 
     navigation.navigate("Profile")

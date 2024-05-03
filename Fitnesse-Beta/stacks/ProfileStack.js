@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ProfileScreen from "../screens/ProfileScreen";
 import UpdateHeightWeightScreen from "../screens/UpdateHeightWeightScreen";
 import RecordWeightScreen from "../screens/RecordWeightScreen";
+import UpdateFitnessGoalScreen from "../screens/UpdateFitnessGoalScreen";
 import UpdateDietScreen from "../screens/UpdateDietScreen"
 
 const Stack = createNativeStackNavigator();
@@ -35,6 +36,13 @@ export const ProfileStack = () => {
         component={RecordWeightScreen}
         options={{
           title: "Record Today's Weight",
+        }}
+      />
+      <Stack.Screen
+        name="Update Fitness Goal"
+        component={UpdateFitnessGoalScreen}
+        options={{
+          title: "Choose Your Fitness Goal",
         }}
       />
       <Stack.Screen

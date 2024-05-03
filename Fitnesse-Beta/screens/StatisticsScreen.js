@@ -28,13 +28,23 @@ export default function StatisticsScreen({ navigation }) {
       setWeightChange('select a filter');
     }
     else {
-      // getItem userWeightHistory and userPersonalBests
+      wh = JSON.parse(await AsyncStorage.getItem('userWeightHistory'));
+      pb = JSON.parse(await AsyncStorage.getItem('userPersonalBests'));
+
+      setWeightHistory(wh);
+      setPersonalBests(pb);
+      setWeightChange('select a filter');
     }
     // remove loading screen
     setLoading(false);
   }
 
   function calculateWeightChange(selectedView) {
+    if (weightHistory == null) {
+      setWeightChange(`No Weight History recorded yet`)
+      return;
+    }
+
     let todayIndex = weightHistory.length - 1;
     let currentWeight = weightHistory[todayIndex]["weight"];
     let totalChange;
@@ -134,11 +144,11 @@ export default function StatisticsScreen({ navigation }) {
                 <View style={styles.pbCardHeaderContainer}>
                   <Text style={styles.pbNameText}>{item}:</Text>
                   <Text style={styles.pbScoreText}>
-                    { pbValue ? pbValue : "N/A" }
+                    { pbValue ? pbValue : "not set" }
                   </Text>
                 </View>
                 <Text style={styles.pbDateText}>
-                  {pbDate ? pbDate : "N/A"}
+                  {pbDate ? pbDate : ""}
                 </Text>
               </View>
             );

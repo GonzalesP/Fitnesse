@@ -9,6 +9,7 @@ export default function UpdateHeightWeightScreen({ navigation }) {
   const [showError, setShowError] = useState(false);
 
   async function saveUserInput() {
+    // check user input (no empty fields)
     if (!feetInput || !inchesInput || !weightInput) {
       setShowError(true);
       return;
@@ -28,6 +29,7 @@ export default function UpdateHeightWeightScreen({ navigation }) {
       "weight": weightInput
     };
 
+    // update AsyncStorage
     let demoMode = await AsyncStorage.getItem('demoMode');
     if (demoMode == "on") {
       // update height
@@ -37,7 +39,7 @@ export default function UpdateHeightWeightScreen({ navigation }) {
       let weightHistory = JSON.parse(await AsyncStorage.getItem('demoWeightHistory'));
 
       if (weightHistory != null) {
-        lastWeightRecorded = weightHistory[weightHistory.length - 1]
+        lastWeightRecorded = weightHistory[weightHistory.length - 1];
         if (today != lastWeightRecorded["date"]) {  // weight not recorded today
           weightHistory.push(weight);
         }
@@ -49,10 +51,29 @@ export default function UpdateHeightWeightScreen({ navigation }) {
         weightHistory = [weight];
       }
 
-      await AsyncStorage.setItem('demoWeightHistory', JSON.stringify(weightHistory))
+      await AsyncStorage.setItem('demoWeightHistory', JSON.stringify(weightHistory));
     }
     else {
-      // user data
+      // update height
+      await AsyncStorage.setItem('userHeight', JSON.stringify(height));
+
+      // update weight
+      let weightHistory = JSON.parse(await AsyncStorage.getItem('userWeightHistory'));
+
+      if (weightHistory != null) {
+        lastWeightRecorded = weightHistory[weightHistory.length - 1];
+        if (today != lastWeightRecorded["date"]) {  // weight not recorded today
+          weightHistory.push(weight);
+        }
+        else {
+          weightHistory[weightHistory.length - 1] = weight;
+        }
+      }
+      else {  // weight is null
+        weightHistory = [weight];
+      }
+
+      await AsyncStorage.setItem('userWeightHistory', JSON.stringify(weightHistory));
     }
 
     navigation.navigate("Profile")

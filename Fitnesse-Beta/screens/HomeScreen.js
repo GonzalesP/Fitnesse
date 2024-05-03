@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Pressable, ActivityIndicator } from "react-native";
 import { useState } from "react";
-import { initializeDemoVariables, printDemoVariables } from "../data/demoFunctions";
+
+import { initializeData } from "../data/initializeData";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function HomeScreen({ navigation }) {
@@ -14,6 +15,8 @@ export default function HomeScreen({ navigation }) {
   });
 
   async function getTodoList() {
+    await initializeData();  // initialize data when app first starts
+
     let today = new Date().toDateString();
     // fetch data from AsyncStorage
     let height;
@@ -25,7 +28,8 @@ export default function HomeScreen({ navigation }) {
       weightHistory = JSON.parse(await AsyncStorage.getItem('demoWeightHistory'));
     }
     else {
-      // user defaults
+      height = JSON.parse(await AsyncStorage.getItem('userHeight'));
+      weightHistory = JSON.parse(await AsyncStorage.getItem('userWeightHistory'));
     }
 
     // decide whether to render card one or two and three (two options)
@@ -48,8 +52,10 @@ export default function HomeScreen({ navigation }) {
   }
 
   async function debugStuff() {
-    await initializeDemoVariables();
-    await printDemoVariables();
+    // await AsyncStorage.clear();
+    await AsyncStorage.setItem('userFitnessGoal', "default");
+    await AsyncStorage.setItem('demoFitnessGoal', "default");
+    console.log("snap");
   }
 
   if (loading) {
@@ -87,9 +93,9 @@ export default function HomeScreen({ navigation }) {
           <Text style={styles.todoCardText}>Nothing else to do!</Text>
         }
   
-        {/* <Pressable onPress={debugStuff}>
+        <Pressable onPress={debugStuff}>
           <Text style={styles.debugButton}>Scuffed Debug Button</Text>
-        </Pressable> */}
+        </Pressable>
       </View>
     );
   }

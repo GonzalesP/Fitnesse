@@ -24,7 +24,8 @@ export default function MealPlanScreen({ navigation }) {
       setMealPlan(mp);
     }
     else {
-      // getItem userMealPlan
+      mp = JSON.parse(await AsyncStorage.getItem('userMealPlan'));
+      setMealPlan(mp);
     }
     // remove loading screen
     setLoading(false);
@@ -34,19 +35,6 @@ export default function MealPlanScreen({ navigation }) {
     setDay(index)
     setDayName(dayNames[index]);
   }
-
-  // function stringifyIngredients(ingredients) {
-  //   if (ingredients.length == 0) {
-  //     return "No ingredients listed."
-  //   }
-
-  //   let ingredientsList = "";
-  //   for (let index = 0; index < ingredients.length - 1; index++) {
-  //     ingredientsList += ingredients[index] + ", "
-  //   }
-  //   ingredientsList += ingredients[ingredients.length - 1];
-  //   return ingredientsList;
-  // }
 
   function renderMeals({ item }) {
     return (

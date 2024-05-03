@@ -1,154 +1,4 @@
-export const demoHeight =
-{
-  "feet": 5,
-  "inches": 8
-}
-
-export const demoWeightHistory =
-[
-  {
-    "date": "Sun Mar 17 2024",
-    "weight": 334.6
-  },
-  {
-    "date": "Mon Mar 18 2024",
-    "weight": 333.6
-  },
-  {
-    "date": "Tue Mar 19 2024",
-    "weight": 332.6
-  },
-  {
-    "date": "Wed Mar 20 2024",
-    "weight": 331.6
-  },
-  {
-    "date": "Thu Mar 21 2024",
-    "weight": 328.8
-  },
-  {
-    "date": "Fri Mar 22 2024",
-    "weight": 329.8
-  },
-  {
-    "date": "Sat Mar 23 2024",
-    "weight": 329.8
-  },
-  {
-    "date": "Sun Mar 24 2024",
-    "weight": 330.6
-  },
-  {
-    "date": "Mon Mar 25 2024",
-    "weight": 330.1
-  },
-  {
-    "date": "Tue Mar 26 2024",
-    "weight": 329.6
-  },
-  {
-    "date": "Wed Mar 27 2024",
-    "weight": 326.0
-  },
-  {
-    "date": "Thu Mar 28 2024",
-    "weight": 325.6
-  },
-  {
-    "date": "Fri Mar 29 2024",
-    "weight": 325.4
-  },
-  {
-    "date": "Sat Mar 30 2024",
-    "weight": 322.8
-  },
-  {
-    "date": "Sun Mar 31 2024",
-    "weight": 322.0
-  },
-  {
-    "date": "Mon Apr 01 2024",
-    "weight": 324.2
-  },
-  {
-    "date": "Tue Apr 02 2024",
-    "weight": 322.0
-  },
-  {
-    "date": "Wed Apr 03 2024",
-    "weight": 324.0
-  },
-  {
-    "date": "Thu Apr 04 2024",
-    "weight": 325.6
-  },
-  {
-    "date": "Fri Apr 05 2024",
-    "weight": 324.6
-  },
-  {
-    "date": "Sat Apr 06 2024",
-    "weight": 323.4
-  },
-  {
-    "date": "Sun Apr 07 2024",
-    "weight": 323.6
-  },
-  {
-    "date": "Mon Apr 08 2024",
-    "weight": 323.2
-  },
-  {
-    "date": "Tue Apr 09 2024",
-    "weight": 324.0
-  },
-  {
-    "date": "Wed Apr 10 2024",
-    "weight": 321.6
-  },
-  {
-    "date": "Thu Apr 11 2024",
-    "weight": 321.4
-  },
-  {
-    "date": "Fri Apr 12 2024",
-    "weight": 319.8
-  },
-  {
-    "date": "Sat Apr 13 2024",
-    "weight": 324.2
-  },
-  {
-    "date": "Sun Apr 14 2024",
-    "weight": 321.0
-  },
-  {
-    "date": "Mon Apr 15 2024",
-    "weight": 321.8
-  },
-  {
-    "date": "Tue Apr 16 2024",
-    "weight": 321.4
-  },
-  {
-    "date": "Wed Apr 17 2024",
-    "weight": 321.6
-  },
-  {
-    "date": "Thu Apr 18 2024",
-    "weight": 321.6
-  },
-  {
-    "date": "Fri Apr 19 2024",  // Actual: Mar 01
-    "weight": 320.1
-  },
-  {
-    "date": "Sat Apr 20 2024",
-    "weight": 319.8
-  }
-]
-
-export const demoWorkoutSchedule =
+export const wsDefault =
 [
   // Sunday
   {
@@ -565,127 +415,235 @@ export const demoWorkoutSchedule =
   }
 ]
 
-export const demoPersonalBests =
-{
-  "one mile run":
+export const wsImproveCardio =
+[
+  // Sunday
   {
-    "date": "Thu Apr 18 2024",
-    "personalBest": "06:54.32"
+    "type": "abs/cardio",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": 2,
+        "exerciseName": "hanging curls",
+        "sets": 3,
+        "reps": 10,
+        "duration": null
+      },
+      {
+        "id": 3,
+        "exerciseName": "hanging twists",
+        "sets": 3,
+        "reps": 10,
+        "duration": null
+      },
+      {
+        "id": 4,
+        "exerciseName": "decline sit-ups",
+        "sets": 3,
+        "reps": 10,
+        "duration": null
+      },
+      {
+        "id": 5,
+        "exerciseName": "treadmill",
+        "sets": null,
+        "reps": null,
+        "duration": "30 min"
+      }
+    ]
   },
-  "bench press":
+  // Monday
   {
-    "date": "Thu Apr 18 2024",
-    "personalBest": 225
+    "type": "mile day",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": 2,
+        "exerciseName": "one mile run",
+        "sets": 1,
+        "reps": 1,
+        "duration": null
+      },
+      {
+        "id": 3,
+        "exerciseName": "static stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      }
+    ]
   },
-  "back squat":
+  // Tuesday
   {
-    "date": "Thu Apr 18 2024",
-    "personalBest": 315
+    "type": "legs/cardio",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": 2,
+        "exerciseName": "jump rope",
+        "sets": null,
+        "reps": null,
+        "duration": "10 min"
+      },
+      {
+        "id": 3,
+        "exerciseName": "lunges",
+        "sets": 3,
+        "reps": 15,
+        "duration": null
+      },
+      {
+        "id": 4,
+        "exerciseName": "back squat",
+        "sets": 3,
+        "reps": 12,
+        "duration": null
+      },
+      {
+        "id": 5,
+        "exerciseName": "cycling",
+        "sets": null,
+        "reps": null,
+        "duration": "15 min"
+      },
+      {
+        "id": 6,
+        "exerciseName": "static stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      }
+    ]
   },
-  "deadlift":
+  // Wednesday
   {
-    "date": "Thu Apr 18 2024",
-    "personalBest": 315
-  }
-}
+    "type": "cycling day",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": 2,
+        "exerciseName": "cycling",
+        "sets": null,
+        "reps": null,
+        "duration": "45 min"
+      },
+      {
+        "id": 3,
+        "exerciseName": "static stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      }
+    ]
+  },
+  // Thursday
+  {
+    "type": "abs/cardio",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": 2,
+        "exerciseName": "plank",
+        "sets": 4,
+        "reps": "15+ seconds",
+        "duration": null
+      },
+      {
+        "id": 3,
+        "exerciseName": "bicycle crunch",
+        "sets": 3,
+        "reps": 15,
+        "duration": null
+      },
+      {
+        "id": 4,
+        "exerciseName": "push up",
+        "sets": 3,
+        "reps": "until failure",
+        "duration": null
+      },
+      {
+        "id": 5,
+        "exerciseName": "static stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      }
+    ]
+  },
+  // Friday
+  {
+    "type": "swimming day",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": 2,
+        "exerciseName": "swimming",
+        "sets": null,
+        "reps": null,
+        "duration": "45 min"
+      },
+      {
+        "id": 3,
+        "exerciseName": "static stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      }
+    ]
+  },
+  // Saturday
+  {
+    "type": "rest day",
+    "exercises":
+    [
 
-export const demoAchievements =
-{
-  "one mile run":
-  [
-    {
-      "name": "First Steps",
-      "description": "Run a mile in under 20 minutes",
-      "date": "Thu Apr 18 2024"
-    },
-    {
-      "name": "Making My Way Downtown",
-      "description": "Run a mile in under 15 minutes",
-      "date": "Thu Apr 18 2024"
-    },
-    {
-      "name": "Can't Stop, Won't Stop",
-      "description": "Run a mile in under 12 minutes",
-      "date": "Thu Apr 18 2024"
-    },
-    {
-      "name": "One Must Walk...",
-      "description": "Run a mile in under 11 minutes",
-      "date": "Thu Apr 18 2024"
-    },
-    {
-      "name": "...Before They Run!",
-      "description": "Run a mile in under 10 minutes",
-      "date": "Thu Apr 18 2024"
-    },
-    {
-      "name": "Gingerbread Man",
-      "description": "Run a mile in under 9 minutes",
-      "date": "Thu Apr 18 2024"
-    },
-    {
-      "name": "One Must Run...",
-      "description": "Run a mile in under 8 minutes",
-      "date": "Thu Apr 18 2024"
-    },
-    {
-      "name": "...Before They Fly!",
-      "description": "Run a mile in under 7 minutes",
-      "date": "Thu Apr 18 2024"
-    }
-  ],
-  "bench press":
-  [
-    {
-      "name": "One Star Bench",
-      "description": "Bench Press 1 Plate (135+ lbs.)",
-      "date": "Thu Apr 18 2024"
-    },
-    {
-      "name": "Two Star Bench",
-      "description": "Bench Press 2 Plates (225+ lbs.)",
-      "date": "Thu Apr 18 2024"
-    }
-  ],
-  "back squat":
-  [
-    {
-      "name": "One Star Squat",
-      "description": "Back Squat 1 Plate (135+ lbs.)",
-      "date": "Thu Apr 18 2024"
-    },
-    {
-      "name": "Two Star Squat",
-      "description": "Back Squat 2 Plates (225+ lbs.)",
-      "date": "Thu Apr 18 2024"
-    },
-    {
-      "name": "Three Star Squat",
-      "description": "Back Squat 3 Plates (315+ lbs.)",
-      "date": "Thu Apr 18 2024"
-    }
-  ],
-  "deadlift":
-  [
-    {
-      "name": "One Star Deadlift",
-      "description": "Deadlift 1 Plate (135+ lbs.)",
-      "date": "Thu Apr 18 2024"
-    },
-    {
-      "name": "Two Star Deadlift",
-      "description": "Deadlift 2 Plates (225+ lbs.)",
-      "date": "Thu Apr 18 2024"
-    },
-    {
-      "name": "Three Star Deadlift",
-      "description": "Deadlift 3 Plates (315+ lbs.)",
-      "date": "Thu Apr 18 2024"
-    },
-    {
-      "name": "Deadly Lift",
-      "description": "Deadlift 4 Plates (405+ lbs.)",
-      "date": "Thu Apr 18 2024"
-    }
-  ]
-}
+    ]
+  }
+]
+
+// wsIncreaseStrength
+
+// wsWeightLoss

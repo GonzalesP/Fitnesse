@@ -6,6 +6,8 @@ export default function ProfileScreen({ navigation }) {
   const [height, setHeight] = useState();
   const [weight, setWeight] = useState();
   const [bmi, setBMI] = useState();
+
+  const [fitGoal, setFitGoal] = useState();
   const [diet, setDiet] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -15,17 +17,23 @@ export default function ProfileScreen({ navigation }) {
 
   async function getProfile() {
     // fetch data from AsyncStorage
+    let ht;  // height
+    let wh;  // weight history
+    let mp;  // meal plan (diet)
+    let fg;  // fitness goal
+
     let demoMode = await AsyncStorage.getItem('demoMode');
-    let ht;
-    let wh;
-    let mp;
     if (demoMode == "on") {
       ht = JSON.parse(await AsyncStorage.getItem('demoHeight'));
       wh = JSON.parse(await AsyncStorage.getItem('demoWeightHistory'));
       mp = JSON.parse(await AsyncStorage.getItem('demoMealPlan'));
+      fg = await AsyncStorage.getItem('demoFitnessGoal');
     }
     else {
-      // getItem userHeight and stuff
+      ht = JSON.parse(await AsyncStorage.getItem('userHeight'));
+      wh = JSON.parse(await AsyncStorage.getItem('userWeightHistory'));
+      mp = JSON.parse(await AsyncStorage.getItem('userMealPlan'));
+      fg = await AsyncStorage.getItem('userFitnessGoal');
     }
     // update height and weight
     setHeight(ht != null ? `${ht["feet"]}'${ht["inches"]}"` : "N/A");
@@ -39,6 +47,9 @@ export default function ProfileScreen({ navigation }) {
     else {
       setBMI("N/A")
     }
+    // update fitness goal
+    setFitGoal(fg)
+
     // update diet
     setDiet(mp["dietType"])
 
@@ -60,7 +71,7 @@ export default function ProfileScreen({ navigation }) {
   else {
     return (
       <View style={styles.bodyContainer}>
-        <View style={styles.compositionContainer}>
+        <View style={styles.attributeContainer}>
           <Text style={styles.headerText}>Body Composition</Text>
           <View style={styles.traitContainer}>
             <Text style={styles.traitText}>Height: </Text>
@@ -84,7 +95,19 @@ export default function ProfileScreen({ navigation }) {
             </Pressable>
           </View>
         </View>
-        <View>
+        <View style={styles.attributeContainer}>
+          <Text style={styles.headerText}>Workout Schedule</Text>
+          <View style={styles.traitContainer}>
+            <Text style={styles.traitText}>Fitness Goal: </Text>
+            <Text style={styles.valueText}>{fitGoal}</Text>
+          </View>
+          <View style={styles.buttonContainer}>
+            <Pressable onPress={() => navigation.navigate("Update Fitness Goal")}>
+              <Text style={styles.buttonText}>Edit Fitness Goal</Text>
+            </Pressable>
+          </View>
+        </View>
+        <View style={styles.attributeContainer}>
           <Text style={styles.headerText}>Meal Plan</Text>
           <View style={styles.traitContainer}>
             <Text style={styles.traitText}>Diet: </Text>
@@ -115,7 +138,7 @@ const styles = StyleSheet.create({
     padding: 16,
     paddingBottom: 0
   },
-  compositionContainer: {
+  attributeContainer: {
     marginBottom: 16
   },
   buttonContainer: {
