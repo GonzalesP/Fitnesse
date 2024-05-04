@@ -5,12 +5,13 @@ import { StatusBar } from "react-native";
 import HomeScreen from "./screens/HomeScreen";
 import { WorkoutStack } from "./stacks/WorkoutStack";
 import { MealStack } from "./stacks/MealStack";
-import { AchievementStack } from "./stacks/AchievementStack";
-import ProfileScreen from "./screens/ProfileScreen";
+import { StatisticsStack } from "./stacks/StatisticsStack";
+import { ProfileStack } from "./stacks/ProfileStack";
 
 import Ionicons from "@expo/vector-icons/Ionicons";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons"
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import Octicons from "@expo/vector-icons/Octicons";
 
 const Tab = createBottomTabNavigator();
 
@@ -18,17 +19,14 @@ export default function App() {
   return (
     <NavigationContainer>
       <StatusBar
-        // backgroundColor="#00274C"
         barStyle="light-content"
       />
       <Tab.Navigator
         screenOptions={{
           tabBarLabelPosition: "below-icon",
-          // tabBarActiveTintColor: "#719dcd",
-          // tabBarInactiveTintColor: "#F4F5F5",
-          // tabBarStyle: { backgroundColor: "#00274C" },
-          // headerStyle: { backgroundColor: "#00274C" },
-          // headerTintColor: "#F4F5F5",
+          tabBarActiveTintColor: "#FFFFFF",
+          tabBarInactiveTintColor: "#719dcd",
+          tabBarStyle: { backgroundColor: "#1E5793" }
         }}
       >
         <Tab.Screen
@@ -37,7 +35,8 @@ export default function App() {
           options={{
             tabBarLabel: "Home",
             tabBarIcon: ({ color }) => <Ionicons name={"home"} size={20} color={color}/>,
-            // headerShown: false,
+            headerStyle: { backgroundColor: "#1E5793" },
+            headerTitleStyle: { color: "#F4F5F5" }
           }}
         />
         <Tab.Screen
@@ -59,20 +58,21 @@ export default function App() {
           }}
         />
         <Tab.Screen
-          name="Achievement Stack"
-          component={AchievementStack}
+          name="Statistics Stack"
+          component={StatisticsStack}
           options={{
-            tabBarLabel: "Achievements",
-            tabBarIcon: ({ color }) => <Ionicons name={"trophy"} size={20} color={color} />,
+            tabBarLabel: "Statistics",
+            tabBarIcon: ({ color }) => <Octicons name={"graph"} size={20} color={color} />,
             headerShown: false,
           }}
         />
         <Tab.Screen
-          name="Profile"
-          component={ProfileScreen}
+          name="Profile Stack"
+          component={ProfileStack}
           options={{
             tabBarLabel: "Profile",
             tabBarIcon: ({ color }) => <FontAwesome6 name={"user-large"} size={20} color={color} />,
+            headerShown: false,
           }}
         />
       </Tab.Navigator>

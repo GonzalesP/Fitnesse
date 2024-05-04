@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import WorkoutScheduleScreen from "../screens/WorkoutScheduleScreen";
-import EditWorkoutScheduleScreen from "../screens/EditWorkoutScheduleScreen";
+import RecordWorkoutScreen from "../screens/RecordWorkoutScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -9,23 +9,23 @@ export const WorkoutStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        // headerStyle: { backgroundColor: "#00274C" },
-        // headerTitleStyle: { color: "#F4F5F5" },
-        // headerTintColor: "#F4F5F5",
+        headerStyle: { backgroundColor: "#1E5793" },
+        headerTitleStyle: { color: "#F4F5F5" },
+        headerTintColor: "#F4F5F5",
       }}
     >
       <Stack.Screen
         name="Workout Schedule"
         component={WorkoutScheduleScreen}
         options={{
-          title: "Your Workouts",
+          title: "Workout Schedule",
         }}
       />
       <Stack.Screen
-        name="Edit Workout Schedule"
-        component={EditWorkoutScheduleScreen}
+        name="Record Workout"
+        component={RecordWorkoutScreen}
         options={{
-          title: "Edit Your Workouts",
+          title: "Record Today's Workout",
         }}
       />
     </Stack.Navigator>
