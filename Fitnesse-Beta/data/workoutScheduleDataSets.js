@@ -1,3 +1,4 @@
+// normal (default)
 export const wsDefault =
 [
   // Sunday
@@ -415,6 +416,7 @@ export const wsDefault =
   }
 ]
 
+// improve cardio
 export const wsImproveCardio =
 [
   // Sunday
@@ -644,6 +646,405 @@ export const wsImproveCardio =
   }
 ]
 
-// wsIncreaseStrength
+// increase strength
+// source: https://www.muscleandstrength.com/workouts/8-week-super-strength-workout
+export const wsIncreaseStrength = [
+  // Sunday
+  {
+    "type": "rest day",
+    "exercises":
+    [
 
-// wsWeightLoss
+    ]
+  },
+  // Monday
+  {
+    "type": "legs/abs",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": 2,
+        "exerciseName": "back squat",
+        "sets": 5,
+        "reps": 4,
+        "duration": null
+      },
+      {
+        "id": 3,
+        "exerciseName": "front squat",
+        "sets": 3,
+        "reps": 5,
+        "duration": null
+      },
+      {
+        "id": 4,
+        "exerciseName": "bulgarian split squat",
+        "sets": 3,
+        "reps": 8,
+        "duration": null
+      },
+      {
+        "id": 5,
+        "exerciseName": "leg extension",
+        "sets": 3,
+        "reps": 8,
+        "duration": null
+      },
+      {
+        "id": 6,
+        "exerciseName": "hanging twists",
+        "sets": 3,
+        "reps": 10,
+        "duration": null
+      },
+      {
+        "id": 7,
+        "exerciseName": "static stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      }
+    ]
+  },
+  // Tuesday
+  {
+    "type": "chest/cardio",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": 2,
+        "exerciseName": "bench press",
+        "sets": 5,
+        "reps": 4,
+        "duration": null
+      },
+      {
+        "id": 3,
+        "exerciseName": "incline bench press",
+        "sets": 3,
+        "reps": 5,
+        "duration": null
+      },
+      {
+        "id": 4,
+        "exerciseName": "dumbbell fly",
+        "sets": 3,
+        "reps": 8,
+        "duration": null
+      },
+      {
+        "id": 5,
+        "exerciseName": "tricep dips",
+        "sets": 3,
+        "reps": 8,
+        "duration": null
+      },
+      {
+        "id": 6,
+        "exerciseName": "cycling",
+        "sets": null,
+        "reps": null,
+        "duration": "30 min"
+      },
+      {
+        "id": 7,
+        "exerciseName": "static stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      }
+    ]
+  },
+  // Wednesday
+  {
+    "type": "legs/cardio",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": 2,
+        "exerciseName": "deadlift",
+        "sets": 5,
+        "reps": 4,
+        "duration": null
+      },
+      {
+        "id": 3,
+        "exerciseName": "good morning",
+        "sets": 3,
+        "reps": 5,
+        "duration": null
+      },
+      {
+        "id": 4,
+        "exerciseName": "lying leg curl",
+        "sets": 3,
+        "reps": 8,
+        "duration": null
+      },
+      {
+        "id": 5,
+        "exerciseName": "walking lunge",
+        "sets": 3,
+        "reps": 8,
+        "duration": null
+      },
+      {
+        "id": 6,
+        "exerciseName": "treadmill",
+        "sets": null,
+        "reps": null,
+        "duration": "30 min"
+      },
+      {
+        "id": 7,
+        "exerciseName": "static stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      }
+    ]
+  },
+  // Thursday
+  {
+    "type": "arms/abs",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": 2,
+        "exerciseName": "standing barbell press",
+        "sets": 5,
+        "reps": 4,
+        "duration": null
+      },
+      {
+        "id": 3,
+        "exerciseName": "front raise",
+        "sets": 3,
+        "reps": 5,
+        "duration": null
+      },
+      {
+        "id": 4,
+        "exerciseName": "seated lateral raise",
+        "sets": 3,
+        "reps": 8,
+        "duration": null
+      },
+      {
+        "id": 5,
+        "exerciseName": "tricep pushdown",
+        "sets": 3,
+        "reps": 8,
+        "duration": null
+      },
+      {
+        "id": 6,
+        "exerciseName": "decline sit-ups",
+        "sets": 3,
+        "reps": 10,
+        "duration": null
+      },
+      {
+        "id": 7,
+        "exerciseName": "static stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      }
+    ]
+  },
+  // Friday
+  {
+    "type": "arms/cardio",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": 2,
+        "exerciseName": "bent-over barbell row",
+        "sets": 5,
+        "reps": 4,
+        "duration": null
+      },
+      {
+        "id": 3,
+        "exerciseName": "lat pull downs (curl grip)",
+        "sets": 3,
+        "reps": 5,
+        "duration": null
+      },
+      {
+        "id": 4,
+        "exerciseName": "rear lateral raise",
+        "sets": 3,
+        "reps": 8,
+        "duration": null
+      },
+      {
+        "id": 5,
+        "exerciseName": "incline dumbbell curl",
+        "sets": 3,
+        "reps": 8,
+        "duration": null
+      },
+      {
+        "id": 6,
+        "exerciseName": "stairmaster",
+        "sets": null,
+        "reps": null,
+        "duration": "30 min"
+      },
+      {
+        "id": 7,
+        "exerciseName": "static stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      }
+    ]
+  },
+  // Saturday
+  {
+    "type": "rest day",
+    "exercises":
+    [
+
+    ]
+  }
+]
+
+// weight loss
+export const wsWeightLoss = [
+  // Sunday
+  {
+    "type": "abs/cardio",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      }
+    ]
+  },
+  // Monday
+  {
+    "type": "abs/cardio",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      }
+    ]
+  },
+  // Tuesday
+  {
+    "type": "abs/cardio",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      }
+    ]
+  },
+  // Wednesday
+  {
+    "type": "abs/cardio",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      }
+    ]
+  },
+  // Thursday
+  {
+    "type": "abs/cardio",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      }
+    ]
+  },
+  // Friday
+  {
+    "type": "abs/cardio",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      }
+    ]
+  },
+  // Saturday
+  {
+    "type": "abs/cardio",
+    "exercises":
+    [
+      {
+        "id": 1,
+        "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      }
+    ]
+  },
+]

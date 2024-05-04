@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Pressable, ActivityIndicator } from "react-native";
 import { useState } from "react";
 
-import { wsDefault, wsImproveCardio } from "../data/workoutScheduleDataSets";
+import { wsDefault, wsImproveCardio, wsIncreaseStrength, wsWeightLoss } from "../data/workoutScheduleDataSets";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function UpdateFitnessGoalScreen({ navigation }) {
@@ -41,6 +41,14 @@ export default function UpdateFitnessGoalScreen({ navigation }) {
         await AsyncStorage.setItem('demoFitnessGoal', 'improve cardio')
         await AsyncStorage.setItem('demoWorkoutSchedule', JSON.stringify(wsImproveCardio))
       }
+      else if (goalChoice == "increase strength") {
+        await AsyncStorage.setItem('demoFitnessGoal', 'increase strength')
+        await AsyncStorage.setItem('demoWorkoutSchedule', JSON.stringify(wsIncreaseStrength))
+      }
+      else if (goalChoice == "weight loss") {
+        await AsyncStorage.setItem('demoFitnessGoal', 'weight loss')
+        await AsyncStorage.setItem('demoWorkoutSchedule', JSON.stringify(wsWeightLoss))
+      }
     }
     else {
       if (goalChoice == "default") {
@@ -50,6 +58,14 @@ export default function UpdateFitnessGoalScreen({ navigation }) {
       else if (goalChoice == "improve cardio") {
         await AsyncStorage.setItem('userFitnessGoal', 'improve cardio')
         await AsyncStorage.setItem('userWorkoutSchedule', JSON.stringify(wsImproveCardio))
+      }
+      else if (goalChoice == "increase strength") {
+        await AsyncStorage.setItem('userFitnessGoal', 'increase strength')
+        await AsyncStorage.setItem('userWorkoutSchedule', JSON.stringify(wsIncreaseStrength))
+      }
+      else if (goalChoice == "weight loss") {
+        await AsyncStorage.setItem('userFitnessGoal', 'weight loss')
+        await AsyncStorage.setItem('userWorkoutSchedule', JSON.stringify(wsWeightLoss))
       }
     }
 
@@ -82,6 +98,12 @@ export default function UpdateFitnessGoalScreen({ navigation }) {
           </Pressable>
           <Pressable onPress={setGoalChoice.bind(this, 'improve cardio')}>
             <Text style={styles.optionText}>Improve Cardio</Text>
+          </Pressable>
+          <Pressable onPress={setGoalChoice.bind(this, 'increase strength')}>
+            <Text style={styles.optionText}>Increase Strength</Text>
+          </Pressable>
+          <Pressable onPress={setGoalChoice.bind(this, 'weight loss')}>
+            <Text style={styles.optionText}>Weight Loss</Text>
           </Pressable>
         </View>
 
