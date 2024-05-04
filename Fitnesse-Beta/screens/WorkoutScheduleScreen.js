@@ -57,6 +57,28 @@ export default function WorkoutScheduleScreen({ navigation }) {
       </View>
     )
   }
+
+  function recordWorkoutButton() {
+    let button;
+    if (day == currentDay) {
+      button = (
+        <Pressable onPress={() => navigation.navigate("Record Workout")}>
+          <Text style={styles.buttonText}>Record Workout</Text>
+        </Pressable>
+      );
+    }
+    else {
+      button = (
+        <></>
+      );
+    }
+    return (
+      <View style={styles.buttonContainer}>
+        {button}
+        <View style={{ height: 16 }}></View>
+      </View>
+    )
+  }
   
 
 
@@ -64,7 +86,7 @@ export default function WorkoutScheduleScreen({ navigation }) {
     getWorkoutSchedule();
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" />
+        <ActivityIndicator size="large" color="#002B54" />
       </View>
     );
   }
@@ -74,25 +96,39 @@ export default function WorkoutScheduleScreen({ navigation }) {
         {/* Select Day of the Week */}
         <View style={styles.daysContainer}>
           <Pressable onPress={updateDay.bind(this, 0)}>
-            <Text style={styles.dayButton}>S</Text>
+            <Text style={
+              day == 0 ? styles.activeDayButton : styles.inactiveDayButton
+              }>S</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 1)}>
-            <Text style={styles.dayButton}>M</Text>
+            <Text style={
+              day == 1 ? styles.activeDayButton : styles.inactiveDayButton
+              }>M</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 2)}>
-            <Text style={styles.dayButton}>T</Text>
+            <Text style={
+              day == 2 ? styles.activeDayButton : styles.inactiveDayButton
+              }>T</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 3)}>
-            <Text style={styles.dayButton}>W</Text>
+            <Text style={
+              day == 3 ? styles.activeDayButton : styles.inactiveDayButton
+              }>W</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 4)}>
-            <Text style={styles.dayButton}>T</Text>
+            <Text style={
+              day == 4 ? styles.activeDayButton : styles.inactiveDayButton
+              }>T</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 5)}>
-            <Text style={styles.dayButton}>F</Text>
+            <Text style={
+              day == 5 ? styles.activeDayButton : styles.inactiveDayButton
+              }>F</Text>
           </Pressable>
           <Pressable onPress={updateDay.bind(this, 6)}>
-            <Text style={styles.dayButton}>S</Text>
+            <Text style={
+              day == 6 ? styles.activeDayButton : styles.inactiveDayButton
+              }>S</Text>
           </Pressable>
         </View>
         {/* workout header (day of week + workout type) */}
@@ -106,7 +142,7 @@ export default function WorkoutScheduleScreen({ navigation }) {
           renderItem={renderWorkout}
           ItemSeparatorComponent={<View style={{ height: 16 }}></View>}
           ListHeaderComponent={<View style={{ height: 16 }}></View>}
-          ListFooterComponent={<View style={{ height: 16 }}></View>}
+          ListFooterComponent={recordWorkoutButton}
         />
       </View>
     );
@@ -120,20 +156,41 @@ const styles = StyleSheet.create({
   loadingContainer: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "#C3DCF6"
   },
   bodyContainer: {
     flex: 1,
     padding: 16,
-    paddingBottom: 0
+    paddingBottom: 0,
+    backgroundColor: "#C3DCF6"
   },
   daysContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: 24
   },
-  dayButton: {
-    fontSize: 24
+  activeDayButton: {
+    fontSize: 24,
+    height: 36,
+    width: 36,
+    backgroundColor: "#F58220",
+    borderWidth: 2,
+    borderRadius: 18,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    padding: 4
+  },
+  inactiveDayButton: {
+    fontSize: 24,
+    height: 36,
+    width: 36,
+    borderWidth: 2,
+    borderRadius: 18,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    backgroundColor: "#9DBED8",
+    padding: 4
   },
   headerContainer: {
     flexDirection: "row",
@@ -156,5 +213,18 @@ const styles = StyleSheet.create({
   },
   exerciseDescText: {
     fontSize: 18,
+  },
+  buttonContainer: {
+    flexDirection: "row-reverse",
+    marginVertical: 16,
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    padding: 10,
+    borderWidth: 2,
+    borderRadius: 12,
+    backgroundColor: "#F58220",
+    alignSelf: "flex-start"
   }
 })

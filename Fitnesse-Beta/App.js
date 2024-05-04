@@ -19,15 +19,14 @@ export default function App() {
   return (
     <NavigationContainer>
       <StatusBar
-        // backgroundColor="#FFFFFF"
         barStyle="light-content"
       />
       <Tab.Navigator
         screenOptions={{
           tabBarLabelPosition: "below-icon",
-          // tabBarActiveTintColor: "#719dcd",
-          // tabBarInactiveTintColor: "#F4F5F5",
-          // tabBarStyle: { backgroundColor: "#00274C" },
+          tabBarActiveTintColor: "#FFFFFF",
+          tabBarInactiveTintColor: "#719dcd",
+          tabBarStyle: { backgroundColor: "#1E5793" }
         }}
       >
         <Tab.Screen
@@ -36,7 +35,8 @@ export default function App() {
           options={{
             tabBarLabel: "Home",
             tabBarIcon: ({ color }) => <Ionicons name={"home"} size={20} color={color}/>,
-            // headerShown: false,
+            headerStyle: { backgroundColor: "#1E5793" },
+            headerTitleStyle: { color: "#F4F5F5" }
           }}
         />
         <Tab.Screen

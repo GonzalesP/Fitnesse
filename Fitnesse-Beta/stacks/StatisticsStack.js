@@ -9,9 +9,9 @@ export const StatisticsStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        // headerStyle: { backgroundColor: "#00274C" },
-        // headerTitleStyle: { color: "#F4F5F5" },
-        // headerTintColor: "#F4F5F5",
+        headerStyle: { backgroundColor: "#1E5793" },
+        headerTitleStyle: { color: "#F4F5F5" },
+        headerTintColor: "#F4F5F5",
       }}
     >
       <Stack.Screen

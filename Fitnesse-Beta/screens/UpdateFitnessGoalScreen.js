@@ -111,12 +111,14 @@ const styles = StyleSheet.create({
   loadingContainer: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "#C3DCF6"
   },
   bodyContainer: {
     flex: 1,
     padding: 16,
-    paddingBottom: 0
+    paddingBottom: 0,
+    backgroundColor: "#C3DCF6"
   },
   optionText: {
     fontSize: 16,
@@ -125,7 +127,7 @@ const styles = StyleSheet.create({
     margin: 4,
     borderWidth: 2,
     borderRadius: 12,
-    backgroundColor: "#9dce71",
+    backgroundColor: "#719dcd",
     alignSelf: "flex-start"
   },
   optionContainer: {
@@ -151,7 +153,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
     borderWidth: 2,
     borderRadius: 12,
-    backgroundColor: "#719dcd",
+    backgroundColor: "#F58220",
     alignSelf: "flex-start"
   }
 })

@@ -131,12 +131,14 @@ const styles = StyleSheet.create({
   loadingContainer: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "#C3DCF6"
   },
   bodyContainer: {
     flex: 1,
     padding: 16,
-    paddingBottom: 0
+    paddingBottom: 0,
+    backgroundColor: "#C3DCF6"
   },
   attributeContainer: {
     marginBottom: 16

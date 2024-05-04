@@ -31,7 +31,7 @@ export default function AchievementsScreen({ navigation }) {
       return (
         <View key={item}>
           <Text style={styles.headerText}>{item}</Text>
-          <Text>No achievements unlocked.</Text>
+          <Text style={styles.achievementDesc}>No achievements unlocked.</Text>
         </View>
       );
     }
@@ -73,7 +73,8 @@ export default function AchievementsScreen({ navigation }) {
           data={Object.keys(achievements)}
           renderItem={renderAchievements}
           ItemSeparatorComponent={<View style={{ height: 36 }}></View>}
-          ListHeaderComponent={<View style={{ height: 8 }}></View>}
+          ListHeaderComponent={<View style={{ height: 16 }}></View>}
+          ListFooterComponent={<View style={{ height: 16 }}></View>}
         />
       </View>
     );
@@ -84,16 +85,18 @@ const styles = StyleSheet.create({
   loadingContainer: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "#C3DCF6"
   },
   bodyContainer: {
     flex: 1,
     padding: 16,
     paddingTop: 0,
-    paddingBottom: 0
+    paddingBottom: 0,
+    backgroundColor: "#C3DCF6"
   },
   headerText: {
-    fontSize: 30,
+    fontSize: 36,
     fontWeight: "bold"
   },
   achievementContainer: {

@@ -7,10 +7,16 @@ export default function StatisticsScreen({ navigation }) {
   const [weightHistory, setWeightHistory] = useState();
   const [personalBests, setPersonalBests] = useState();
 
+  const [filter, setFilter] = useState();
   const [weightChange, setWeightChange] = useState('');
+  const [currentWeight, setCurrentWeight] = useState('');
+  const [previousWeight, setPreviousWeight] = useState('');
   const [loading, setLoading] = useState(true);
 
   const refreshScreen = navigation.addListener('focus', async() => {
+    setFilter();
+    setCurrentWeight('');
+    setPreviousWeight('');
     setLoading(true);
   });
 
@@ -40,6 +46,7 @@ export default function StatisticsScreen({ navigation }) {
   }
 
   function calculateWeightChange(selectedView) {
+    setFilter(selectedView)
     if (weightHistory == null) {
       setWeightChange(`No Weight History recorded yet`)
       return;
@@ -47,50 +54,55 @@ export default function StatisticsScreen({ navigation }) {
 
     let todayIndex = weightHistory.length - 1;
     let currentWeight = weightHistory[todayIndex]["weight"];
+    let previousWeight;
     let totalChange;
 
     if (selectedView == 'day') {
       if (weightHistory.length >= 2) {
-        totalChange = currentWeight - weightHistory[todayIndex - 1]["weight"];
+        previousWeight = weightHistory[todayIndex - 1]["weight"];
       }
       else {
-        totalChange = currentWeight - weightHistory[0]["weight"];
+        previousWeight = weightHistory[0]["weight"];
       }
     }
     else if (selectedView == 'week') {
       if (weightHistory.length >= 8) {
-        totalChange = currentWeight - weightHistory[todayIndex - 7]["weight"];
+        previousWeight = weightHistory[todayIndex - 7]["weight"];
       }
       else {
-        totalChange = currentWeight - weightHistory[0]["weight"];
+        previousWeight = weightHistory[0]["weight"];
       }
     }
     else if (selectedView == 'month') {
       if (weightHistory.length >= 32) {
-        totalChange = currentWeight - weightHistory[todayIndex - 31]["weight"];
+        previousWeight = weightHistory[todayIndex - 31]["weight"];
       }
       else {
-        totalChange = currentWeight - weightHistory[0]["weight"];
+        previousWeight = weightHistory[0]["weight"];
       }
     }
     else if (selectedView == 'year') {
       if (weightHistory.length >= 366) {
-        totalChange = currentWeight - weightHistory[todayIndex - 365]["weight"];
+        previousWeight = weightHistory[todayIndex - 365]["weight"];
       }
       else {
-        totalChange = currentWeight - weightHistory[0]["weight"];
+        previousWeight = weightHistory[0]["weight"];
       }
     }
     else {
-      totalChange = currentWeight - weightHistory[0]["weight"];
+      previousWeight = weightHistory[0]["weight"];
     }
 
+    totalChange = currentWeight - previousWeight;
     if (totalChange <= 0) {
       setWeightChange(`You lost ${Math.abs(totalChange.toFixed(2))} lbs.`);
     }
     else {
       setWeightChange(`You gained ${totalChange.toFixed(2)} lbs.`)
     }
+
+    setCurrentWeight(currentWeight)
+    setPreviousWeight(previousWeight)
   }
 
   if (loading) {
@@ -113,23 +125,35 @@ export default function StatisticsScreen({ navigation }) {
   
         <View style={styles.filterContainer}>
           <Pressable onPress={calculateWeightChange.bind(this, 'day')}>
-            <Text style={styles.filterText}>Day</Text>
+            <Text style={
+              filter == 'day' ? styles.activeFilterText : styles.inactiveFilterText
+              }>Day</Text>
           </Pressable>
           <Pressable onPress={calculateWeightChange.bind(this, 'week')}>
-            <Text style={styles.filterText}>Week</Text>
+            <Text style={
+              filter == 'week' ? styles.activeFilterText : styles.inactiveFilterText
+              }>Week</Text>
           </Pressable>
           <Pressable onPress={calculateWeightChange.bind(this, 'month')}>
-            <Text style={styles.filterText}>Month</Text>
+            <Text style={
+              filter == 'month' ? styles.activeFilterText : styles.inactiveFilterText
+              }>Month</Text>
           </Pressable>
           <Pressable onPress={calculateWeightChange.bind(this, 'year')}>
-            <Text style={styles.filterText}>Year</Text>
+            <Text style={
+              filter == 'year' ? styles.activeFilterText : styles.inactiveFilterText
+              }>Year</Text>
           </Pressable>
           <Pressable onPress={calculateWeightChange.bind(this, 'all time')}>
-            <Text style={styles.filterText}>All Time</Text>
+            <Text style={
+              filter == 'all time' ? styles.activeFilterText : styles.inactiveFilterText
+              }>All Time</Text>
           </Pressable>
         </View>
         <View style={styles.weightChangeContainer}>
-          <Text style={styles.weightChangeText}>{weightChange}</Text>
+          <Text style={styles.weightChangeHeader}>{weightChange}</Text>
+          <Text style={styles.weightChangeText}><Text style={styles.weightChangeHeader}>Current Weight: </Text>{currentWeight}</Text>
+          <Text style={styles.weightChangeText}><Text style={styles.weightChangeHeader}>Previous Weight: </Text>{previousWeight}</Text>
         </View>
   
         <View style={styles.personalBestContainer}>
@@ -167,10 +191,12 @@ const styles = StyleSheet.create({
   loadingContainer: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "#C3DCF6"
   },
   bodyContainer: {
     flex: 1,
+    backgroundColor: "#C3DCF6"
   },
   headerContainer: {
     flexDirection: "row",
@@ -188,16 +214,38 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     marginBottom: 24
   },
-  filterText: {
-    fontSize: 16
+  activeFilterText: {
+    fontSize: 20,
+    height: 32,
+    backgroundColor: "#F58220",
+    borderWidth: 2,
+    borderRadius: 16,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    padding: 4,
+  },
+  inactiveFilterText: {
+    fontSize: 20,
+    height: 32,
+    backgroundColor: "#9DBED8",
+    borderWidth: 2,
+    borderRadius: 16,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    padding: 4
   },
   weightChangeContainer: {
     alignItems: "center",
     marginBottom: 32,
   },
+  weightChangeHeader: {
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center"
+  },
   weightChangeText: {
     fontSize: 20,
-    fontWeight: "bold"
+    textAlign: "center"
   },
   personalBestContainer: {
     paddingHorizontal: 16

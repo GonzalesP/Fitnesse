@@ -570,22 +570,22 @@ export const demoPersonalBests =
   "one mile run":
   {
     "date": "Thu Apr 18 2024",
-    "personalBest": "06:54.32"
+    "personalBest": "04:54.32"
   },
   "bench press":
   {
     "date": "Thu Apr 18 2024",
-    "personalBest": 225
+    "personalBest": 405
   },
   "back squat":
   {
     "date": "Thu Apr 18 2024",
-    "personalBest": 315
+    "personalBest": 405
   },
   "deadlift":
   {
     "date": "Thu Apr 18 2024",
-    "personalBest": 315
+    "personalBest": 495
   }
 }
 
@@ -632,6 +632,16 @@ export const demoAchievements =
       "name": "...Before They Fly!",
       "description": "Run a mile in under 7 minutes",
       "date": "Thu Apr 18 2024"
+    },
+    {
+      "name": "Unstoppable",
+      "description": "Run a mile in under 6 minutes",
+      "date": "Thu Apr 18 2024"
+    },
+    {
+      "name": "The Flash",
+      "description": "Run a mile in under 5 minutes",
+      "date": "Thu Apr 18 2024"
     }
   ],
   "bench press":
@@ -644,6 +654,16 @@ export const demoAchievements =
     {
       "name": "Two Star Bench",
       "description": "Bench Press 2 Plates (225+ lbs.)",
+      "date": "Thu Apr 18 2024"
+    },
+    {
+      "name": "Three Star Bench",
+      "description": "Bench Press 3 Plates (315+ lbs.)",
+      "date": "Thu Apr 18 2024"
+    },
+    {
+      "name": "Bench Beast",
+      "description": "Bench Press 4 Plates (405+ lbs.)",
       "date": "Thu Apr 18 2024"
     }
   ],
@@ -662,6 +682,11 @@ export const demoAchievements =
     {
       "name": "Three Star Squat",
       "description": "Back Squat 3 Plates (315+ lbs.)",
+      "date": "Thu Apr 18 2024"
+    },
+    {
+      "name": "Sasquat",
+      "description": "Back Squat 4 Plates (405+ lbs.)",
       "date": "Thu Apr 18 2024"
     }
   ],
@@ -685,6 +710,11 @@ export const demoAchievements =
     {
       "name": "Deadly Lift",
       "description": "Deadlift 4 Plates (405+ lbs.)",
+      "date": "Thu Apr 18 2024"
+    },
+    {
+      "name": "Deadlift Devil",
+      "description": "Deadlift 5 Plates (495+ lbs.)",
       "date": "Thu Apr 18 2024"
     }
   ]

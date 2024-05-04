@@ -91,7 +91,8 @@ const styles = StyleSheet.create({
   bodyContainer: {
     flex: 1,
     padding: 16,
-    paddingBottom: 0
+    paddingBottom: 0,
+    backgroundColor: "#C3DCF6"
   },
   inputContainer: {
     flexDirection: "row",
@@ -102,6 +103,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     fontSize: 16,
     paddingHorizontal: 8,
+    backgroundColor: "#FFFFFF"
   },
   headerText: {
     fontSize: 24,
@@ -120,7 +122,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
     borderWidth: 2,
     borderRadius: 12,
-    backgroundColor: "#719dcd",
+    backgroundColor: "#F58220",
     alignSelf: "flex-start"
   }
 })
