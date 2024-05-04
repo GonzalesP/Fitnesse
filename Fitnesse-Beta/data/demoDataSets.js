@@ -8,146 +8,203 @@ export const demoWeightHistory =
 [
   {
     "date": "Sun Mar 17 2024",
-    "weight": 334.6
+    "weight": 197.8
   },
   {
     "date": "Mon Mar 18 2024",
-    "weight": 333.6
+    "weight": 196.6
   },
   {
     "date": "Tue Mar 19 2024",
-    "weight": 332.6
+    "weight": 195.4
   },
   {
     "date": "Wed Mar 20 2024",
-    "weight": 331.6
+    "weight": 194.2
   },
   {
     "date": "Thu Mar 21 2024",
-    "weight": 328.8
+    "weight": 193
   },
   {
     "date": "Fri Mar 22 2024",
-    "weight": 329.8
+    "weight": 191.8
   },
   {
     "date": "Sat Mar 23 2024",
-    "weight": 329.8
+    "weight": 190.6
   },
   {
     "date": "Sun Mar 24 2024",
-    "weight": 330.6
+    "weight": 189.4
   },
   {
     "date": "Mon Mar 25 2024",
-    "weight": 330.1
+    "weight": 188.2
   },
   {
     "date": "Tue Mar 26 2024",
-    "weight": 329.6
+    "weight": 187
   },
   {
     "date": "Wed Mar 27 2024",
-    "weight": 326.0
+    "weight": 185.8
   },
   {
     "date": "Thu Mar 28 2024",
-    "weight": 325.6
+    "weight": 184.6
   },
   {
     "date": "Fri Mar 29 2024",
-    "weight": 325.4
+    "weight": 183.4
   },
   {
     "date": "Sat Mar 30 2024",
-    "weight": 322.8
+    "weight": 182.2
   },
   {
     "date": "Sun Mar 31 2024",
-    "weight": 322.0
+    "weight": 181
   },
   {
     "date": "Mon Apr 01 2024",
-    "weight": 324.2
+    "weight": 179.8
   },
   {
     "date": "Tue Apr 02 2024",
-    "weight": 322.0
+    "weight": 178.6
   },
   {
     "date": "Wed Apr 03 2024",
-    "weight": 324.0
+    "weight": 177.4
   },
   {
     "date": "Thu Apr 04 2024",
-    "weight": 325.6
+    "weight": 176.2
   },
   {
     "date": "Fri Apr 05 2024",
-    "weight": 324.6
+    "weight": 175
   },
   {
     "date": "Sat Apr 06 2024",
-    "weight": 323.4
+    "weight": 173.8
   },
   {
     "date": "Sun Apr 07 2024",
-    "weight": 323.6
+    "weight": 172.6
   },
   {
     "date": "Mon Apr 08 2024",
-    "weight": 323.2
+    "weight": 171.4
   },
   {
     "date": "Tue Apr 09 2024",
-    "weight": 324.0
+    "weight": 170.2
   },
   {
     "date": "Wed Apr 10 2024",
-    "weight": 321.6
+    "weight": 169
   },
   {
     "date": "Thu Apr 11 2024",
-    "weight": 321.4
+    "weight": 167.8
   },
   {
     "date": "Fri Apr 12 2024",
-    "weight": 319.8
+    "weight": 166.6
   },
   {
     "date": "Sat Apr 13 2024",
-    "weight": 324.2
+    "weight": 165.4
   },
   {
     "date": "Sun Apr 14 2024",
-    "weight": 321.0
+    "weight": 164.2
   },
   {
     "date": "Mon Apr 15 2024",
-    "weight": 321.8
+    "weight": 163
   },
   {
     "date": "Tue Apr 16 2024",
-    "weight": 321.4
+    "weight": 161.8
   },
   {
     "date": "Wed Apr 17 2024",
-    "weight": 321.6
+    "weight": 160.6
   },
   {
     "date": "Thu Apr 18 2024",
-    "weight": 321.6
+    "weight": 159.4
   },
   {
-    "date": "Fri Apr 19 2024",  // Actual: Mar 01
-    "weight": 320.1
+    "date": "Fri Apr 19 2024",
+    "weight": 158.2
   },
   {
     "date": "Sat Apr 20 2024",
-    "weight": 319.8
+    "weight": 157
+  },
+  {
+    "date": "Sun Apr 21 2024",
+    "weight": 155.8
+  },
+  {
+    "date": "Mon Apr 22 2024",
+    "weight": 154.6
+  },
+  {
+    "date": "Tue Apr 23 2024",
+    "weight": 153.4
+  },
+  {
+    "date": "Wed Apr 24 2024",
+    "weight": 152.2
+  },
+  {
+    "date": "Thu Apr 25 2024",
+    "weight": 151
+  },
+  {
+    "date": "Fri Apr 26 2024",
+    "weight": 149.8
+  },
+  {
+    "date": "Sat Apr 27 2024",
+    "weight": 148.6
+  },
+  {
+    "date": "Sun Apr 28 2024",
+    "weight": 147.4
+  },
+  {
+    "date": "Mon Apr 29 2024",
+    "weight": 146.2
+  },
+  {
+    "date": "Tue Apr 30 2024",
+    "weight": 145
+  },
+  {
+    "date": "Wed May 01 2024",
+    "weight": 142.6
+  },
+  {
+    "date": "Thu May 02 2024",
+    "weight": 141.4
+  },
+  {
+    "date": "Fri May 03 2024",
+    "weight": 140.2
+  },
+  {
+    "date": "Sat May 04 2024",
+    "weight": 139
   }
 ]
 
+// legacy workout schedule
 export const demoWorkoutSchedule =
 [
   // Sunday

@@ -948,10 +948,19 @@ export const wsIncreaseStrength = [
 ]
 
 // weight loss
+// source: https://www.muscleandstrength.com/workouts/8-week-spring-shred-program
 export const wsWeightLoss = [
   // Sunday
   {
-    "type": "abs/cardio",
+    "type": "rest day",
+    "exercises":
+    [
+
+    ]
+  },
+  // Monday
+  {
+    "type": "chest/abs",
     "exercises":
     [
       {
@@ -960,17 +969,45 @@ export const wsWeightLoss = [
         "sets": null,
         "reps": null,
         "duration": null
-      }
-    ]
-  },
-  // Monday
-  {
-    "type": "abs/cardio",
-    "exercises":
-    [
+      },
       {
-        "id": 1,
-        "exerciseName": "dynamic stretches",
+        "id": 2,
+        "exerciseName": "incline bench press",
+        "sets": 3,
+        "reps": 10,
+        "duration": null
+      },
+      {
+        "id": 3,
+        "exerciseName": "dumbbell fly",
+        "sets": 3,
+        "reps": 10,
+        "duration": null
+      },
+      {
+        "id": 4,
+        "exerciseName": "weighted dip",
+        "sets": 3,
+        "reps": 10,
+        "duration": null
+      },
+      {
+        "id": 5,
+        "exerciseName": "pushup",
+        "sets": 3,
+        "reps": 12,
+        "duration": null
+      },
+      {
+        "id": 6,
+        "exerciseName": "plank",
+        "sets": 3,
+        "reps": "until failure",
+        "duration": null
+      },
+      {
+        "id": 7,
+        "exerciseName": "static stretches",
         "sets": null,
         "reps": null,
         "duration": null
@@ -979,12 +1016,54 @@ export const wsWeightLoss = [
   },
   // Tuesday
   {
-    "type": "abs/cardio",
+    "type": "back/cardio",
     "exercises":
     [
       {
         "id": 1,
         "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": 2,
+        "exerciseName": "pull ups",
+        "sets": 3,
+        "reps": "until failure",
+        "duration": null
+      },
+      {
+        "id": 3,
+        "exerciseName": "bent-over barbell row",
+        "sets": 3,
+        "reps": 10,
+        "duration": null
+      },
+      {
+        "id": 4,
+        "exerciseName": "pulldown",
+        "sets": 3,
+        "reps": 10,
+        "duration": null
+      },
+      {
+        "id": 5,
+        "exerciseName": "wide grip seated row",
+        "sets": 3,
+        "reps": 12,
+        "duration": null
+      },
+      {
+        "id": 6,
+        "exerciseName": "cycling",
+        "sets": null,
+        "reps": null,
+        "duration": "30 min"
+      },
+      {
+        "id": 7,
+        "exerciseName": "static stretches",
         "sets": null,
         "reps": null,
         "duration": null
@@ -993,12 +1072,54 @@ export const wsWeightLoss = [
   },
   // Wednesday
   {
-    "type": "abs/cardio",
+    "type": "shoulders/abs",
     "exercises":
     [
       {
         "id": 1,
         "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": 2,
+        "exerciseName": "upright row",
+        "sets": 3,
+        "reps": 10,
+        "duration": null
+      },
+      {
+        "id": 3,
+        "exerciseName": "machine shoulder press",
+        "sets": 3,
+        "reps": 10,
+        "duration": null
+      },
+      {
+        "id": 4,
+        "exerciseName": "front plate raise",
+        "sets": 3,
+        "reps": 12,
+        "duration": null
+      },
+      {
+        "id": 5,
+        "exerciseName": "high rope face pull",
+        "sets": 3,
+        "reps": 12,
+        "duration": null
+      },
+      {
+        "id": 6,
+        "exerciseName": "decline sit-ups",
+        "sets": 3,
+        "reps": 10,
+        "duration": null
+      },
+      {
+        "id": 7,
+        "exerciseName": "static stretches",
         "sets": null,
         "reps": null,
         "duration": null
@@ -1007,12 +1128,54 @@ export const wsWeightLoss = [
   },
   // Thursday
   {
-    "type": "abs/cardio",
+    "type": "arms/cardio",
     "exercises":
     [
       {
         "id": 1,
         "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": 2,
+        "exerciseName": "preacher curl",
+        "sets": 3,
+        "reps": 12,
+        "duration": null
+      },
+      {
+        "id": 3,
+        "exerciseName": "hammer curl",
+        "sets": 3,
+        "reps": 12,
+        "duration": null
+      },
+      {
+        "id": 4,
+        "exerciseName": "overhead rope extension",
+        "sets": 3,
+        "reps": 12,
+        "duration": null
+      },
+      {
+        "id": 5,
+        "exerciseName": "standing cable curl",
+        "sets": 3,
+        "reps": 15,
+        "duration": null
+      },
+      {
+        "id": 6,
+        "exerciseName": "stairmaster",
+        "sets": null,
+        "reps": null,
+        "duration": "30 min"
+      },
+      {
+        "id": 7,
+        "exerciseName": "static stretches",
         "sets": null,
         "reps": null,
         "duration": null
@@ -1021,12 +1184,54 @@ export const wsWeightLoss = [
   },
   // Friday
   {
-    "type": "abs/cardio",
+    "type": "legs/cardio",
     "exercises":
     [
       {
         "id": 1,
         "exerciseName": "dynamic stretches",
+        "sets": null,
+        "reps": null,
+        "duration": null
+      },
+      {
+        "id": 2,
+        "exerciseName": "back squat",
+        "sets": 3,
+        "reps": 10,
+        "duration": null
+      },
+      {
+        "id": 3,
+        "exerciseName": "leg press",
+        "sets": 3,
+        "reps": 15,
+        "duration": null
+      },
+      {
+        "id": 4,
+        "exerciseName": "deadlift",
+        "sets": 3,
+        "reps": 15,
+        "duration": null
+      },
+      {
+        "id": 5,
+        "exerciseName": "leg curl",
+        "sets": 3,
+        "reps": 15,
+        "duration": null
+      },
+      {
+        "id": 6,
+        "exerciseName": "treadmill",
+        "sets": null,
+        "reps": null,
+        "duration": "30 min"
+      },
+      {
+        "id": 7,
+        "exerciseName": "static stretches",
         "sets": null,
         "reps": null,
         "duration": null
@@ -1035,16 +1240,10 @@ export const wsWeightLoss = [
   },
   // Saturday
   {
-    "type": "abs/cardio",
+    "type": "rest day",
     "exercises":
     [
-      {
-        "id": 1,
-        "exerciseName": "dynamic stretches",
-        "sets": null,
-        "reps": null,
-        "duration": null
-      }
+
     ]
-  },
+  }
 ]
