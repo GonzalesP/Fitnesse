@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Pressable, ActivityIndicator } from "react-native";
 import { useState } from "react";
 
-import { wsDefault, wsImproveCardio, wsIncreaseStrength, wsWeightLoss } from "../data/workoutScheduleDataSets";
+import { wsBalanced, wsImproveCardio, wsIncreaseStrength, wsWeightLoss } from "../data/workoutScheduleDataSets";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function UpdateFitnessGoalScreen({ navigation }) {
@@ -33,9 +33,9 @@ export default function UpdateFitnessGoalScreen({ navigation }) {
   async function saveUserInput() {
     let demoMode = await AsyncStorage.getItem('demoMode');
     if (demoMode == "on") {
-      if (goalChoice == "default") {
-        await AsyncStorage.setItem('demoFitnessGoal', 'default')
-        await AsyncStorage.setItem('demoWorkoutSchedule', JSON.stringify(wsDefault))
+      if (goalChoice == "balanced") {
+        await AsyncStorage.setItem('demoFitnessGoal', 'balanced')
+        await AsyncStorage.setItem('demoWorkoutSchedule', JSON.stringify(wsBalanced))
       }
       else if (goalChoice == "improve cardio") {
         await AsyncStorage.setItem('demoFitnessGoal', 'improve cardio')
@@ -51,9 +51,9 @@ export default function UpdateFitnessGoalScreen({ navigation }) {
       }
     }
     else {
-      if (goalChoice == "default") {
-        await AsyncStorage.setItem('userFitnessGoal', 'default')
-        await AsyncStorage.setItem('userWorkoutSchedule', JSON.stringify(wsDefault))
+      if (goalChoice == "balanced") {
+        await AsyncStorage.setItem('userFitnessGoal', 'balanced')
+        await AsyncStorage.setItem('userWorkoutSchedule', JSON.stringify(wsBalanced))
       }
       else if (goalChoice == "improve cardio") {
         await AsyncStorage.setItem('userFitnessGoal', 'improve cardio')
@@ -93,8 +93,8 @@ export default function UpdateFitnessGoalScreen({ navigation }) {
 
         {/* button options */}
         <View style={styles.optionContainer}>
-          <Pressable onPress={setGoalChoice.bind(this, 'default')}>
-            <Text style={styles.optionText}>Default</Text>
+          <Pressable onPress={setGoalChoice.bind(this, 'balanced')}>
+            <Text style={styles.optionText}>Balanced</Text>
           </Pressable>
           <Pressable onPress={setGoalChoice.bind(this, 'improve cardio')}>
             <Text style={styles.optionText}>Improve Cardio</Text>

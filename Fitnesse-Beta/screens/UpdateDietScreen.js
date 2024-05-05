@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Pressable, ActivityIndicator } from "react-native";
 import { useState } from "react";
 
-import { mpDefault, mpVegetarian, mpHBP, mpDiabetes, mpAntiInflam } from "../data/mealPlanDataSets";
+import { mpGeneralHealth, mpVegetarian, mpHBP, mpDiabetes, mpAntiInflam } from "../data/mealPlanDataSets";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function UpdateDietScreen({ navigation }) {
@@ -33,8 +33,8 @@ export default function UpdateDietScreen({ navigation }) {
   async function saveUserInput() {
     let demoMode = await AsyncStorage.getItem('demoMode');
     if (demoMode == "on") {
-      if (dietChoice == "default") {
-        await AsyncStorage.setItem('demoMealPlan', JSON.stringify(mpDefault))
+      if (dietChoice == "general health") {
+        await AsyncStorage.setItem('demoMealPlan', JSON.stringify(mpGeneralHealth))
       }
       else if (dietChoice == "vegetarian") {
         await AsyncStorage.setItem('demoMealPlan', JSON.stringify(mpVegetarian))
@@ -50,8 +50,8 @@ export default function UpdateDietScreen({ navigation }) {
       }
     }
     else {
-      if (dietChoice == "default") {
-        await AsyncStorage.setItem('userMealPlan', JSON.stringify(mpDefault))
+      if (dietChoice == "general health") {
+        await AsyncStorage.setItem('userMealPlan', JSON.stringify(mpGeneralHealth))
       }
       else if (dietChoice == "vegetarian") {
         await AsyncStorage.setItem('userMealPlan', JSON.stringify(mpVegetarian))
@@ -91,8 +91,8 @@ export default function UpdateDietScreen({ navigation }) {
 
         {/* button options */}
         <View style={styles.optionContainer}>
-          <Pressable onPress={setDietChoice.bind(this, 'default')}>
-            <Text style={styles.optionText}>Default</Text>
+          <Pressable onPress={setDietChoice.bind(this, 'general health')}>
+            <Text style={styles.optionText}>General Health</Text>
           </Pressable>
           <Pressable onPress={setDietChoice.bind(this, 'vegetarian')}>
             <Text style={styles.optionText}>Vegetarian</Text>

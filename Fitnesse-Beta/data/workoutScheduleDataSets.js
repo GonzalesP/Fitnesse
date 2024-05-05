@@ -1,5 +1,5 @@
-// normal (default)
-export const wsDefault =
+// balanced (default)
+export const wsBalanced =
 [
   // Sunday
   {
