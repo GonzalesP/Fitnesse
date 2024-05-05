@@ -1,8 +1,8 @@
-// normal (default)
+// general health (default)
 // source: https://www.eatingwell.com/article/2060706/healthy-weight-gain-meal-plan/
-export const mpDefault =
+export const mpGeneralHealth =
 {
-  "dietType": "default",
+  "dietType": "general health",
   "meals":
   [
     // Sunday
