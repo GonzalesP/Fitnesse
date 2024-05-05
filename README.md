@@ -8,7 +8,8 @@ Fitnesse is an app that helps users create workout and diet plans based on their
 1. Clone/download this repo onto your computer.
 2. Install the Expo Go app on your iOS/Android. This app is used to download Fitnesse's build.
 3. Open an IDE/terminal of your choice. Navigate to the 'Fitnesse-Beta' project folder (using cd).
-4. Type npm start to start the project. Scan the QR code using the Expo app.
+4. Type npm install to install the project's dependencies.
+5. Type npm start to start the project. Scan the QR code using the Expo app.
 
 # Contact Info (Pascual Gonzales)
 - Phone: 1 (714) 715-3741
